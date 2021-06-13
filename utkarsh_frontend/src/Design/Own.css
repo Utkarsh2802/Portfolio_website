@@ -93,3 +93,25 @@
     rgba(255, 255, 255, 0) 100%
   );
 }
+
+.blinkk {
+  font-size: 5em;
+  font-family: serif;
+  color: #008000;
+  text-align: center;
+  animation: animate_blink 1.5s linear infinite;
+}
+
+@keyframes animate_blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
