@@ -10,7 +10,14 @@ const Letter = (props) => {
     color_val = "blue";
   }
   let styles = { color: color_val };
-  return <span style={{ color: color_val }}>{props.name}</span>;
+  return (
+    <span
+      className={props.class}
+      style={{ color: color_val, textDecoration: props.decor }}
+    >
+      {props.name}
+    </span>
+  );
 };
 
 export default Letter;

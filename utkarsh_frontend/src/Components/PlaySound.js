@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
 import "../Design/Own.css";
 
 const PlaySound = ({ url, autoPlay = false }) => {
@@ -20,7 +19,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
   }, []); //componentdid mount only initially
 
   return (
-    <div className="soundbutton">
+    <div>
       <button className="button" onClick={toggle}>
         <span> {playing ? "Pause" : "Play"} </span>
       </button>
