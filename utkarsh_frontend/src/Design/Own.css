@@ -23,17 +23,17 @@
 }
 
 .button {
-  top: 50%;
-  left: 40%;
+  top: 50vh;
+  left: 40vw;
   cursor: pointer;
   position: absolute;
-  padding: 2.5rem 7.5rem;
-  border-radius: 3.75rem;
-  line-height: 2.5rem;
-  font-size: 2rem;
+  padding: 2.5vmax 7.5vmax;
+  border-radius: 3.75vmax;
+  line-height: 2.5vmax;
+  font-size: 2vmax;
   font-weight: 600;
 
-  border: 1px solid #012880;
+  border: 0.3vmax solid #423683;
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
   box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
     0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
@@ -52,12 +52,12 @@
 .button::before {
   content: "";
   display: block;
-  height: 0.25rem;
+  height: 0.25vh;
   position: absolute;
-  top: 0.5rem;
-  left: 50%;
+  top: 0.5vh;
+  left: 50vw;
   transform: translateX(-50%);
-  width: calc(100% - 7.5rem);
+  width: calc(100% - 7.5vw);
   background: #fff;
   border-radius: 100%;
 
@@ -74,12 +74,12 @@
 .button::after {
   content: "";
   display: block;
-  height: 0.25rem;
+  height: 0.25vh;
   position: absolute;
-  bottom: 0.75rem;
-  left: 50%;
+  bottom: 0.75vh;
+  left: 50vw;
   transform: translateX(-50%);
-  width: calc(100% - 7.5rem);
+  width: calc(100% - 7.5vw);
   background: #fff;
   border-radius: 100%;
 
@@ -94,13 +94,13 @@
   );
 }
 .normal_char {
-  font-size: 3em;
+  font-size: 2vmax;
   font-family: serif;
   color: #008000;
   text-align: center;
 }
 .blinkk {
-  font-size: 3em;
+  font-size: 2vmax;
   font-family: serif;
   color: #008000;
   text-align: center;
