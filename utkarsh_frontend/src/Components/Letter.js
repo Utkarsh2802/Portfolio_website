@@ -3,9 +3,9 @@ import "../Design/Own.css";
 const Letter = (props) => {
   var color_val;
   if (props.color === -1) {
-    color_val = "red";
+    color_val = "#b30047";
   } else if (props.color === 1) {
-    color_val = "green";
+    color_val = "#0d3300";
   } else {
     color_val = "blue";
   }

@@ -1,9 +1,11 @@
 import React from "react";
 import "../Design/Own.css";
-const Cust_Button = () => {
+const Cust_Button = (props) => {
   return (
     <div>
-      <button className="button"></button>
+      <button className="button" onClick={props.onClick}>
+        <span> {props.name} </span>
+      </button>
     </div>
   );
 };

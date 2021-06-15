@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
 import "../Design/Own.css";
+import Cust_Button from "../Components/Cust_Button";
 var randomwords = require("random-words");
-var wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute
+var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute
 var curr_index = 0;
 var mistakes = 0;
 var next_index = [0];
@@ -31,7 +32,7 @@ const TypingHelper = () => {
   var linecount = 0;
   const [score, setscore] = useState(0);
   const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 5;
+  var total_time = 50;
   const [timer_started, setTimerstarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(total_time);
   const [wpm, setWpm] = useState(0);
@@ -220,46 +221,51 @@ const TypingHelper = () => {
     }
   }
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{
           textAlign: "center",
-          border: "0.5vmin solid blue",
+          border: "0.5vmin solid darkblue",
           padding: "1vmax",
           position: "absolute",
           top: "32vh",
           left: "6.5vw",
           width: "85vw",
-          maxHeight: "9vh",
+          height: "9vh",
         }}
       >
         {all_letters}
       </div>
       <input
+        style={{
+          position: "fixed",
+          borderColor: "blue",
+          left: "33.5vw",
+          height: "4vh",
+          top: "51.5vh",
+          width: "30vw",
+        }}
         type="text"
         onKeyDown={(e) => backspace_handler(e)}
         onKeyUp={(e) => keypress_handler(e)}
         disabled={true}
         ref={input_ref}
       />
-      <button onClick={(e) => play_game_handler(e)} ref={play_button_ref}>
-        {play_pause_button}
-      </button>
+      <Cust_Button
+        onClick={(e) => play_game_handler(e)}
+        ref={play_button_ref}
+        name={play_pause_button}
+      ></Cust_Button>
       <div>
-        <ScoreCard text="WPM" value={wpm} left_width="28" />
+        <ScoreCard text="WPM" value={wpm} left_width="25" />
         <ScoreCard
-          text="Time Remaining "
+          text="Time"
           value={timeLeft}
-          left_width="45"
+          left_width="43"
           total_time={total_time}
         />
-        <ScoreCard text="Accuracy" value={accuracy} left_width="62" />
+        <ScoreCard text="Accuracy" value={accuracy} left_width="61" />
       </div>
-      <div>
-        {timeLeft} {wpm} {accuracy}
-      </div>
-      <div>Score: {score}</div>
-      <div>Mistakes: {mistakes}</div>
     </div>
   );
 };

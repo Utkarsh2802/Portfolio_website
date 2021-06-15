@@ -23,17 +23,17 @@
 }
 
 .button {
-  top: 50vh;
-  left: 40vw;
+  top: 60vh;
+  left: 39vw;
   cursor: pointer;
   position: absolute;
-  padding: 2.5vmax 7.5vmax;
+  padding: 2.5vw 7.5vw;
   border-radius: 3.75vmax;
-  line-height: 2.5vmax;
-  font-size: 2vmax;
+  line-height: 2.5vw;
+  font-size: 2vw;
   font-weight: 600;
 
-  border: 0.3vmax solid #423683;
+  border: 0.3vw solid #3a124d;
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
   box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
     0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
@@ -49,58 +49,14 @@
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
 
-.button::before {
-  content: "";
-  display: block;
-  height: 0.25vh;
-  position: absolute;
-  top: 0.5vh;
-  left: 50vw;
-  transform: translateX(-50%);
-  width: calc(100% - 7.5vw);
-  background: #fff;
-  border-radius: 100%;
-
-  opacity: 0.7;
-  background-image: linear-gradient(
-    -270deg,
-    rgba(255, 255, 255, 0) 0%,
-    #ffffff 20%,
-    #ffffff 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-
-.button::after {
-  content: "";
-  display: block;
-  height: 0.25vh;
-  position: absolute;
-  bottom: 0.75vh;
-  left: 50vw;
-  transform: translateX(-50%);
-  width: calc(100% - 7.5vw);
-  background: #fff;
-  border-radius: 100%;
-
-  filter: blur(1px);
-  opacity: 0.05;
-  background-image: linear-gradient(
-    -270deg,
-    rgba(255, 255, 255, 0) 0%,
-    #ffffff 20%,
-    #ffffff 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
 .normal_char {
-  font-size: 2vmax;
+  font-size: 3vmin;
   font-family: serif;
   color: #008000;
   text-align: center;
 }
 .blinkk {
-  font-size: 2vmax;
+  font-size: 3vmin;
   font-family: serif;
   color: #008000;
   text-align: center;
@@ -120,30 +76,28 @@
     opacity: 0;
   }
 }
-.glow_utkarsh1 {
+
+.typing_score {
   position: absolute;
-  top: 5vh;
-  left: 25vw;
-  width: 12vw;
-  height: 12vh;
-  border-radius: 50%;
-  box-shadow: inset 0 0 3.5vmax rgb(28, 29, 71),
-    inset 1.5vmax 0 5vmax rgb(7, 3, 243), inset -1.5vmax 0 5vmax #0ff,
-    inset 2vmax 0 8vmax rgb(22, 19, 221),
-    inset -1.5vmax 0 5vmax rgb(42, 30, 207), 0 0 10vmax rgb(13, 20, 126),
-    -2vmax 0 5vmax rgb(22, 36, 228), 2vmax 0 5vmax rgb(33, 85, 226);
+  top: 2vh;
+  width: 12vmax;
+  height: 12vmax;
+  border-radius: 50vmax;
+
+  background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
+    0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
-.glow_utkarsh {
+
+.glow-og {
   position: absolute;
-  top: 5vh;
-  left: 25vw;
+  top: 2vh;
   width: 12vw;
-  height: 12vh;
-  border-radius: 50%;
-  box-shadow: inset 0 0 3.5vmax rgb(27, 28, 68),
-    inset 1.5vmax 0 5vmax rgb(0, 4, 245),
-    inset -1.5vmax 0 5vmax rgb(17, 196, 196),
-    inset 2vmax 0 8vmax rgb(22, 19, 221),
-    inset -1.5vmax 0 5vmax rgb(42, 30, 207), 0 0 10vmax rgb(14, 22, 136),
-    -2vmax 0 5vmax rgb(22, 36, 228), 2vmax 0 5vmax rgb(33, 85, 226);
+  height: 12vw;
+  border-radius: 50vmax;
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f,
+    inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,
+    0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
 }
