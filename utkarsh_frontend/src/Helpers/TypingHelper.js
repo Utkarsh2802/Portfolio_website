@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
+import "../Design/Own.css";
 var randomwords = require("random-words");
 var wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute
 var curr_index = 0;
@@ -19,11 +20,13 @@ for (let i = 0; i < wordlist.length; i++) {
     next_index.push(i);
   }
 }
+var reset_clicked = false;
 
 //everything above this runs only once
 const TypingHelper = () => {
   unique++; // added it to get rid fo the unique child warning but to no avail
   const input_ref = React.useRef(null); // i will use this to create a reference of the input tag so that i can set its value even though i am clicking a separate element
+  const play_button_ref = React.useRef(null);
   var spaces = 0;
   var linecount = 0;
   const [score, setscore] = useState(0);
@@ -56,9 +59,16 @@ const TypingHelper = () => {
         next_index.push(i);
       }
     }
-    if (play_pause_button === "Play" || play_pause_button === "Play Again")
-      play_pause_button = "Pause";
-    else play_pause_button = "Play";
+    if (play_pause_button === "Play") {
+      play_pause_button = "Reset";
+      reset_clicked = false;
+    } else {
+      reset_clicked = true;
+      input_ref.current.disabled = true;
+      setTimerstarted(false);
+      console.log(timeLeft);
+      play_pause_button = "Play";
+    }
     setscore(0);
     setwascorrect(Array(2000).fill(0));
     input_ref.current.value = "";
@@ -66,6 +76,8 @@ const TypingHelper = () => {
     setWpm(0);
     setAccuracy(0);
     setIsVisible(false);
+
+    //  play_button_ref.current.style.visibility = "hidden";
   };
 
   const setarray = (index, value) => {
@@ -78,11 +90,13 @@ const TypingHelper = () => {
   function start_timer() {
     setTimerstarted(true);
   }
+
   function stop_timer() {
     setTimerstarted(false);
     input_ref.current.disabled = true;
-    play_pause_button = "Play Again";
-    //timeLeft = setTimeLeft(total_time); //reset the timer
+    play_pause_button = "Play";
+    // play_button_ref.current.style.visibility = "hidden";
+    setTimeLeft(total_time); //reset the timer
   }
   useEffect(() => {
     if (timer_started === true) {
@@ -96,7 +110,7 @@ const TypingHelper = () => {
       } else {
         const timer = setTimeout(() => {
           let temp = timeLeft;
-          setTimeLeft(temp - 1);
+          if (reset_clicked === false) setTimeLeft(temp - 1);
         }, 1000);
       }
     }
@@ -149,7 +163,7 @@ const TypingHelper = () => {
 
     if (key === " " && wordlist[curr_index] === key) {
       //if spacebar is pressed
-      console.log("Utkarsh");
+
       console.log(wascorrect[curr_index]);
       event.target.value = "";
     }
@@ -213,7 +227,7 @@ const TypingHelper = () => {
           border: "0.5vmin solid blue",
           padding: "1vmax",
           position: "absolute",
-          top: "28vh",
+          top: "32vh",
           left: "6.5vw",
           width: "85vw",
           maxHeight: "9vh",
@@ -228,14 +242,16 @@ const TypingHelper = () => {
         disabled={true}
         ref={input_ref}
       />
-      <button onClick={(e) => play_game_handler(e)}>{play_pause_button}</button>
+      <button onClick={(e) => play_game_handler(e)} ref={play_button_ref}>
+        {play_pause_button}
+      </button>
       <div>
         <ScoreCard text="WPM" value={wpm} left_width="28" />
         <ScoreCard
-          text="Time: "
-          total_time={total_time}
+          text="Time Remaining "
           value={timeLeft}
           left_width="45"
+          total_time={total_time}
         />
         <ScoreCard text="Accuracy" value={accuracy} left_width="62" />
       </div>

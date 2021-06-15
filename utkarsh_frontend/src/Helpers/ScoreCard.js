@@ -1,7 +1,7 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 const ScoreCard = (props) => {
   let value = props.value;
   if (props.total_time > 0) {
@@ -13,7 +13,7 @@ const ScoreCard = (props) => {
     // Customize the path, i.e. the "completed progress"
     path: {
       // Path color
-      stroke: "green",
+      stroke: "#00802b",
       // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
       strokeLinecap: "butt",
       // Customize transition animation
@@ -25,9 +25,9 @@ const ScoreCard = (props) => {
     // Customize the circle behind the path, i.e. the "total progress"
     trail: {
       // Trail color
-      stroke: "red",
+      stroke: "#000099",
       // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-      strokeLinecap: "butt",
+      strokeLinecap: "round",
       // Rotate the trail
       transform: "rotate(0.25turn)",
       transformOrigin: "center center",
@@ -37,27 +37,41 @@ const ScoreCard = (props) => {
       // Text color
       fill: "black",
       // Text size
-      fontSize: "3vmax",
+      fontSize: "1.2vw",
     },
     // Customize background - only used when the `background` prop is true
     background: {
-      fill: "blue",
+      fill: "linear-gradient(to top left, #ff5050 27%, #0000cc 100%);",
     },
   };
   return (
-    <div
-      style={{
-        position: "fixed",
-        left: props.left_width + "vw",
-        width: "15vw",
-      }}
-    >
-      <CircularProgressbar
-        styles={styles_var}
-        background={false}
-        value={value}
-        text={props.text}
-      />
+    <div>
+      <div
+        style={{
+          position: "fixed",
+          left: props.left_width + "vw",
+          width: "12vw",
+          textAlign: "center",
+        }}
+      >
+        <CircularProgressbarWithChildren
+          styles={styles_var}
+          background={false}
+          value={value}
+        >
+          <div
+            className="glow_utkarsh"
+            style={{
+              fontSize: "2vw",
+            }}
+          >
+            <bold> {props.text}</bold>
+            <br></br>
+            {props.value}
+          </div>
+        </CircularProgressbarWithChildren>
+        ;
+      </div>
     </div>
   );
 };

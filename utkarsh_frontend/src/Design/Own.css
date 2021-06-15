@@ -120,3 +120,30 @@
     opacity: 0;
   }
 }
+.glow_utkarsh1 {
+  position: absolute;
+  top: 5vh;
+  left: 25vw;
+  width: 12vw;
+  height: 12vh;
+  border-radius: 50%;
+  box-shadow: inset 0 0 3.5vmax rgb(28, 29, 71),
+    inset 1.5vmax 0 5vmax rgb(7, 3, 243), inset -1.5vmax 0 5vmax #0ff,
+    inset 2vmax 0 8vmax rgb(22, 19, 221),
+    inset -1.5vmax 0 5vmax rgb(42, 30, 207), 0 0 10vmax rgb(13, 20, 126),
+    -2vmax 0 5vmax rgb(22, 36, 228), 2vmax 0 5vmax rgb(33, 85, 226);
+}
+.glow_utkarsh {
+  position: absolute;
+  top: 5vh;
+  left: 25vw;
+  width: 12vw;
+  height: 12vh;
+  border-radius: 50%;
+  box-shadow: inset 0 0 3.5vmax rgb(27, 28, 68),
+    inset 1.5vmax 0 5vmax rgb(0, 4, 245),
+    inset -1.5vmax 0 5vmax rgb(17, 196, 196),
+    inset 2vmax 0 8vmax rgb(22, 19, 221),
+    inset -1.5vmax 0 5vmax rgb(42, 30, 207), 0 0 10vmax rgb(14, 22, 136),
+    -2vmax 0 5vmax rgb(22, 36, 228), 2vmax 0 5vmax rgb(33, 85, 226);
+}
