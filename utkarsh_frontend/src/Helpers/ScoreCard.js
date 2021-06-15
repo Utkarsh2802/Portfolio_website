@@ -29,6 +29,8 @@ const ScoreCard = (props) => {
             <br></br>
 
             {props.value}
+            {props.text === "Accuracy" ? "%" : ""}
+            {props.text === "Time" ? "s" : ""}
           </div>
         </div>
       </div>

@@ -23,14 +23,14 @@
 }
 
 .button {
-  top: 60vh;
-  left: 39vw;
+  top: 70vh;
+  left: 44vw;
   cursor: pointer;
   position: absolute;
-  padding: 2.5vw 7.5vw;
-  border-radius: 3.75vmax;
-  line-height: 2.5vw;
-  font-size: 2vw;
+  padding: 1.25vw 3.75vw;
+  border-radius: 5vmax;
+  line-height: 1.25vw;
+  font-size: 1.5vw;
   font-weight: 600;
 
   border: 0.3vw solid #3a124d;
@@ -79,7 +79,7 @@
 
 .typing_score {
   position: absolute;
-  top: 2vh;
+  top: 4vh;
   width: 12vmax;
   height: 12vmax;
   border-radius: 50vmax;

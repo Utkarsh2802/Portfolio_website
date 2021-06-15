@@ -228,7 +228,7 @@ const TypingHelper = () => {
           border: "0.5vmin solid darkblue",
           padding: "1vmax",
           position: "absolute",
-          top: "32vh",
+          top: "36vh",
           left: "6.5vw",
           width: "85vw",
           height: "9vh",
@@ -240,9 +240,9 @@ const TypingHelper = () => {
         style={{
           position: "fixed",
           borderColor: "blue",
-          left: "33.5vw",
+          left: "34vw",
           height: "4vh",
-          top: "51.5vh",
+          top: "58vh",
           width: "30vw",
         }}
         type="text"
