@@ -24,7 +24,7 @@
 
 .button {
   top: 70vh;
-  left: 44vw;
+  left: 43.5vw;
   cursor: pointer;
   position: absolute;
   padding: 1.25vw 3.75vw;
@@ -33,7 +33,7 @@
   font-size: 1.5vw;
   font-weight: 600;
 
-  border: 0.3vw solid #3a124d;
+  border: 0.1vw solid #4b1564;
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
   box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
     0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
@@ -51,13 +51,13 @@
 
 .normal_char {
   font-size: 3vmin;
-  font-family: serif;
+  font-family: URW Chancery L, cursive;
   color: #008000;
   text-align: center;
 }
 .blinkk {
   font-size: 3vmin;
-  font-family: serif;
+  font-family: URW Chancery L, cursive;
   color: #008000;
   text-align: center;
   animation: animate_blink 1.5s linear infinite;
@@ -76,19 +76,52 @@
     opacity: 0;
   }
 }
-
+.congrats_message {
+  position: fixed;
+  top: 39vh;
+  left: 8vw;
+  width: 80vw;
+  height: 15vh;
+  padding: 1.25vw 3.75vw;
+  border-radius: 5vmax;
+  line-height: 1.25vw;
+  overflow: visible;
+  font-weight: 600;
+  text-align: center;
+  line-height: 14vh;
+  background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
+    0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+}
+.congrats_message span {
+  font-size: 3.5vw;
+  color: transparent;
+  background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+}
 .typing_score {
   position: absolute;
   top: 4vh;
   width: 12vmax;
   height: 12vmax;
   border-radius: 50vmax;
-
+  font-family: cursive;
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
   box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
     0 -0.25rem 1.5rem rgb(99, 21, 136) inset,
     0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+}
+.typing_score span {
+  color: transparent;
+  background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
 
 .glow-og {
@@ -100,4 +133,14 @@
   box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f,
     inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,
     0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+}
+.input_typing:focus {
+  border: 1px solid #3812be;
+  outline-offset: 0px;
+  outline: none;
+}
+.bgimg {
+  position: absolute;
+  background-color: #1037e7;
+  background-size: cover;
 }

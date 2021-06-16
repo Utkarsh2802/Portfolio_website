@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
 import "../Design/Own.css";
+import { Animated } from "react-animated-css";
 import Cust_Button from "../Components/Cust_Button";
 var randomwords = require("random-words");
 var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute
@@ -22,9 +23,9 @@ for (let i = 0; i < wordlist.length; i++) {
   }
 }
 var reset_clicked = false;
-
 //everything above this runs only once
 const TypingHelper = () => {
+  const [display_score, setDisplayscore] = useState(false);
   unique++; // added it to get rid fo the unique child warning but to no avail
   const input_ref = React.useRef(null); // i will use this to create a reference of the input tag so that i can set its value even though i am clicking a separate element
   const play_button_ref = React.useRef(null);
@@ -32,13 +33,12 @@ const TypingHelper = () => {
   var linecount = 0;
   const [score, setscore] = useState(0);
   const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 50;
+  var total_time = 60;
   const [timer_started, setTimerstarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(total_time);
   const [wpm, setWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const timerComponents = [];
 
   //temp =0;
   //temp++;everything console log returns 1 because it is reinitialized everytime but this is not the case for statevariable
@@ -70,6 +70,7 @@ const TypingHelper = () => {
       console.log(timeLeft);
       play_pause_button = "Play";
     }
+    setDisplayscore(false);
     setscore(0);
     setwascorrect(Array(2000).fill(0));
     input_ref.current.value = "";
@@ -96,6 +97,10 @@ const TypingHelper = () => {
     setTimerstarted(false);
     input_ref.current.disabled = true;
     play_pause_button = "Play";
+    if (timeLeft === 0) {
+      //then it means that the time was up and not that i pressed reset
+      setDisplayscore(true);
+    }
     // play_button_ref.current.style.visibility = "hidden";
     setTimeLeft(total_time); //reset the timer
   }
@@ -221,51 +226,115 @@ const TypingHelper = () => {
     }
   }
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div
-        style={{
-          textAlign: "center",
-          border: "0.5vmin solid darkblue",
-          padding: "1vmax",
-          position: "absolute",
-          top: "36vh",
-          left: "6.5vw",
-          width: "85vw",
-          height: "9vh",
-        }}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+      }}
+    >
+      <Animated
+        animationIn="fadeIn"
+        animationOut="fadeOut"
+        animationInDelay={500}
+        animationOutDelay={0}
+        animationInDuration={1500}
+        animationOutDuration={2000}
+        animateOnMount={true}
+        isVisible={true}
       >
-        {all_letters}
+        <div>
+          <ScoreCard text="WPM" value={wpm} left_width="25" />
+          <ScoreCard
+            text="Time"
+            value={timeLeft}
+            left_width="43"
+            total_time={total_time}
+          />
+          <ScoreCard text="Accuracy" value={accuracy} left_width="61" />
+        </div>
+      </Animated>
+
+      <div>
+        <Animated
+          animationIn="slideInLeft"
+          animationOut="fadeOut"
+          animationInDelay={0}
+          animationOutDelay={0}
+          animationInDuration={500}
+          animationOutDuration={500}
+          animateOnMount={true}
+          isVisible={!display_score}
+        >
+          <div
+            style={{
+              textAlign: "center",
+              border: "0.5vmin solid darkblue",
+              position: "fixed",
+              top: "36vh",
+              left: "6.5vw",
+              width: "85vw",
+              height: "9vh",
+              overflow: "hidden",
+            }}
+          >
+            {all_letters}
+          </div>
+        </Animated>
+        <Animated
+          animationIn="slideInRight"
+          animationOut="fadeOut"
+          animationInDelay={0}
+          animationOutDelay={0}
+          animationInDuration={500}
+          animationOutDuration={500}
+          animateOnMount={true}
+          isVisible={!display_score}
+        >
+          <input
+            className="input_typing"
+            style={{
+              position: "fixed",
+              borderColor: "blue",
+              left: "34vw",
+              height: "4vh",
+              top: "58vh",
+              width: "30vw",
+            }}
+            type="text"
+            onKeyDown={(e) => backspace_handler(e)}
+            onKeyUp={(e) => keypress_handler(e)}
+            disabled={true}
+            ref={input_ref}
+          />
+        </Animated>
       </div>
-      <input
-        style={{
-          position: "fixed",
-          borderColor: "blue",
-          left: "34vw",
-          height: "4vh",
-          top: "58vh",
-          width: "30vw",
-        }}
-        type="text"
-        onKeyDown={(e) => backspace_handler(e)}
-        onKeyUp={(e) => keypress_handler(e)}
-        disabled={true}
-        ref={input_ref}
-      />
+      {display_score ? (
+        <Animated
+          animationIn="fadeIn"
+          animationOut="fadeOut"
+          animationInDelay={0}
+          animationOutDelay={0}
+          animationInDuration={1000}
+          animationOutDuration={500}
+          animateOnMount={true}
+          isVisible={display_score}
+        >
+          <div className="congrats_message">
+            <span>
+              {wpm > 75 ? "Congratulations: " : "Continue Practicing, "} you
+              have a speed of: {wpm} WPM
+            </span>
+          </div>
+        </Animated>
+      ) : (
+        ""
+      )}
       <Cust_Button
         onClick={(e) => play_game_handler(e)}
         ref={play_button_ref}
         name={play_pause_button}
       ></Cust_Button>
-      <div>
-        <ScoreCard text="WPM" value={wpm} left_width="25" />
-        <ScoreCard
-          text="Time"
-          value={timeLeft}
-          left_width="43"
-          total_time={total_time}
-        />
-        <ScoreCard text="Accuracy" value={accuracy} left_width="61" />
-      </div>
     </div>
   );
 };

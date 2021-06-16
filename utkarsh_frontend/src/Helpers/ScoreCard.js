@@ -19,18 +19,19 @@ const ScoreCard = (props) => {
           className="typing_score"
           style={{
             color: "#000000",
-            fontSize: "2.5vw",
+            fontSize: "2vw",
           }}
         >
           <br></br>
 
           <div>
-            <bold> {props.text}</bold>
-            <br></br>
-
-            {props.value}
-            {props.text === "Accuracy" ? "%" : ""}
-            {props.text === "Time" ? "s" : ""}
+            <span>
+              <bold> {props.text}</bold>
+              <br></br>
+              {props.value}
+              {props.text === "Accuracy" ? "%" : ""}
+              {props.text === "Time" ? "s" : ""}
+            </span>
           </div>
         </div>
       </div>

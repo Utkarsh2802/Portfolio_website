@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../Design/Own.css";
+import music_on from "../Data/Images/music_on.png";
+import music_off from "../Data/Images/music_off.png";
+import { Animated } from "react-animated-css";
 
 const PlaySound = ({ url, autoPlay = false }) => {
   const [audio] = useState(new Audio(url));
@@ -19,11 +22,45 @@ const PlaySound = ({ url, autoPlay = false }) => {
   }, []); //componentdid mount only initially
 
   return (
-    <div>
-      <button className="button" onClick={toggle}>
-        <span> {playing ? "Pause" : "Play"} </span>
-      </button>
-    </div>
+    <Animated
+      key={playing}
+      animationIn="fadeIn"
+      animationOut="slideOutLeft"
+      animationInDelay={0}
+      animationOutDelay={0}
+      animationInDuration={1000}
+      animationOutDuration={500}
+      animateOnMount={true}
+      isVisible={true}
+    >
+      <div onClick={toggle}>
+        {playing ? (
+          <img
+            style={{
+              position: "fixed",
+              top: "2vw",
+              right: "3vw",
+              width: "4vmax",
+              height: "8vh",
+              cursor: "pointer",
+            }}
+            src={music_on}
+          ></img>
+        ) : (
+          <img
+            style={{
+              position: "fixed",
+              top: "2vw",
+              right: "2vw",
+              width: "5vmax",
+              height: "8vh",
+              cursor: "pointer",
+            }}
+            src={music_off}
+          ></img>
+        )}
+      </div>
+    </Animated>
   );
 };
 

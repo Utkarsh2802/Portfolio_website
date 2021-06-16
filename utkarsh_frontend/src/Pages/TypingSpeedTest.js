@@ -4,16 +4,28 @@ import "../Design/Own.css";
 import PlaySound from "../Components/PlaySound";
 import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";
 import TypingHelper from "../Helpers/TypingHelper";
-import homepageig from "../Data/Images/starsimg.jfif";
+import homepageig from "../Data/Images/hdskyimg.jpg";
+import pexel3 from "../Data/Images/pexel3.jpg";
+import pexel4 from "../Data/Images/pexel4.jpg";
+import { BsMusicNoteBeamed } from "react-icons/bs";
+import { IconContext } from "react-icons";
+
 const TypingSpeedTest = () => {
-  document.body.style =
-    "background-image: linear-gradient(90deg, #0093E9 0%, #80D0C7 100%)";
+  //document.body.style ="background-image: linear-gradient(90deg, #0093E9 0%, #80D0C7 100%)";
+  document.body.style.padding = 0;
+  document.body.style.margin = 0;
+  document.body.style.overflowY = "hidden";
+
+  //very important to cover the whole page
   // document.body.style = "background-image:" + homepageimg;
   //    <img src={homepageig} height="100vw" />
 
   return (
     <div>
       <TypingHelper></TypingHelper>
+
+      <PlaySound url={Tones}></PlaySound>
+      <img src={pexel4} height="100%" width="100%" />
     </div>
   );
 };
