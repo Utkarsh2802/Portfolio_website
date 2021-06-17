@@ -1,15 +1,20 @@
 import React from "react";
-import sample from "../Data/Videos/Video_2.mp4";
+import sample from "../Data/Videos/Video_3.mp4";
 import "../Design/Own.css";
 import PlaySound from "../Components/PlaySound";
 import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const HomePage = () => {
+  document.body.style.padding = 0;
+  document.body.style.margin = 0;
+  document.body.style.overflow = "hidden";
+  const { height, width } = useWindowDimensions();
   return (
-    <div>
-      <video className="video_player" autoPlay loop muted>
+    <div style={{ height: height, width: width }}>
+      <PlaySound url={Tones} />
+      <video autoPlay loop muted>
         <source src={sample} type="video/mp4" />
       </video>
-      <PlaySound url={Tones} />
     </div>
   );
 };

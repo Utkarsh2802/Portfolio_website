@@ -39,27 +39,34 @@ const TypingHelper = () => {
   const [wpm, setWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-
+  if (display_score === true) {
+    play_pause_button = "Play Again";
+  }
   //temp =0;
   //temp++;everything console log returns 1 because it is reinitialized everytime but this is not the case for statevariable
   //console.log(temp);
   const play_game_handler = (event) => {
-    wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
-    input_ref.current.disabled = false;
-    curr_index = 0;
-    mistakes = 0;
-    next_index = [0];
-    pointer = 1;
-    temp = 0;
-    for (let i = 0; i < wordlist.length; i++) {
-      if (wordlist[i] === " ") {
-        temp += 1;
-      }
-      if (temp % 9 === 0 && temp !== 0) {
-        temp = 0;
-        next_index.push(i);
+    if (play_pause_button === "Reset" || play_pause_button === "Play Again") {
+      //this will prevent it from reseting even when i click play making it change two times between a single game instead of just once
+      wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
+
+      curr_index = 0;
+      mistakes = 0;
+      next_index = [0];
+      pointer = 1;
+      temp = 0;
+      for (let i = 0; i < wordlist.length; i++) {
+        if (wordlist[i] === " ") {
+          temp += 1;
+        }
+        if (temp % 9 === 0 && temp !== 0) {
+          temp = 0;
+          next_index.push(i);
+        }
       }
     }
+    input_ref.current.value = "";
+    input_ref.current.disabled = false;
     if (play_pause_button === "Play") {
       play_pause_button = "Reset";
       reset_clicked = false;
@@ -70,10 +77,11 @@ const TypingHelper = () => {
       console.log(timeLeft);
       play_pause_button = "Play";
     }
+    input_ref.current.focus();
     setDisplayscore(false);
     setscore(0);
     setwascorrect(Array(2000).fill(0));
-    input_ref.current.value = "";
+
     setTimeLeft(total_time);
     setWpm(0);
     setAccuracy(0);
@@ -243,15 +251,21 @@ const TypingHelper = () => {
         animateOnMount={true}
         isVisible={true}
       >
-        <div>
-          <ScoreCard text="WPM" value={wpm} left_width="25" />
+        <div
+          style={{
+            poition: "absolute",
+            display: "flex",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <ScoreCard text="WPM" value={wpm} left_width="20" />
           <ScoreCard
             text="Time"
             value={timeLeft}
-            left_width="43"
+            left_width="42"
             total_time={total_time}
           />
-          <ScoreCard text="Accuracy" value={accuracy} left_width="61" />
+          <ScoreCard text="Accuracy" value={accuracy} left_width="64" />
         </div>
       </Animated>
 
@@ -300,7 +314,14 @@ const TypingHelper = () => {
               height: "4vh",
               top: "58vh",
               width: "30vw",
+
+              backgroundColor: "transparent",
             }}
+            placeholder={
+              play_pause_button !== "Play" && curr_index === 0
+                ? "Start_Typing"
+                : ""
+            }
             type="text"
             onKeyDown={(e) => backspace_handler(e)}
             onKeyUp={(e) => keypress_handler(e)}

@@ -33,7 +33,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
       animateOnMount={true}
       isVisible={true}
     >
-      <div onClick={toggle}>
+      <div className="floating" onClick={toggle}>
         {playing ? (
           <img
             style={{
