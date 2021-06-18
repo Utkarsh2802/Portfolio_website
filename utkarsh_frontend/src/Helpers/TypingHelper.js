@@ -65,19 +65,21 @@ const TypingHelper = () => {
         }
       }
     }
-    input_ref.current.value = "";
-    input_ref.current.disabled = false;
+    if (input_ref.current !== null) {
+      input_ref.current.value = "";
+      input_ref.current.disabled = false;
+    }
     if (play_pause_button === "Play") {
       play_pause_button = "Reset";
       reset_clicked = false;
     } else {
       reset_clicked = true;
-      input_ref.current.disabled = true;
+      if (input_ref.current !== null) input_ref.current.disabled = true;
       setTimerstarted(false);
       console.log(timeLeft);
       play_pause_button = "Play";
     }
-    input_ref.current.focus();
+    if (input_ref.current !== null) input_ref.current.focus();
     setDisplayscore(false);
     setscore(0);
     setwascorrect(Array(2000).fill(0));
@@ -236,9 +238,14 @@ const TypingHelper = () => {
   return (
     <div
       style={{
+        position: "absolute",
+
+        width: "100vw",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
+        alignItems: "center",
       }}
     >
       <Animated
@@ -253,23 +260,22 @@ const TypingHelper = () => {
       >
         <div
           style={{
-            poition: "absolute",
+            height: "20vh",
+            width: "92vw",
+            //border: "2px solid blue",
             display: "flex",
-            justifyContent: "space-evenly",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5vw",
           }}
         >
-          <ScoreCard text="WPM" value={wpm} left_width="20" />
-          <ScoreCard
-            text="Time"
-            value={timeLeft}
-            left_width="42"
-            total_time={total_time}
-          />
-          <ScoreCard text="Accuracy" value={accuracy} left_width="64" />
+          <ScoreCard text="WPM" value={wpm} />
+          <ScoreCard text="Time" value={timeLeft} total_time={total_time} />
+          <ScoreCard text="Accuracy" value={accuracy} />
         </div>
       </Animated>
-
-      <div>
+      {!display_score ? (
         <Animated
           animationIn="slideInLeft"
           animationOut="fadeOut"
@@ -282,54 +288,62 @@ const TypingHelper = () => {
         >
           <div
             style={{
-              textAlign: "center",
-              border: "0.5vmin solid darkblue",
-              position: "fixed",
-              top: "36vh",
-              left: "6.5vw",
-              width: "85vw",
-              height: "9vh",
-              overflow: "hidden",
+              marginLeft: "2vw",
+              marginRight: "2vw",
+              padding: "4vmin",
+              width: "fit-content",
+              // border: "0.5vmin solid darkblue",
+              alignSelf: "center",
+              alignItems: "center",
             }}
           >
             {all_letters}
           </div>
         </Animated>
-        <Animated
-          animationIn="slideInRight"
-          animationOut="fadeOut"
-          animationInDelay={0}
-          animationOutDelay={0}
-          animationInDuration={500}
-          animationOutDuration={500}
-          animateOnMount={true}
-          isVisible={!display_score}
-        >
-          <input
-            className="input_typing"
-            style={{
-              position: "fixed",
-              borderColor: "blue",
-              left: "34vw",
-              height: "4vh",
-              top: "58vh",
-              width: "30vw",
+      ) : (
+        ""
+      )}
+      {!display_score ? (
+        <div>
+          <Animated
+            animationIn="slideInRight"
+            animationOut="fadeOut"
+            animationInDelay={0}
+            animationOutDelay={0}
+            animationInDuration={500}
+            animationOutDuration={500}
+            animateOnMount={true}
+            isVisible={!display_score}
+          >
+            <input
+              className="input_typing"
+              style={{
+                borderColor: "blue",
+                minWidth: "auto",
+                minHeight: "auto",
+                height: "2vmax",
+                width: "20vmax",
+                minHeight: "fit-content",
+                fontSize: "16px",
+                backgroundColor: "transparent",
+              }}
+              placeholder={
+                play_pause_button !== "Play" && curr_index === 0
+                  ? "Start_Typing"
+                  : ""
+              }
+              type="text"
+              onKeyDown={(e) => backspace_handler(e)}
+              onKeyUp={(e) => keypress_handler(e)}
+              disabled={true}
+              ref={input_ref}
+            />
+          </Animated>
+        </div>
+      ) : (
+        ""
+      )}
 
-              backgroundColor: "transparent",
-            }}
-            placeholder={
-              play_pause_button !== "Play" && curr_index === 0
-                ? "Start_Typing"
-                : ""
-            }
-            type="text"
-            onKeyDown={(e) => backspace_handler(e)}
-            onKeyUp={(e) => keypress_handler(e)}
-            disabled={true}
-            ref={input_ref}
-          />
-        </Animated>
-      </div>
       {display_score ? (
         <Animated
           animationIn="fadeIn"
@@ -341,7 +355,10 @@ const TypingHelper = () => {
           animateOnMount={true}
           isVisible={display_score}
         >
-          <div className="congrats_message">
+          <div
+            className="congrats_message"
+            style={{ display: "flex", alignContent: "center" }}
+          >
             <span>
               {wpm > 75 ? "Congratulations: " : "Continue Practicing, "} you
               have a speed of: {wpm} WPM
@@ -356,6 +373,8 @@ const TypingHelper = () => {
         ref={play_button_ref}
         name={play_pause_button}
       ></Cust_Button>
+
+      <div></div>
     </div>
   );
 };

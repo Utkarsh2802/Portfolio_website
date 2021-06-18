@@ -23,7 +23,6 @@ const TypingSpeedTest = () => {
   return (
     <div>
       <TypingHelper></TypingHelper>
-
       <PlaySound url={Tones}></PlaySound>
       <img src={pexel2} height={height} width={width} />
     </div>

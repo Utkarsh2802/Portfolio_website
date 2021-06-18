@@ -23,14 +23,12 @@
 }
 
 .button {
-  top: 70vh;
-  left: 43.5vw;
   cursor: pointer;
-  position: absolute;
-  padding: 1.25vw 3.75vw;
   border-radius: 5vmax;
-  line-height: 1.25vw;
-  font-size: 1.5vw;
+  width: 7vmax;
+  height: 7vmax;
+  line-height: 1.75vmax;
+  font-size: 1.5vmax;
   font-weight: 600;
   border: 0.1vw solid #4b1564;
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
@@ -76,18 +74,15 @@
   }
 }
 .congrats_message {
-  position: fixed;
-  top: 39vh;
-  left: 8vw;
-  width: 80vw;
-  height: 15vh;
-  padding: 1.25vw 3.75vw;
+  padding: 2vmax 2vmax;
+  width: 55vw;
+  height: 6vw;
   border-radius: 5vmax;
-  line-height: 1.25vw;
+  line-height: 3vmax;
+  min-width: 40vh;
+  min-height: 8vh;
   overflow: visible;
   font-weight: 600;
-  text-align: center;
-  line-height: 14vh;
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -99,7 +94,8 @@
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
 .congrats_message span {
-  font-size: 3.5vw;
+  font-size: 2.5vmax;
+  align-self: center;
   color: transparent;
   background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
   -webkit-background-clip: text;
@@ -107,11 +103,14 @@
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
 .typing_score {
-  position: absolute;
-  top: 4vh;
-  width: 12vmax;
-  height: 12vmax;
-  border-radius: 50vmax;
+  width: 14vmax;
+  height: 14vmax;
+  max-width: 27vw;
+  max-height: 27vw;
+
+  min-width: fit-content;
+  min-height: fit-content;
+  border-radius: 60vmax;
   font-family: cursive;
 
   background-image: linear-gradient(-180deg, #ff89d6 0%, #1037e7 100%);
@@ -144,7 +143,8 @@
   outline: none;
   background-color: transparent;
   color: #1037e7;
-  font-weight: 500;
+  font-weight: 600;
+  max-zoom: 1;
 }
 .input_typing::placeholder {
   color: #1037e7;

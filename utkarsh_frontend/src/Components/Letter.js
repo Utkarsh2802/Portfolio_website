@@ -13,7 +13,11 @@ const Letter = (props) => {
   return (
     <span
       className={props.class}
-      style={{ color: color_val, textDecoration: props.decor }}
+      style={{
+        color: color_val,
+        textDecoration: props.decor,
+        fontSize: "1.75vmax",
+      }}
     >
       {props.name}
     </span>

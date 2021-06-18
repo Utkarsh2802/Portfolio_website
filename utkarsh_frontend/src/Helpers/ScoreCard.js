@@ -6,34 +6,28 @@ const ScoreCard = (props) => {
     value = Math.round((props.value * 100) / props.total_time);
   }
   return (
-    <div>
+    <div
+      className="typing_score"
+      style={{
+        display: "flex",
+        color: "#000000",
+        fontSize: "2vmax",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <div
         style={{
-          position: "absolute",
-          top: 0,
-          left: props.left_width + "vw",
           textAlign: "center",
         }}
       >
-        <div
-          className="typing_score"
-          style={{
-            color: "#000000",
-            fontSize: "2vw",
-          }}
-        >
+        <span>
+          <bold> {props.text}</bold>
           <br></br>
-
-          <div>
-            <span>
-              <bold> {props.text}</bold>
-              <br></br>
-              {props.value}
-              {props.text === "Accuracy" ? "%" : ""}
-              {props.text === "Time" ? "s" : ""}
-            </span>
-          </div>
-        </div>
+          {props.value}
+          {props.text === "Accuracy" ? "%" : ""}
+          {props.text === "Time" ? "s" : ""}
+        </span>
       </div>
     </div>
   );

@@ -38,10 +38,11 @@ const PlaySound = ({ url, autoPlay = false }) => {
           <img
             style={{
               position: "fixed",
-              top: "2vw",
-              right: "3vw",
-              width: "4vmax",
-              height: "8vh",
+              top: "2vmax",
+              right: "3vmax",
+              width: "3vmin",
+              height: "6vh",
+              maxHeight: "5vw",
               cursor: "pointer",
             }}
             src={music_on}
@@ -50,10 +51,11 @@ const PlaySound = ({ url, autoPlay = false }) => {
           <img
             style={{
               position: "fixed",
-              top: "2vw",
-              right: "2vw",
-              width: "5vmax",
-              height: "8vh",
+              top: "2vmax",
+              right: "2vmax",
+              width: "4vmin",
+              maxHeight: "5vw",
+              height: "6vh",
               cursor: "pointer",
             }}
             src={music_off}
