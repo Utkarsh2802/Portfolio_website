@@ -1,0 +1,8 @@
+.LoginPage {
+  display: flex;
+  height: 94.5vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+}

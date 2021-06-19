@@ -322,8 +322,9 @@ const TypingHelper = () => {
                 minWidth: "auto",
                 minHeight: "auto",
                 height: "2vmax",
+                minHeight: "3vh",
                 width: "20vmax",
-                minHeight: "fit-content",
+
                 fontSize: "16px",
                 backgroundColor: "transparent",
                 fontStyle: "cursive",

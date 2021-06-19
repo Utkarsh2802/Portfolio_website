@@ -13,8 +13,8 @@ const Nav_bar = () => {
         <Navbar.Brand href="#home">UTKARSH</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="./">Home</Nav.Link>
-          <Nav.Link href="./TypingSpeedTest">Login</Nav.Link>
-          <Nav.Link href="#pricing">Profile</Nav.Link>
+          <Nav.Link href="./Login">Login</Nav.Link>
+          <Nav.Link href="./TypingSpeedTest">Typing Test</Nav.Link>
         </Nav>
       </Navbar>
     </div>

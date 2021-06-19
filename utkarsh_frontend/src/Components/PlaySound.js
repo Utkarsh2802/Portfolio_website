@@ -38,9 +38,9 @@ const PlaySound = ({ url, autoPlay = false }) => {
           <img
             style={{
               position: "fixed",
-              top: "2vmax",
-              right: "3.5vmax",
-              width: "3vmin",
+              top: "1vmax",
+              right: "2.5vmax",
+              width: "3vmax",
               height: "6vh",
               maxHeight: "5vw",
               cursor: "pointer",
@@ -51,9 +51,9 @@ const PlaySound = ({ url, autoPlay = false }) => {
           <img
             style={{
               position: "fixed",
-              top: "2vmax",
-              right: "3vmax",
-              width: "4vmin",
+              top: "1vmax",
+              right: "2vmax",
+              width: "4vmax",
               maxHeight: "5vw",
               height: "6vh",
               cursor: "pointer",
