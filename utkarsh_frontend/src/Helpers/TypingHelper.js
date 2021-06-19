@@ -326,10 +326,12 @@ const TypingHelper = () => {
                 minHeight: "fit-content",
                 fontSize: "16px",
                 backgroundColor: "transparent",
+                fontStyle: "cursive",
+                fontFamily: "cursive",
               }}
               placeholder={
                 play_pause_button !== "Play" && curr_index === 0
-                  ? "Start_Typing"
+                  ? "Start Typing..."
                   : ""
               }
               type="text"

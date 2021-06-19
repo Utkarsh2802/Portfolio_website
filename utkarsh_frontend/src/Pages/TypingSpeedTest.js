@@ -9,6 +9,7 @@ import pexel3 from "../Data/Images/pexel3.jpg";
 import pexel2 from "../Data/Images/pexels9.jpg"; //confused between either 3 or 2
 import { BsMusicNoteBeamed } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import { Animated } from "react-animated-css";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const TypingSpeedTest = () => {
   //document.body.style ="background-image: linear-gradient(90deg, #0093E9 0%, #80D0C7 100%)";
@@ -24,6 +25,7 @@ const TypingSpeedTest = () => {
     <div>
       <TypingHelper></TypingHelper>
       <PlaySound url={Tones}></PlaySound>
+
       <img src={pexel2} height={height} width={width} />
     </div>
   );

@@ -39,7 +39,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
             style={{
               position: "fixed",
               top: "2vmax",
-              right: "3vmax",
+              right: "3.5vmax",
               width: "3vmin",
               height: "6vh",
               maxHeight: "5vw",
@@ -52,7 +52,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
             style={{
               position: "fixed",
               top: "2vmax",
-              right: "2vmax",
+              right: "3vmax",
               width: "4vmin",
               maxHeight: "5vw",
               height: "6vh",

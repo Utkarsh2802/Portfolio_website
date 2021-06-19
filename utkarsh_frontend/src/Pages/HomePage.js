@@ -9,12 +9,14 @@ const HomePage = () => {
   document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
+
+  /*  <video autoPlay loop muted>
+        <source src={sample} type="video/mp4" />
+      </video>
+    */
   return (
     <div style={{ height: height, width: width }}>
       <PlaySound url={Tones} />
-      <video autoPlay loop muted>
-        <source src={sample} type="video/mp4" />
-      </video>
     </div>
   );
 };
