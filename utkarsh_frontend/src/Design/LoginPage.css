@@ -1,6 +1,7 @@
 .LoginPage {
   display: flex;
-  height: 94.5vh;
+  flex-direction: column;
+  height: 95vh;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: #000000;
