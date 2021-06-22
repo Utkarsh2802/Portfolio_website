@@ -2,13 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
 import router from "./routes/test.js";
-const CONNECTION_URL =
-  "mongodb+srv://Utkarshdmg:utkarshdmg@typingdb.7wfww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-const PORT = process.env.PORT || 5000;
+dotenv.config(); //this allows me to use environment variables which inturn help me encapsulate my app
+const CONNECTION_URL = process.env.ATLAS_URI;
+//console.log();
+const PORT = process.env.PORT;
 const app = express();
-
 app.use(
   express.urlencoded({
     extended: true,

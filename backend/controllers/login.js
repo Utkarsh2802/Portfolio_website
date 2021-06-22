@@ -1,24 +1,38 @@
 import Users from "../Model/Users.js";
 
-const login = async function (request, response) {
+const Login = async function (request, response) {
   try {
     var email = request.body.email;
     var password = request.body.password;
     const something = await Users.findOne(
       //as there will only be one user
-      { email: email, password: password },
+      //find will return a list of objects whereas findone will return a single object
+      { email: email },
       (err, docs) => {
         if (err) {
-          console.log(err);
+          response.send({
+            message:
+              "Sorry our servers our down currently please try again in some time",
+            status: 400,
+          });
         } else {
-          if (docs !== null) console.log("Welcome,", docs.username);
-          else console.log("Email or password is incorrect");
+          if (docs !== null) {
+            if (docs.isValidPassword(request.body.password)) {
+              response.send({ message: "Successfully Logged In", status: 200 });
+            } else {
+              response.send({ message: "Incorrect Password", status: 200 });
+            }
+          } else {
+            response.send({ message: "Incorrect Username", status: 200 });
+          }
         }
       }
     );
-  } catch (err) {
-    console.log("Sorry our servers our down currently");
+  } catch (error) {
+    response.send({
+      message: "Sorry our servers our down currently",
+      status: 400,
+    });
   }
-  response.send("sdf");
 };
-export default login;
+export default Login;

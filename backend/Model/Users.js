@@ -1,8 +1,30 @@
 import mongoose from "mongoose";
+import crypto from "crypto";
 const userSchema = new mongoose.Schema({
-  username: { type: String, unique:true, required: true, minlength: 5, maxlength: 25 },
-  password: { type: String, required: true, minlength: 8, maxlength: 25},
-  email: { type: String, required: true,unique:true },
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    minlength: 5,
+    maxlength: 25,
+  },
+  salt: { type: String },
+  hash: { type: String }, //we salt the password and hash it for greater security
+  email: { type: String, required: true, unique: true },
 });
+
+userSchema.methods.setPassword = function (password) {
+  this.salt = crypto.randomBytes(16).toString("hex"); //encode each byte as two hexadecimal characters
+  this.hash = crypto
+    .pbkdf2Sync(password, this.salt, 100, 64, "sha512")
+    .toString("hex");
+};
+//setting it to 100 iterations since time is also important for me as this a just going to be a small site with a lower user count and length of 64
+userSchema.methods.isValidPassword = function (password) {
+  let hash = crypto
+    .pbkdf2Sync(password, this.salt, 100, 64, "sha512")
+    .toString("hex");
+  return this.hash === hash;
+};
 const Users = mongoose.model("Users", userSchema);
 export default Users;
