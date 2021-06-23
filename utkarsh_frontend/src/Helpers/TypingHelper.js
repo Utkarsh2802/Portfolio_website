@@ -281,7 +281,7 @@ const TypingHelper = () => {
           animationOut="fadeOut"
           animationInDelay={0}
           animationOutDelay={0}
-          animationInDuration={500}
+          animationInDuration={1000}
           animationOutDuration={500}
           animateOnMount={true}
           isVisible={!display_score}
@@ -306,7 +306,7 @@ const TypingHelper = () => {
       {!display_score ? (
         <div>
           <Animated
-            animationIn="slideInRight"
+            animationIn="fadeIn"
             animationOut="fadeOut"
             animationInDelay={0}
             animationOutDelay={0}

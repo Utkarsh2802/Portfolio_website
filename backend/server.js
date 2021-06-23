@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import router from "./routes/test.js";
+import cookieParser from "cookie-parser";
+import session from "express-session";
 dotenv.config(); //this allows me to use environment variables which inturn help me encapsulate my app
 const CONNECTION_URL = process.env.ATLAS_URI;
 //console.log();
@@ -14,8 +16,18 @@ app.use(
     extended: true,
   })
 );
-app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000/"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
+//app.use(bodyParser.urlencoded({ extendend: true }));
+
 app.use("/", router);
 
 mongoose

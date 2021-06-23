@@ -11,9 +11,11 @@ function App() {
       <Nav_bar></Nav_bar>
       <Switch>
         <Route path={"/Login"}>
-          <LoginPage />
+          <LoginPage isLogin={1} />
         </Route>
-
+        <Route path={"/Signup"}>
+          <LoginPage isLogin={0} />
+        </Route>
         <Route path={"/TypingSpeedTest"}>
           <TypingSpeedTest />
         </Route>

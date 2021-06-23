@@ -23,10 +23,12 @@ const TypingSpeedTest = () => {
   const { height, width } = useWindowDimensions(); //this gives mean the exact height whenever i resize my
   return (
     <div>
-      <TypingHelper></TypingHelper>
-      <PlaySound url={Tones}></PlaySound>
-
       <img src={pexel2} height={height} width={width} />
+
+      <div style={{ position: "absolute", top: "5vh", left: 0 }}>
+        <TypingHelper></TypingHelper>
+        <PlaySound url={Tones}></PlaySound>
+      </div>
     </div>
   );
 };
