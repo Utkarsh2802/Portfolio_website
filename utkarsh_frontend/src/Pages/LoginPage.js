@@ -14,7 +14,7 @@ const LoginPage = (props) => {
     /* Handle_api("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
-    let hello = "sdf";
+
     Handle_api("POST", "/Login", {
       email: email,
       password: password,
