@@ -62,7 +62,7 @@ const Login = async function (request, response) {
           let data = docs;
 
           //data = [...data, { loggedIn: true }];
-          response.send({ data: data, loggedIn: true, status: 200 });
+          response.send({ data: docs, loggedIn: true, status: 200 }); //idk why the spread operator was not working
         }
       });
     }

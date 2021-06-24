@@ -48,29 +48,24 @@ function App() {
       .catch((err) =>
         console.log("some error occured while authenticating the cookie")
       );
-  }, [localStorage.getItem("data")]);
-
+  }, []);
   return (
     <Router>
       <Nav_bar loggedIn={loggedIn}></Nav_bar>
       <Switch>
-        {!loggedIn ? (
-          <React.Fragment>
-            <Route path="/Login">
-              <LoginPage isLogin={1} />
-            </Route>
-            <Route path={"/Signup"}>
-              <LoginPage isLogin={0} />
-            </Route>
-          </React.Fragment>
-        ) : (
-          <Route path="/Profile">
-            <ProfilePage loggedIn={loggedIn} />
-          </Route>
-        )}
-
         <Route path={"/TypingSpeedTest"}>
+          {console.log("Typinh")}
           <TypingSpeedTest />
+        </Route>
+
+        <Route path="/Login">
+          {!loggedIn ? <LoginPage isLogin={1} /> : ""}
+        </Route>
+        <Route path={"/Signup"}>
+          {!loggedIn ? <LoginPage isLogin={0} /> : ""}
+        </Route>
+        <Route path="/Profile">
+          {!loggedIn ? "" : <ProfilePage loggedIn={loggedIn} />}
         </Route>
         <Route path={"/"}>
           <HomePage />

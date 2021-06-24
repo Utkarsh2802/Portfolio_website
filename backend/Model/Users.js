@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
-    minlength: 5,
+    minlength: 1,
     maxlength: 25,
   },
   salt: { type: String },
