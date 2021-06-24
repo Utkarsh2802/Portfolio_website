@@ -1,8 +1,8 @@
 import Users from "../Model/Users.js";
 const CheckAuth = async function (request, response) {
   try {
-    var email = request.body.email;
-    //console.log(request.cookies);
+    //var email = request.body.email;
+    console.log(request.cookies);
     if (request.cookies != null) {
       console.log(request.cookies.verifier.verifier);
       const something = await Users.findOne(

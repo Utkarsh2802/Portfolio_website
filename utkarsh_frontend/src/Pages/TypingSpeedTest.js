@@ -1,5 +1,5 @@
 import React from "react";
-import sample from "../Data/Videos/Video_3.mp4";
+
 import "../Design/Own.css";
 import PlaySound from "../Components/PlaySound";
 import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";

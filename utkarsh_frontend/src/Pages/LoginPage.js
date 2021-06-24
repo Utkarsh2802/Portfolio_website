@@ -18,9 +18,20 @@ const LoginPage = (props) => {
     Handle_api("POST", "/Login", {
       email: email,
       password: password,
-    }).then((response) => {
-      console.log(response);
-    });
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.loggedIn == true) {
+          localStorage.clear();
+          localStorage.setItem("data", JSON.stringify(response.data)); //response.data.data will have all the details;
+          window.location.reload();
+        } else {
+          console.log(response.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   const handle_signup = (event) => {
