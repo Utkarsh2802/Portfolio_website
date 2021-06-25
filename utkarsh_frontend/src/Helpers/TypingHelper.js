@@ -4,8 +4,9 @@ import ScoreCard from "./ScoreCard";
 import "../Design/Own.css";
 import { Animated } from "react-animated-css";
 import Cust_Button from "../Components/Cust_Button";
+import Handle_api from "../Apis/Handle_api";
 var randomwords = require("random-words");
-var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute
+var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute bt still to be on a safer side
 var curr_index = 0;
 var mistakes = 0;
 var next_index = [0];
@@ -22,6 +23,36 @@ for (let i = 0; i < wordlist.length; i++) {
     next_index.push(i);
   }
 }
+var alpha = [
+  //first element of the array corresponding to each sub object stores the number of times a letter was pressed incorrectly whereas the second element stores the number of times an element occured
+  { a: [0, 0] },
+  { b: [0, 0] },
+  { c: [0, 0] },
+  { d: [0, 0] },
+  { e: [0, 0] },
+  { f: [0, 0] },
+  { g: [0, 0] },
+  { h: [0, 0] },
+  { i: [0, 0] },
+  { j: [0, 0] },
+  { k: [0, 0] },
+  { l: [0, 0] },
+  { m: [0, 0] },
+  { n: [0, 0] },
+  { o: [0, 0] },
+  { p: [0, 0] },
+  { q: [0, 0] },
+  { r: [0, 0] },
+  { s: [0, 0] },
+  { t: [0, 0] },
+  { u: [0, 0] },
+  { v: [0, 0] },
+  { w: [0, 0] },
+  { x: [0, 0] },
+  { y: [0, 0] },
+  { z: [0, 0] },
+];
+//console.log(alpha[2].c[0]);
 var reset_clicked = false;
 //everything above this runs only once
 const TypingHelper = () => {
@@ -33,7 +64,7 @@ const TypingHelper = () => {
   var linecount = 0;
   const [score, setscore] = useState(0);
   const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 60;
+  var total_time = 3;
   const [timer_started, setTimerstarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(total_time);
   const [wpm, setWpm] = useState(0);
@@ -49,6 +80,34 @@ const TypingHelper = () => {
     if (play_pause_button === "Reset" || play_pause_button === "Play Again") {
       //this will prevent it from reseting even when i click play making it change two times between a single game instead of just once
       wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
+      alpha = [
+        { a: [0, 0] },
+        { b: [0, 0] },
+        { c: [0, 0] },
+        { d: [0, 0] },
+        { e: [0, 0] },
+        { f: [0, 0] },
+        { g: [0, 0] },
+        { h: [0, 0] },
+        { i: [0, 0] },
+        { j: [0, 0] },
+        { k: [0, 0] },
+        { l: [0, 0] },
+        { m: [0, 0] },
+        { n: [0, 0] },
+        { o: [0, 0] },
+        { p: [0, 0] },
+        { q: [0, 0] },
+        { r: [0, 0] },
+        { s: [0, 0] },
+        { t: [0, 0] },
+        { u: [0, 0] },
+        { v: [0, 0] },
+        { w: [0, 0] },
+        { x: [0, 0] },
+        { y: [0, 0] },
+        { z: [0, 0] },
+      ];
 
       curr_index = 0;
       mistakes = 0;
@@ -110,6 +169,32 @@ const TypingHelper = () => {
     if (timeLeft === 0) {
       //then it means that the time was up and not that i pressed reset
       setDisplayscore(true);
+      //console.log(alpha);
+      if (localStorage.length > 0) {
+        //so that i dont call the api for guest users
+        //console.log("hi");
+        //console.log(alpha);
+        console.log({
+          wpm: wpm,
+          errors: mistakes,
+          time: total_time,
+          accuracy: accuracy,
+          alpha: alpha,
+        });
+        Handle_api("POST", "/Addscore", {
+          wpm: wpm,
+          errors: mistakes,
+          time: total_time,
+          accuracy: accuracy,
+          alpha: alpha, //this send the charactedr data provided that i am logged in
+        })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      }
     }
     // play_button_ref.current.style.visibility = "hidden";
     setTimeLeft(total_time); //reset the timer
@@ -157,19 +242,31 @@ const TypingHelper = () => {
   };
   const keypress_handler = (event) => {
     let key = event.key; //keypressed
-
+    // console.log(key.charCodeAt(0) - 97);
     if (curr_index === 0) {
       start_timer(total_time); //basically when i type my first char only then will the timer be started
     }
     if (event.which === 8 || event.which === 46) {
+      //if it was a backspace event then no need
       return;
     } else {
       if (wordlist[curr_index] === key) {
+        if (key !== " ") alpha[key.charCodeAt(0) - 97][key][1] += 1; //only totalchar count increased
         setarray(curr_index, 1); //this indicates that the key typed in was correct
         setscore((prevState) => {
           return prevState + 1;
         });
       } else {
+        if (wordlist[curr_index] !== " ") {
+          //  console.log("space", key);
+          //  console.log("currindex", wordlist[curr_index].charCodeAt(0));
+          alpha[wordlist[curr_index].charCodeAt(0) - 97][
+            wordlist[curr_index]
+          ][0]++; //incorrect presses count increased
+          alpha[wordlist[curr_index].charCodeAt(0) - 97][
+            wordlist[curr_index]
+          ][1]++; //totalchar count increased
+        }
         mistakes += 1;
         setarray(curr_index, -1);
 
@@ -180,7 +277,7 @@ const TypingHelper = () => {
     if (key === " " && wordlist[curr_index] === key) {
       //if spacebar is pressed
 
-      console.log(wascorrect[curr_index]);
+      //console.log(wascorrect[curr_index]);
       event.target.value = "";
     }
 

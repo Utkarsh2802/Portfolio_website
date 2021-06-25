@@ -14,7 +14,7 @@ const Handle_api = (type, url, data) => {
       })
       .catch((error) => {
         console.log("Some error has occured during the post request");
-        console.log(error);
+        console.log(error.message);
       });
   } else if (type === "GET") {
     return api
