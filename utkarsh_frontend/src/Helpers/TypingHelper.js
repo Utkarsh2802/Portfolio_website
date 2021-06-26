@@ -82,7 +82,7 @@ const TypingHelper = () => {
       wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
       alpha = [
         { a: [0, 0] },
-        { b: [0, 0] },
+        { b: [0, 0] }, //use map here to save space later on while refractoring
         { c: [0, 0] },
         { d: [0, 0] },
         { e: [0, 0] },
@@ -174,15 +174,16 @@ const TypingHelper = () => {
         //so that i dont call the api for guest users
         //console.log("hi");
         //console.log(alpha);
-        console.log({
-          wpm: wpm,
+        /*console.log({
+          wpm: Math.round((score / total_time) * 12),
           errors: mistakes,
           time: total_time,
           accuracy: accuracy,
           alpha: alpha,
-        });
+        });*/
+
         Handle_api("POST", "/Addscore", {
-          wpm: wpm,
+          wpm: Math.round((score / total_time) * 12), // i am not usign wpm here cuz the latest wpm is yet to be updated the score has been update already so i am just using that
           errors: mistakes,
           time: total_time,
           accuracy: accuracy,
@@ -203,6 +204,7 @@ const TypingHelper = () => {
     if (timer_started === true) {
       if (timeLeft !== total_time) {
         setWpm(Math.round((score / (total_time - timeLeft)) * 12));
+        // console.log("wpm: ", wpm);
       }
       setAccuracy(Math.round((score * 100) / (score + mistakes)));
 
@@ -233,6 +235,7 @@ const TypingHelper = () => {
             return prevState - 1;
           });
         } else {
+          mistakes -= 2; //if  i am correcting my mistakes then my accuracy should increase so the net change in mistakes would be mistakes-=1;
           setarray(curr_index - 1, 0);
         }
 
@@ -291,6 +294,7 @@ const TypingHelper = () => {
     if (timeLeft !== total_time) {
       //to avoid divide by zero error n get infinity
       setWpm(Math.round((score / (total_time - timeLeft)) * 12));
+      // console.log(wpm);
     }
     setAccuracy(Math.round((score * 100) / (score + mistakes)));
   };

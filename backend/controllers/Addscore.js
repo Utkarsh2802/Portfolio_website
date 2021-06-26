@@ -5,6 +5,7 @@ const Addscore = async function (request, response) {
   try {
     //var email = request.body.email;
     // console.log(request.cookies);
+    // console.log("Addscore clicked");
     var email;
     if (request.cookies != null) {
       //console.log(request.cookies.verifier.verifier);
@@ -26,21 +27,26 @@ const Addscore = async function (request, response) {
             if (docs !== null) {
               email = docs.email;
               TypingInfo.findOne({ email: docs.email }, (err, data) => {
+                //console.log(data);
                 if (data != null) {
                   //console.log(request.body);
                   let alpha = request.body.alpha;
                   let wpm = request.body.wpm;
                   let errors = request.body.errors;
                   let accuracy = request.body.accuarcy;
-                  alpha.map((element, index) => {
+                  alpha = alpha.map((element, index) => {
                     //i will convert it into suitable alphabetschema of the backend
                     let alphabet = String.fromCharCode(97 + index);
                     //console.log(data);
+
+                    //console.log(data.alpha[index].accuracy);
+                    //console.log(typeof data.alpha[index].accuracy);
+                    //console.log("break");
                     return {
                       alphabetname: alphabet,
                       //the below conditional statements are written to avoid undefined error during the first insertion
                       total_errors:
-                        data.alpha.lenght > 0
+                        data.alpha.length > 0
                           ? data.alpha[index].total_errors +
                             element[alphabet][0]
                           : element[alphabet][0],
@@ -51,18 +57,20 @@ const Addscore = async function (request, response) {
                       accuracy:
                         data.alpha.length > 0
                           ? [
-                              ...data.alpha[index].accuarcy,
-                              (element[alphabet][0] /
-                                (element[alphabet][1] + 1)) *
+                              ...data.alpha[index].accuracy,
+                              (Math.max(element[alphabet][0], 1) /
+                                Math.max(element[alphabet][1], 0.5)) *
                                 100,
                             ]
                           : [
-                              (element[alphabet][0] /
-                                (element[alphabet][1] + 1)) *
+                              (Math.max(element[alphabet][0], 1) /
+                                Math.max(element[alphabet][1], 0.5)) *
                                 100,
-                            ],
+                            ], //so now if that element is not typed then instead of getting nan cuz of 0/0 we will get 1/0.5 which is 200% accuracy i am keeping it so high so that in the frontend side while making the graph i can skip these values easily
                     };
                   });
+                  // console.log(alpha);
+                  // console.log("alpha");
                   let newvalues = {
                     email: email,
                     tests_taken: data.tests_taken + 1,
