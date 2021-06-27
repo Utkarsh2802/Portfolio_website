@@ -1,49 +1,52 @@
 import React from "react";
 import Chart from "react-apexcharts";
-const Chart1 = (props) => {
+const AreaGraph = (props) => {
   console.log(props.data);
   var series = [
     {
       name: "WPM",
-      type: "area",
       data: props.data.data.speed_history,
     },
     {
       name: "Error%",
-      type: "area",
+
       data: props.data.data.error_history,
     },
   ];
   var options = {
-    chart: {
-      type: "area",
-      // stacked: "true",
-    },
     dataLabels: {
       enabled: false,
     },
 
     stroke: {
+      show: false,
       curve: "smooth",
+      //color: "green",
     },
 
     colors: ["green", "red"], //remember to choose better colors later on
     fill: {
-      type: "gradient",
+      type: ["gradient", "gradient"],
       gradient: {
-        opacityFrom: 0.5,
-        opacityTo: 0.8,
+        type: "horizontal",
+        opacityFrom: 0.4,
+        opacityTo: 0.7,
       },
     },
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    labels: [""],
     markers: {
       size: 0,
+    },
+    tooltip: {
+      x: { show: false },
+      // y: { show: false },
     },
     yaxis: [
       {
         title: {
           text: "WPM",
         },
+        // logarithmic: true,
         //max: 150,
       },
       {
@@ -51,8 +54,9 @@ const Chart1 = (props) => {
         title: {
           text: "Error%",
         },
-        max: 100,
+        max: 50,
         min: 0,
+        //logarithmic: true,
         /*labels: {
           formatter: function (value) {
             return value;
@@ -60,16 +64,26 @@ const Chart1 = (props) => {
         },*/
       },
     ],
+    xaxis: {
+      //tickAmount: 10,
+      tooltip: { enabled: false },
+    },
   };
 
   // var chart = new ApexCharts(document.querySelector("#chart"), options);
   //chart.render();
 
   return (
-    <div style={{ height: "55vh" }}>
-      <Chart options={options} series={series} width={"100%"} height={"100%"} />
+    <div style={{ height: "50vh" }}>
+      <Chart
+        options={options}
+        series={series}
+        type={"area"}
+        width={"100%"}
+        height={"100%"}
+      />
     </div>
   );
 };
 
-export default Chart1;
+export default AreaGraph;

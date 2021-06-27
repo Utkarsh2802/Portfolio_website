@@ -1,7 +1,9 @@
 import React from "react";
 import { Redirect } from "react-router";
-import Chart1 from "../Components/Chart1";
-
+import AreaGraph from "../Components/AreaGraph";
+import Barchart from "../Components/Barchart.js";
+import LineGraph from "../Components/LineGraph";
+import { Card } from "react-bootstrap";
 const ProfilePage = (props) => {
   console.log(props.loggedIn);
   if (props.loggedIn) {
@@ -24,7 +26,45 @@ const ProfilePage = (props) => {
 
   return (
     <div>
-      <Chart1 data={data} />
+      <div
+        style={{
+          margin: "2vmax",
+          display: "flex",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <Card bg={"primary"} text={"white"} style={{ width: "18rem" }}>
+          <Card.Header>Overall Average Speed: </Card.Header>
+          <Card.Body>
+            <Card.Title> {data.data.avg_speed.toFixed(2)} WPM </Card.Title>
+          </Card.Body>
+        </Card>
+        <Card bg={"success"} text={"white"} style={{ width: "18rem" }}>
+          <Card.Header>Improvment Speed:</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              {(data.data.improvement_speed * 60).toFixed(2)} WPM / Hr
+            </Card.Title>
+          </Card.Body>
+        </Card>
+        <Card bg={"danger"} text={"white"} style={{ width: "18rem" }}>
+          <Card.Header>Error %</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              {(
+                100 -
+                ((data.data.avg_speed * 5) /
+                  (data.data.avg_speed * 5 + data.data.avg_error)) *
+                  100
+              ).toFixed(2)}
+              %
+            </Card.Title>
+          </Card.Body>
+        </Card>
+      </div>
+      <AreaGraph data={data} />
+      <Barchart data={data} />
+      <LineGraph data={data}></LineGraph>
     </div>
   );
 };
