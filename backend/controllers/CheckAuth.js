@@ -24,6 +24,8 @@ const CheckAuth = async function (request, response) {
           } else {
             if (docs !== null) {
               TypingInfo.findOne({ email: docs.email }, (err, data) => {
+                // console.log(data);
+                //console.log("hi");
                 if (data != null) {
                   response.send({
                     loggedIn: true,
