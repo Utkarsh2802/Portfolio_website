@@ -48,13 +48,22 @@ const Barchart = (props) => {
         //max: 150,
       },
     ],
+    title: {
+      text: "Average Accuracy of all the characters across all the tests taken",
+      align: "center",
+      floating: true, //make it false to create some distance between the graph and the title
+      style: {
+        fontFamily: "cursive",
+        fontWeight: 500,
+      },
+    },
   };
 
   // var chart = new ApexCharts(document.querySelector("#chart"), options);
   //chart.render();
 
   return (
-    <div style={{ height: "40vh" }}>
+    <div style={{ padding: "3vmin" }}>
       <Chart
         options={options}
         series={series}

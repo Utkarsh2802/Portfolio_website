@@ -68,13 +68,22 @@ const AreaGraph = (props) => {
       //tickAmount: 10,
       tooltip: { enabled: false },
     },
+    title: {
+      text: "How your speed varies with respect to errors over all the tests",
+      align: "center",
+      floating: true, //make it false to create some distance between the graph and the title
+      style: {
+        fontFamily: "cursive",
+        fontWeight: 500,
+      },
+    },
   };
 
   // var chart = new ApexCharts(document.querySelector("#chart"), options);
   //chart.render();
 
   return (
-    <div style={{ height: "50vh" }}>
+    <div style={{ padding: "3vmin" }}>
       <Chart
         options={options}
         series={series}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "../Design/Own.css";
 import PlaySound from "../Components/PlaySound";
@@ -13,6 +13,7 @@ import { Animated } from "react-animated-css";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const TypingSpeedTest = () => {
   console.log("helo");
+  const [image, setImage] = useState("");
   //document.body.style ="background-image: linear-gradient(90deg, #0093E9 0%, #80D0C7 100%)";
   document.body.style.padding = 0;
   document.body.style.margin = 0;
@@ -21,10 +22,12 @@ const TypingSpeedTest = () => {
   // document.body.style = "background-image:" + homepageimg;
   //    <img src={homepageig} height="100vw" />
   const { height, width } = useWindowDimensions(); //this gives mean the exact height whenever i resize my
+  useEffect(() => {
+    setImage(<img src={pexel2} height={height} width={width} />);
+  }, [height, width]);
   return (
     <div>
-      <img src={pexel2} height={height} width={width} />
-
+      {image}
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         {console.log("typing helper called")}
         <TypingHelper></TypingHelper>

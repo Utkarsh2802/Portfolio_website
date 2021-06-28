@@ -25,10 +25,17 @@ const ProfilePage = (props) => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        //margin: "5vmin",
+        display: "flex-column",
+        justifyContent: "space-evenly",
+      }}
+    >
       <div
         style={{
-          margin: "2vmax",
+          // margin: "2vmax",
+          padding: "3vmin",
           display: "flex",
           justifyContent: "space-evenly",
         }}

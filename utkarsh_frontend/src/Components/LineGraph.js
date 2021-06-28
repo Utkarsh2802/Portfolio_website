@@ -7,7 +7,7 @@ const LineGraph = (props) => {
   props.data.data.alpha[curr_alpha.charCodeAt(0) - 97].accuracy.map(
     (element, index) => {
       console.log(acc, element);
-      return element == 200 ? -1 : acc.push(Math.round(element));
+      return element == 200 ? -1 : acc.push(Math.round(element)); // so that i dont have null values ie suppose z didnt occur in a test then i will skip it and not show it in the graph in the db i m sroting it as 200 so as to avoaid conflicts with 0 accuracy
     }
   );
 
@@ -104,10 +104,19 @@ const LineGraph = (props) => {
       tooltip: { enabled: false },
     },
     // legend: { show: true },
+    title: {
+      text: `Accuracy of character ${curr_alpha.toUpperCase()} over all the typing tests that you have taken`,
+      align: "center",
+      floating: true, //make it false to create some distance between the graph and the title
+      style: {
+        fontFamily: "cursive",
+        fontWeight: 500,
+      },
+    },
   };
 
   return (
-    <div style={{ height: "40vh" }}>
+    <div style={{ padding: "3vmin" }}>
       <DropdownButton
         id="dropdown-item-button"
         drop="down"
@@ -123,7 +132,6 @@ const LineGraph = (props) => {
           })}
         </div>
       </DropdownButton>
-
       <Chart
         options={options}
         series={series}
