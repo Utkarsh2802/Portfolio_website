@@ -83,7 +83,7 @@ const AreaGraph = (props) => {
   //chart.render();
 
   return (
-    <div style={{ padding: "3vmin" }}>
+    <div style={{ height: "100%", padding: "2vmin" }}>
       <Chart
         options={options}
         series={series}

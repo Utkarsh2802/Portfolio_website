@@ -27,9 +27,13 @@ const ProfilePage = (props) => {
   return (
     <div
       style={{
-        //margin: "5vmin",
-        display: "flex-column",
-        justifyContent: "space-evenly",
+        marginLeft: "15vmin",
+        marginRight: "15vmin",
+        height: "120vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        gap: "5vmin",
       }}
     >
       <div
@@ -37,7 +41,8 @@ const ProfilePage = (props) => {
           // margin: "2vmax",
           padding: "3vmin",
           display: "flex",
-          justifyContent: "space-evenly",
+          justifyContent: "space-around",
+          gap: "2vmin",
         }}
       >
         <Card bg={"primary"} text={"white"} style={{ width: "18rem" }}>
@@ -69,8 +74,10 @@ const ProfilePage = (props) => {
           </Card.Body>
         </Card>
       </div>
+
       <AreaGraph data={data} />
       <Barchart data={data} />
+
       <LineGraph data={data}></LineGraph>
     </div>
   );

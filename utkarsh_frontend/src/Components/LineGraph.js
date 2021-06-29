@@ -116,7 +116,7 @@ const LineGraph = (props) => {
   };
 
   return (
-    <div style={{ padding: "3vmin" }}>
+    <div style={{ height: "100%", padding: "2vmin" }}>
       <DropdownButton
         id="dropdown-item-button"
         drop="down"

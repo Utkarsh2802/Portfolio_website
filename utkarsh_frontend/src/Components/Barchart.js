@@ -24,13 +24,15 @@ const Barchart = (props) => {
     dataLabels: {
       enabled: false,
     },
-
-    colors: ["green"], //remember to choose better colors later on
     fill: {
-      type: "gradient",
+      colors: ["green"],
+      type: "gradient", // gradient
       gradient: {
-        opacityFrom: 0.5,
-        opacityTo: 0.9,
+        type: "vertical", // The gradient in the horizontal direction
+        gradientToColors: ["#00C3DF"], // The color at the end of the gradient
+        opacityFrom: 1, // transparency
+        opacityTo: 1,
+        stops: [0, 120],
       },
     },
     labels: label,
@@ -63,7 +65,7 @@ const Barchart = (props) => {
   //chart.render();
 
   return (
-    <div style={{ padding: "3vmin" }}>
+    <div style={{ height: "100%", padding: "2vmin" }}>
       <Chart
         options={options}
         series={series}
