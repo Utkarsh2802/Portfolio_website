@@ -37,7 +37,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
         {playing ? (
           <img
             style={{
-              position: "fixed",
+              position: "absolute",
               top: "1vmax",
               right: "2.5vmax",
               width: "3vmax",
@@ -50,7 +50,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
         ) : (
           <img
             style={{
-              position: "fixed",
+              position: "absolute",
               top: "1vmax",
               right: "2vmax",
               width: "4vmax",

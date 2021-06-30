@@ -31,7 +31,6 @@ const TypingSpeedTest = () => {
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         {console.log("typing helper called")}
         <TypingHelper></TypingHelper>
-        <PlaySound url={Tones}></PlaySound>
       </div>
     </div>
   );

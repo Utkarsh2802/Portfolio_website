@@ -25,11 +25,30 @@ const Nav_bar = (props) => {
     <div className="nav_custom_colortest">
       <Navbar variant="dark">
         <Navbar.Brand href="#home">UTKARSH</Navbar.Brand>
-        <Nav className="mr-auto">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "3vmin",
+          }}
+        >
           <Link to="./">
             <Navbar.Text>Home</Navbar.Text>
           </Link>
-          {!props.loggedIn ? (
+          <Link to="./TypingSpeedTest">
+            <Navbar.Text>Typing Test</Navbar.Text>
+          </Link>
+
+          {props.loggedIn ? (
+            <React.Fragment>
+              <Link to="./Profile">
+                <Navbar.Text>Profile</Navbar.Text>
+              </Link>
+              <button className="gradientbuttonloop" onClick={Handle_logout}>
+                Logout
+              </button>
+            </React.Fragment>
+          ) : (
             <React.Fragment>
               <Link to="./Login">
                 <Navbar.Text>Login</Navbar.Text>
@@ -39,18 +58,8 @@ const Nav_bar = (props) => {
                 <Navbar.Text>Signup</Navbar.Text>
               </Link>
             </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <Button onClick={Handle_logout}>Logout</Button>
-              <Link to="./Profile">
-                <Navbar.Text>Profle</Navbar.Text>
-              </Link>
-            </React.Fragment>
           )}
-          <Link to="./TypingSpeedTest">
-            <Navbar.Text>Typing Test</Navbar.Text>
-          </Link>
-        </Nav>
+        </div>
       </Navbar>
     </div>
   );

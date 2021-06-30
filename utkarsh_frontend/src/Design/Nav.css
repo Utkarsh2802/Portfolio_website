@@ -10,3 +10,16 @@
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
+.gradientbuttonloop {
+  background-image: linear-gradient(to right, #e040fb, #00bcd4);
+  border-radius: 105px;
+  width: 9vh;
+  height: 4vh;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+.gradientbuttonloop:hover {
+  -webkit-animation: gradient 3s ease infinite;
+  -moz-animation: gradient 3s ease infinite;
+  animation: gradient 3s ease infinite;
+}

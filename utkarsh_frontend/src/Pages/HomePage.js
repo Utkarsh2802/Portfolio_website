@@ -13,11 +13,7 @@ const HomePage = () => {
         <source src={sample} type="video/mp4" />
       </video>
     */
-  return (
-    <div style={{ height: height, width: width }}>
-      <PlaySound url={Tones} />
-    </div>
-  );
+  return <div style={{ height: height, width: width }}></div>;
 };
 
 export default HomePage;

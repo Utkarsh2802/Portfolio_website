@@ -8,6 +8,8 @@ import Nav_bar from "./Components/Nav_bar";
 import LoginPage from "./Pages/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
 import Handle_api from "./Apis/Handle_api";
+import PlaySound from "./Components/PlaySound";
+import Tones from "./Data/Songs/TONES AND I - Dance Monkey.mp3";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -52,6 +54,7 @@ function App() {
   return (
     <Router>
       <Nav_bar loggedIn={loggedIn}></Nav_bar>
+      <PlaySound url={Tones}></PlaySound>
       <Switch>
         <Route path={"/TypingSpeedTest"}>
           {console.log("Typinh")}
