@@ -41,7 +41,7 @@ const LineGraph = (props) => {
     },
 
     grid: {
-      show: false,//this will render the rest of the lines below this moot but i am keeping it for future reference
+      show: false, //this will render the rest of the lines below this moot but i am keeping it for future reference
       yaxis: {
         lines: {
           show: true,
@@ -62,12 +62,16 @@ const LineGraph = (props) => {
       colors: "green", //if i leave it undefined i get an ugly border
     },
 
-    colors: ["green"], //remember to choose better colors later on
     fill: {
-      type: "gradient",
+      // background-image: linear-gradient(to right, #a330b8, #158897);
+      colors: ["#a330b8"],
+      type: "gradient", // gradient
       gradient: {
-        opacityFrom: 0.5,
-        opacityTo: 0.8,
+        type: "vertical", // The gradient in the horizontal direction
+        gradientToColors: ["#158897"], // The color at the end of the gradient
+        opacityFrom: 1, // transparency
+        opacityTo: 1,
+        stops: [0, 120], //this is useless in this case but i am just keeping so that later on i can see how the graph varies with it
       },
     },
     labels: [""],

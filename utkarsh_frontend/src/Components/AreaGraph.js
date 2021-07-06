@@ -39,13 +39,17 @@ const AreaGraph = (props) => {
       //color: "green",
     },
 
-    colors: ["green", "red"], //remember to choose better colors later on
+    //colors: ["green", "red"], //remember to choose better colors later on
     fill: {
-      type: ["gradient", "gradient"],
+      // background-image: linear-gradient(to right, #a330b8, #158897);
+      colors: ["#a330b8", "#c42727"],
+      type: ["gradient", "gradient"], // gradient
       gradient: {
-        type: "horizontal",
-        opacityFrom: 0.4,
-        opacityTo: 0.7,
+        type: "vertical", // The gradient in the horizontal direction
+        gradientToColors: ["#158897", "#941616"], // The color at the end of the gradient
+        opacityFrom: 1, // transparency
+        opacityTo: 1,
+        stops: [0, 100],
       },
     },
     labels: [""],

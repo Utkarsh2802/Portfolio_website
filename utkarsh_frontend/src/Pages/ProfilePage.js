@@ -4,6 +4,7 @@ import AreaGraph from "../Components/AreaGraph";
 import Barchart from "../Components/Barchart.js";
 import LineGraph from "../Components/LineGraph";
 import { Card } from "react-bootstrap";
+import "../Design/profilepage.css";
 const ProfilePage = (props) => {
   console.log(props.loggedIn);
   if (props.loggedIn) {
@@ -45,13 +46,14 @@ const ProfilePage = (props) => {
           gap: "2vmin",
         }}
       >
-        <Card bg={"primary"} text={"white"} style={{ width: "18rem" }}>
+        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
           <Card.Header>Overall Average Speed: </Card.Header>
           <Card.Body>
             <Card.Title> {data.data.avg_speed.toFixed(2)} WPM </Card.Title>
           </Card.Body>
         </Card>
-        <Card bg={"success"} text={"white"} style={{ width: "18rem" }}>
+
+        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
           <Card.Header>Improvment Speed:</Card.Header>
           <Card.Body>
             <Card.Title>
@@ -59,7 +61,7 @@ const ProfilePage = (props) => {
             </Card.Title>
           </Card.Body>
         </Card>
-        <Card bg={"danger"} text={"white"} style={{ width: "18rem" }}>
+        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
           <Card.Header>Error %</Card.Header>
           <Card.Body>
             <Card.Title>

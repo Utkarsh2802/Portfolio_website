@@ -25,11 +25,12 @@ const Barchart = (props) => {
       enabled: false,
     },
     fill: {
-      colors: ["green"],
+      // background-image: linear-gradient(to right, #a330b8, #158897);
+      colors: ["#a330b8"],
       type: "gradient", // gradient
       gradient: {
         type: "vertical", // The gradient in the horizontal direction
-        gradientToColors: ["#00C3DF"], // The color at the end of the gradient
+        gradientToColors: ["#158897"], // The color at the end of the gradient
         opacityFrom: 1, // transparency
         opacityTo: 1,
         stops: [0, 120],
@@ -39,8 +40,8 @@ const Barchart = (props) => {
     markers: {
       size: 0,
     },
-    grid:{
-      show:false,//so that i dont see background lines which make it cluttered
+    grid: {
+      show: false, //so that i dont see background lines which make it cluttered
     },
     yaxis: [
       {
