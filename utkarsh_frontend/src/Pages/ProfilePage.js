@@ -27,8 +27,8 @@ const ProfilePage = (props) => {
   return (
     <div
       style={{
-        marginLeft: "15vmin",
-        marginRight: "15vmin",
+        marginLeft: "5vmin",
+        marginRight: "5vmin",
         height: "120vh",
         display: "flex",
         flexDirection: "column",
@@ -65,7 +65,7 @@ const ProfilePage = (props) => {
             <Card.Title>
               {(
                 100 -
-                ((data.data.avg_speed * 5) /
+                ((data.data.avg_speed * 5) / //this formulae assumes that the total time is set to 60seconds so change it accordingly later on if you plan on adding more features
                   (data.data.avg_speed * 5 + data.data.avg_error)) *
                   100
               ).toFixed(2)}

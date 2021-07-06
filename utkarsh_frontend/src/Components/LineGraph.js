@@ -41,7 +41,7 @@ const LineGraph = (props) => {
     },
 
     grid: {
-      show: true,
+      show: false,//this will render the rest of the lines below this moot but i am keeping it for future reference
       yaxis: {
         lines: {
           show: true,

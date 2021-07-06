@@ -1,7 +1,22 @@
 import React from "react";
 import Chart from "react-apexcharts";
+
 const AreaGraph = (props) => {
   console.log(props.data);
+
+  let errorpercent = [];
+  let index = 0;
+  while (index < props.data.data.error_history.length) {
+    errorpercent.push(
+      Math.round(
+        (props.data.data.error_history[index] /
+          (props.data.data.speed_history[index] * 5 +
+            props.data.data.error_history[index])) *
+          100
+      )
+    );
+    index++;
+  }
   var series = [
     {
       name: "WPM",
@@ -10,7 +25,7 @@ const AreaGraph = (props) => {
     {
       name: "Error%",
 
-      data: props.data.data.error_history,
+      data: errorpercent,
     },
   ];
   var options = {
@@ -38,8 +53,28 @@ const AreaGraph = (props) => {
       size: 0,
     },
     tooltip: {
-      x: { show: false },
+      x: {
+        show: false,
+      },
       // y: { show: false },
+    },
+    grid: {
+      show: true,
+      strokeDashArray: 1,
+      yaxis: {
+        lines: {
+          show: true,
+        },
+      },
+
+      row: {
+        colors: undefined,
+        opacity: 0.9,
+      },
+      column: {
+        colors: undefined,
+        opacity: 0.9,
+      },
     },
     yaxis: [
       {
@@ -54,8 +89,9 @@ const AreaGraph = (props) => {
         title: {
           text: "Error%",
         },
-        max: 50,
-        min: 0,
+        //labels:["10","23","45"],
+        //max: 150,
+        //min: 0,
         //logarithmic: true,
         /*labels: {
           formatter: function (value) {
@@ -66,7 +102,9 @@ const AreaGraph = (props) => {
     ],
     xaxis: {
       //tickAmount: 10,
-      tooltip: { enabled: false },
+      tooltip: {
+        enabled: false,
+      },
     },
     title: {
       text: "How your speed varies with respect to errors over all the tests",
@@ -83,14 +121,19 @@ const AreaGraph = (props) => {
   //chart.render();
 
   return (
-    <div style={{ height: "100%", padding: "2vmin" }}>
+    <div
+      style={{
+        height: "100%",
+        padding: "2vmin",
+      }}
+    >
       <Chart
         options={options}
         series={series}
         type={"area"}
         width={"100%"}
         height={"100%"}
-      />
+      />{" "}
     </div>
   );
 };

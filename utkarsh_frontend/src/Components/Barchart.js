@@ -39,6 +39,9 @@ const Barchart = (props) => {
     markers: {
       size: 0,
     },
+    grid:{
+      show:false,//so that i dont see background lines which make it cluttered
+    },
     yaxis: [
       {
         title: {

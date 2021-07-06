@@ -92,7 +92,7 @@ const Addscore = async function (request, response) {
                     alpha: alpha,
                   };
                   console.log(newvalues);
-                  console.log("doing");
+                 // console.log("doing");
                   console.log(email);
                   TypingInfo.updateOne(
                     { email: email },
