@@ -1,3 +1,15 @@
 .cust-card {
      background-image: linear-gradient(to right, #a330b8, #158897);
 }
+.dropdowncolor{
+     max-width: fit-content;
+     background-image: linear-gradient(to right, #a330b8, #158897); 
+     }
+.dropdownitemcolor{
+     background-image: linear-gradient(to right, #a330b8, #158897); 
+     color:white;
+
+     }
+     .dropdown-menu{
+          padding: 0;
+     }

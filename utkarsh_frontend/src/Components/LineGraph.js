@@ -24,6 +24,11 @@ const LineGraph = (props) => {
     },
   ];
   var options = {
+    chart: {
+      toolbar: {
+        show: false,
+      },
+    },
     noData: {
       text: "Not enough data available",
       align: "center",
@@ -98,7 +103,7 @@ const LineGraph = (props) => {
         },
         max: 100,
         min: 0,
-        //forceNiceScale: true,
+        forceNiceScale: true,
         // logarithmic: true,
         //max: 150,
       },
@@ -120,29 +125,45 @@ const LineGraph = (props) => {
   };
 
   return (
-    <div style={{ height: "100%", padding: "2vmin" }}>
+    <div
+      style={{
+        padding: "2vmin",
+      }}
+    >
       <DropdownButton
         id="dropdown-item-button"
         drop="down"
-        title={"Accuracy of: " + curr_alpha.toUpperCase()}
+        title={
+          <span style={{ color: "white", padding: 0 }}>
+            {"Accuracy of: " + curr_alpha.toUpperCase()}
+          </span>
+        }
+        variant="Success"
+        className="dropdowncolor"
       >
-        <div style={{ maxHeight: "17vh", overflowY: "auto" }}>
+        <div style={{ maxHeight: "17vh", overflowY: "auto", padding: 0 }}>
           {props.data.data.alpha.map((element, index) => {
             return (
-              <Dropdown.Item id={element.alphabetname} onClick={handle_click}>
+              <Dropdown.Item
+                id={element.alphabetname}
+                onClick={handle_click}
+                className="dropdownitemcolor"
+              >
                 {element.alphabetname.toUpperCase()}
               </Dropdown.Item>
             );
           })}
         </div>
       </DropdownButton>
-      <Chart
-        options={options}
-        series={series}
-        type={"area"}
-        width={"100%"}
-        height={"100%"}
-      />
+      <div style={{ height: "40vmin" }}>
+        <Chart
+          options={options}
+          series={series}
+          type={"area"}
+          width={"100%"}
+          height={"100%"}
+        />
+      </div>
     </div>
   );
 };

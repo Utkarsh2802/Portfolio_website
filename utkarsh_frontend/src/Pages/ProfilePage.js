@@ -28,13 +28,14 @@ const ProfilePage = (props) => {
   return (
     <div
       style={{
-        marginLeft: "5vmin",
-        marginRight: "5vmin",
-        height: "120vh",
+        position: "relative",
+        marginLeft: "5vw",
+        marginRight: "5vw",
+        //height: "150vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
-        gap: "5vmin",
+        // justifyContent: "space-around",
+        gap: "7vmin",
       }}
     >
       <div

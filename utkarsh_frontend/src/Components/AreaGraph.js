@@ -29,6 +29,9 @@ const AreaGraph = (props) => {
     },
   ];
   var options = {
+    chart: {
+      toolbar: { show: false },
+    },
     dataLabels: {
       enabled: false,
     },
@@ -127,7 +130,8 @@ const AreaGraph = (props) => {
   return (
     <div
       style={{
-        height: "100%",
+        height: "40vmin",
+        //maxHeight: "45vmin",
         padding: "2vmin",
       }}
     >
@@ -137,7 +141,7 @@ const AreaGraph = (props) => {
         type={"area"}
         width={"100%"}
         height={"100%"}
-      />{" "}
+      />
     </div>
   );
 };

@@ -20,17 +20,21 @@ const Barchart = (props) => {
     chart: {
       type: "bar",
       // stacked: "true",
+      toolbar: {
+        show: false,
+        // tools: { dowload: false },
+      },
     },
     dataLabels: {
       enabled: false,
     },
     fill: {
       // background-image: linear-gradient(to right, #a330b8, #158897);
-      colors: ["#a330b8"],
+      colors: ["#158897"],
       type: "gradient", // gradient
       gradient: {
         type: "vertical", // The gradient in the horizontal direction
-        gradientToColors: ["#158897"], // The color at the end of the gradient
+        gradientToColors: ["#a330b8"], // The color at the end of the gradient
         opacityFrom: 1, // transparency
         opacityTo: 1,
         stops: [0, 120],
@@ -48,8 +52,8 @@ const Barchart = (props) => {
         title: {
           text: "Accuracy %",
         },
-        max: 100,
-        min: 0,
+        //max: 100,
+        //min: 0,
         // logarithmic: true,
         //max: 150,
       },
@@ -69,7 +73,7 @@ const Barchart = (props) => {
   //chart.render();
 
   return (
-    <div style={{ height: "100%", padding: "2vmin" }}>
+    <div style={{ height: "40vmin", padding: "2vmin" }}>
       <Chart
         options={options}
         series={series}
