@@ -39,9 +39,9 @@ const AreaGraph = (props) => {
     stroke: {
       show: false,
       curve: "smooth",
-      //color: "green",
+      color: "green",
     },
-
+    colors: ["blue", "red"], //this changes the tooltip color too !importantttt
     //colors: ["green", "red"], //remember to choose better colors later on
     fill: {
       // background-image: linear-gradient(to right, #a330b8, #158897);
@@ -56,14 +56,15 @@ const AreaGraph = (props) => {
       },
     },
     labels: [""],
-    markers: {
-      size: 0,
-    },
+
     tooltip: {
       x: {
         show: false,
       },
-      // y: { show: false },
+      marker: {
+        show: true,
+      },
+      //  y: { show: false },
     },
     grid: {
       show: true,
@@ -120,6 +121,13 @@ const AreaGraph = (props) => {
       style: {
         fontFamily: "cursive",
         fontWeight: 500,
+      },
+    },
+    legend: {
+      show: true,
+      fontFamily: "cursive",
+      markers: {
+        fillColors: ["blue", "red"],
       },
     },
   };
