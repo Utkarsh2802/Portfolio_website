@@ -340,13 +340,14 @@ const TypingHelper = () => {
     <div
       style={{
         position: "absolute",
-
+        marginTop: "10vmin",
         width: "100vw",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly",
+        //justifyContent: "space-evenly",
         alignItems: "center",
+        gap: "10vh",
       }}
     >
       <Animated
@@ -389,9 +390,9 @@ const TypingHelper = () => {
         >
           <div
             style={{
-              marginLeft: "2vw",
-              marginRight: "2vw",
-              padding: "4vmin",
+              marginLeft: "2vh",
+              marginRight: "2vh",
+              //padding: "4vmin",
               width: "fit-content",
               // border: "0.5vmin solid darkblue",
               alignSelf: "center",

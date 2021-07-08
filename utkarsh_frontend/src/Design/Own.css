@@ -108,8 +108,8 @@
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
 .typing_score {
-  width: 14vmax;
-  height: 14vmax;
+  width: 13vmax;
+  height: 13vmax;
   max-width: 27vw;
   max-height: 27vw;
 
