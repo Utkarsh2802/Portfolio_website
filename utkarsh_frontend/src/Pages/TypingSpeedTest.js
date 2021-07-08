@@ -23,11 +23,26 @@ const TypingSpeedTest = () => {
   //    <img src={homepageig} height="100vw" />
   const { height, width } = useWindowDimensions(); //this gives mean the exact height whenever i resize my
   useEffect(() => {
-    setImage(<img src={pexel2} height={height} width={width} />);
+    setImage(
+      <img
+        src={pexel2}
+        height={height}
+        width={width}
+        alt="Some Error occured while loading the background"
+      />
+    );
   }, [height, width]);
   return (
     <div>
-      {image}
+      <Animated
+        animationIn="fadeIn"
+        animationInDelay={500}
+        animationInDuration={1000}
+        animateOnMount={true}
+        isVisible={true}
+      >
+        {image}
+      </Animated>
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         {console.log("typing helper called")}
         <TypingHelper></TypingHelper>

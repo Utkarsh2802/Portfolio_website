@@ -351,11 +351,11 @@ const TypingHelper = () => {
     >
       <Animated
         animationIn="fadeIn"
-        animationOut="fadeOut"
-        animationInDelay={500}
+        animationOut="slideInUp"
+        animationInDelay={200}
         animationOutDelay={0}
-        animationInDuration={1500}
-        animationOutDuration={2000}
+        animationInDuration={1000}
+        animationOutDuration={500}
         animateOnMount={true}
         isVisible={true}
       >
@@ -407,11 +407,11 @@ const TypingHelper = () => {
       {!display_score ? (
         <div>
           <Animated
-            animationIn="fadeIn"
+            animationIn="slideInRight"
             animationOut="fadeOut"
             animationInDelay={0}
             animationOutDelay={0}
-            animationInDuration={500}
+            animationInDuration={1000}
             animationOutDuration={500}
             animateOnMount={true}
             isVisible={!display_score}
@@ -421,7 +421,6 @@ const TypingHelper = () => {
               style={{
                 borderColor: "blue",
                 minWidth: "auto",
-                minHeight: "auto",
                 height: "2vmax",
                 minHeight: "3vh",
                 width: "20vmax",
@@ -450,8 +449,8 @@ const TypingHelper = () => {
 
       {display_score ? (
         <Animated
-          animationIn="fadeIn"
-          animationOut="fadeOut"
+          animationIn="slideInUp"
+          animationOut="slideInDown"
           animationInDelay={0}
           animationOutDelay={0}
           animationInDuration={1000}
@@ -472,11 +471,22 @@ const TypingHelper = () => {
       ) : (
         ""
       )}
-      <Cust_Button
-        onClick={(e) => play_game_handler(e)}
-        ref={play_button_ref}
-        name={play_pause_button}
-      ></Cust_Button>
+      <Animated
+        animationIn="fadeIn"
+        animationOut="fadeOut"
+        animationInDelay={200}
+        animationOutDelay={0}
+        animationInDuration={1000}
+        animationOutDuration={500}
+        animateOnMount={true}
+        isVisible={true}
+      >
+        <Cust_Button
+          onClick={(e) => play_game_handler(e)}
+          ref={play_button_ref}
+          name={play_pause_button}
+        ></Cust_Button>
+      </Animated>
 
       <div></div>
     </div>
