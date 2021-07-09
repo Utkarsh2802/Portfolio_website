@@ -22,7 +22,7 @@
   padding: 15px;
 }
 
-.button {
+#custbutton {
   cursor: pointer;
   border-radius: 5vmax;
   width: 7vmax;
@@ -40,7 +40,7 @@
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
 
-.button span {
+#custbutton span {
   color: transparent;
   background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
   -webkit-background-clip: text;

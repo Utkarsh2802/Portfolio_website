@@ -14,7 +14,7 @@ const Cust_Button = (props) => {
         animateOnMount={true}
         isVisible={true}
       >
-        <button className="button" onClick={props.onClick}>
+        <button id="custbutton" onClick={props.onClick}>
           <span> {props.name} </span>
         </button>
       </Animated>

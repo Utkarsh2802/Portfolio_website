@@ -33,15 +33,15 @@ const HomePage = () => {
         <div className="arrow "></div>
 
         <div className="heading">
-          <button className="button">Singup</button> OR{" "}
-          <button className="button">Login</button>
+          <button id="homepagebutton">Singup</button> OR{" "}
+          <button id="homepagebutton">Login</button>
         </div>
       </div>
       <div className="containerofoption">
         <div className="heading">Just Wanna test your Typing Speed?</div>
         <div className="arrow"></div>
         <div className="heading">
-          <button className="button">Typing Test</button>
+          <button id="homepagebutton">Typing Test</button>
         </div>
       </div>
     </div>
