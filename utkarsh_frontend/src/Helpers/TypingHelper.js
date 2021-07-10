@@ -464,8 +464,8 @@ const TypingHelper = () => {
             style={{ display: "flex", alignContent: "center" }}
           >
             <span>
-              {wpm > 75 ? "Congratulations: " : "Continue Practicing, "} you
-              have a speed of: {wpm} WPM
+              {wpm > 75 ? "Congratulations: " : "Continue Practicing, "}
+              <br></br> You have a speed of: {wpm} WPM
             </span>
           </div>
         </Animated>

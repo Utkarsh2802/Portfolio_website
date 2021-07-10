@@ -98,11 +98,11 @@
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
 .congrats_message span {
-  font-size: 2.5vmax;
+  font-size: 2.2vmax;
   align-self: center;
   color: transparent;
   background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
-
+padding:10vmin;
   -webkit-background-clip: text;
   background-clip: text;
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
@@ -179,4 +179,31 @@
   100% {
     transform: translate(0, -0px);
   }
+}
+@media (max-width:1000px) and (max-height:1000px){
+  .congrats_message {
+  
+  margin:5vmax;
+  width: 75vmin;
+  height: 12vh;
+  min-height: fit-content;
+  min-width: fit-content;
+  border-radius: 5vmax;
+  line-height: 3vmax;
+
+  font-weight: 600;
+}
+  .congrats_message span {
+
+  font-size: 1.6vmax;
+  align-self: center;
+  color: transparent;
+  background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+}
+
+
 }
