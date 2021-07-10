@@ -163,6 +163,7 @@ padding:10vmin;
   background-size: cover;
 }
 .floating {
+  
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;

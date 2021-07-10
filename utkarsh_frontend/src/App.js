@@ -58,7 +58,6 @@ function App() {
       <PlaySound url={Tones}></PlaySound>
       <Switch>
         <Route path={"/TypingSpeedTest"}>
-          {console.log("Typinh")}
           <TypingSpeedTest />
         </Route>
 

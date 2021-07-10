@@ -44,7 +44,6 @@ const TypingSpeedTest = () => {
         {image}
       </Animated>
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
-        {console.log("typing helper called")}
         <TypingHelper></TypingHelper>
       </div>
     </div>

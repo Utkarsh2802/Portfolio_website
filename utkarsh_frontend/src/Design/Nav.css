@@ -17,7 +17,8 @@ align-items: center;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
 .gradientbuttonloop {
-  background-image: linear-gradient(to right, #e040fb, #00bcd4);
+  /* background-image: linear-gradient(to right, #e040fb, #00bcd4); */
+  /* color:#eeeeee; */
   border-radius: 105px;
   width: 9vh;
   height: 4vh;
@@ -28,4 +29,7 @@ align-items: center;
   -webkit-animation: gradient 3s ease infinite;
   -moz-animation: gradient 3s ease infinite;
   animation: gradient 3s ease infinite;
+}
+.logoutbutton:hover{
+  cursor:pointer;
 }

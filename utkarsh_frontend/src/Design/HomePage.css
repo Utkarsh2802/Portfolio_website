@@ -86,6 +86,7 @@ transform: rotate(-45deg);
     .containerofoption{
         display:flex;
         flex-direction: column;
+        
        
     }
     .arrow{

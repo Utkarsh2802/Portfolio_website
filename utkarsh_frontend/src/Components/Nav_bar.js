@@ -41,9 +41,9 @@ const Nav_bar = (props) => {
               <Link to="./Profile">
                 <Navbar.Text>Profile</Navbar.Text>
               </Link>
-              <button className="gradientbuttonloop" onClick={Handle_logout}>
-                Logout
-              </button>
+              <div onClick={Handle_logout} className="logoutbutton">
+                <Navbar.Text>Logout</Navbar.Text>
+              </div>
             </React.Fragment>
           ) : (
             <React.Fragment>

@@ -1,7 +1,5 @@
 import React from "react";
 //import "../Design/Own.css";
-import PlaySound from "../Components/PlaySound";
-import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
 import { Link } from "react-router-dom";
@@ -23,8 +21,7 @@ const HomePage = () => {
         display: "flex",
         backgroundColor: "#e7e5e4",
         flexDirection: "column",
-
-        gap: "13vh",
+        gap: "10vh",
         alignItems: "center",
       }}
     >
@@ -51,6 +48,15 @@ const HomePage = () => {
             <button id="homepagebutton">Typing Test</button>
           </Link>
         </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "95vh",
+          alignContent: "center",
+        }}
+      >
+        <span>Copyright &#169; 2021 Utkarsh Agarwal</span>
       </div>
     </div>
   );

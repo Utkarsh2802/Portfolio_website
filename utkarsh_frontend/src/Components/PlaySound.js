@@ -46,6 +46,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
               cursor: "pointer",
             }}
             src={music_on}
+            alt={"Please reload to get the music button img"}
           ></img>
         ) : (
           <img
@@ -59,6 +60,7 @@ const PlaySound = ({ url, autoPlay = false }) => {
               cursor: "pointer",
             }}
             src={music_off}
+            alt={"Please reload to get the music button img"}
           ></img>
         )}
       </div>

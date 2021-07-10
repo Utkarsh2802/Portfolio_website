@@ -12,7 +12,10 @@ const LoginPage = () => {
     /* Handle_api("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
-
+    if (email === "" || password === "") {
+      alert("Email and Password can't be empty Please try again!"); //remeber to add proper validations and make changes to the ui accordingly
+      return;
+    }
     Handle_api("POST", "/Login", {
       email: email,
       password: password,
@@ -33,13 +36,38 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="LoginPage">
-      <div>Please fill in the following details to Login</div>
-      <div className="credentials">
-        <form onSubmit={handle_login}>
-          <input name="Email" placeholder="Enter Your Email" />
-          <input name="Password" placeholder="Enter Your Password" />
-          <button>LOGIN</button>
+    <div
+      style={{
+        display: "flex",
+        height: "93vh",
+        justifyContent: "space-evenly",
+        flexDirection: "column",
+      }}
+    >
+      <div className="SignupPage">
+        <div className="loginsignupheading">
+          Welcome Back Future Typing God!!
+        </div>
+
+        <form className="signupcredentials" onSubmit={handle_login}>
+          <input className="inputfield" name="Email" placeholder="Email" />
+
+          <input
+            className="inputfield"
+            name="Password"
+            placeholder="Password"
+            type="password"
+          />
+          <button
+            style={{
+              marginTop: "4vh",
+              backgroundImage: " linear-gradient(to right, #a330b8, #158897)",
+              color: "white",
+            }}
+          >
+            {" "}
+            LOGIN
+          </button>
         </form>
       </div>
     </div>
