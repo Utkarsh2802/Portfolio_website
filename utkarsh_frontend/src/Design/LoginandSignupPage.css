@@ -1,0 +1,83 @@
+.LoginPage {
+  display: flex;
+  flex-direction: column;
+  height: 93vh;/*Since the navbar is of height 7vh*/
+  overflow-y: hidden; 
+  background-color:#e7e5e4;
+}
+.credentials{
+  display:flex;
+  flex-direction: column;
+}
+.signupcredentials{
+display:flex;
+flex-direction: column;
+gap:3vh;
+
+}
+.SignupPage{
+  width: 100vw;
+  height:93vh;
+   background-color:#e7e5e4;
+   /* background-image: linear-gradient(to right, #a330b8, #158897);  */
+  display:flex;
+  flex-direction: column;
+  gap:5vh;
+  font-size: 4vh;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.inputfield{
+   background-color:#e7e5e4;
+  border-image:  linear-gradient(to right, #a330b8, #158897);
+       /* background-image: linear-gradient(to right, #a330b8, #158897);  */
+  border-image-slice: 1;
+  border-width: 0 0 0.5vmin 0;
+  
+  font-size :3vh;
+  opacity: 1; /* Firefox */
+  background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
+.inputfield:focus{
+  outline:none;
+  border-width: 0 0 0.8vmin 0;
+
+
+}
+.loginsignupheading{
+  font-size :5vh;
+  opacity: 1; /* Firefox */
+  background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size :3vh;
+  opacity: 1; /* Firefox */
+  background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-size :3vh;
+  background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  font-size :3vh;
+  
+  background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}

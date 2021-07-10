@@ -7,6 +7,12 @@
 }
 
 .nav_custom_colortest {
+  height:7vh;
+font-size: 2.2vh;/*later on change this cuz if height of window is really less then it becomes a problem*/
+min-height: fit-content;
+display: flex;
+align-items: center;
+
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }

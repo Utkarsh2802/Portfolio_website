@@ -32,7 +32,7 @@ const ProfilePage = (props) => {
         marginLeft: "5vw",
         marginRight: "5vw",
         //height: "150vh",
-        backgroundColor: "#e7e5e4",
+
         display: "flex",
         flexDirection: "column",
         // justifyContent: "space-around",

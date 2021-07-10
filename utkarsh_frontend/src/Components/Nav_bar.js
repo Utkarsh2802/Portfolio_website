@@ -26,7 +26,7 @@ const Nav_bar = (props) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            gap: "3vmin",
+            gap: "3vw",
           }}
         >
           <Link to="./">

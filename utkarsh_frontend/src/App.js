@@ -10,6 +10,7 @@ import ProfilePage from "./Pages/ProfilePage";
 import Handle_api from "./Apis/Handle_api";
 import PlaySound from "./Components/PlaySound";
 import Tones from "./Data/Songs/TONES AND I - Dance Monkey.mp3";
+import SignupPage from "./Pages/SignupPage";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -64,11 +65,9 @@ function App() {
         <Route path="/Login">
           {!loggedIn ? <LoginPage isLogin={1} /> : ""}
         </Route>
-        <Route path={"/Signup"}>
-          {!loggedIn ? <LoginPage isLogin={0} /> : ""}
-        </Route>
+        <Route path={"/Signup"}>{!loggedIn ? <SignupPage /> : ""}</Route>
         <Route path="/Profile">
-          {!loggedIn ? "" : <ProfilePage loggedIn={loggedIn} />}
+          {!loggedIn ? <HomePage /> : <ProfilePage loggedIn={loggedIn} />}
         </Route>
         <Route path={"/"}>
           <HomePage />

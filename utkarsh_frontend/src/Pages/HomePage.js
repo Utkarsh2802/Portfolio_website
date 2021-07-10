@@ -4,6 +4,7 @@ import PlaySound from "../Components/PlaySound";
 import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
+import { Link } from "react-router-dom";
 const HomePage = () => {
   document.body.style.padding = 0;
   document.body.style.margin = 0;
@@ -33,15 +34,22 @@ const HomePage = () => {
         <div className="arrow "></div>
 
         <div className="heading">
-          <button id="homepagebutton">Singup</button> OR{" "}
-          <button id="homepagebutton">Login</button>
+          <Link to="/Signup">
+            <button id="homepagebutton">Singup</button>
+          </Link>{" "}
+          OR{" "}
+          <Link to="/Login">
+            <button id="homepagebutton">Login</button>
+          </Link>
         </div>
       </div>
       <div className="containerofoption">
         <div className="heading">Just Wanna test your Typing Speed?</div>
         <div className="arrow"></div>
         <div className="heading">
-          <button id="homepagebutton">Typing Test</button>
+          <Link to="/TypingSpeedTest">
+            <button id="homepagebutton">Typing Test</button>
+          </Link>
         </div>
       </div>
     </div>
