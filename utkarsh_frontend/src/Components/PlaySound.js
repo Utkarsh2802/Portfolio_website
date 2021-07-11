@@ -15,10 +15,10 @@ const PlaySound = ({ url, autoPlay = false }) => {
   }, [playing]); //whenever playing changes
 
   useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false));
+    audio.addEventListener("ended", () => setPlaying(true));
     return () => {
-      audio.removeEventListener("ended", () => setPlaying(false)); // so as to avoid multiple event listeners otherwise everytime i call useeffect an evenlistener will be added
-    }; //basically the cleanup function
+      audio.removeEventListener("ended", () => setPlaying(true)); // so as to avoid multiple event listeners otherwise everytime i call useeffect an evenlistener will be added
+    }; //basically the cleanup function well it wont matter in this case since i am only gonna call it once but still
   }, []); //componentdid mount only initially
 
   return (
