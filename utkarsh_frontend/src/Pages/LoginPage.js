@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Handle_api from "../Apis/Handle_api";
-
 import "../Design/LoginandSignupPage.css";
 
 const LoginPage = () => {
+  const [showerror, setShowerror] = useState("");
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   const handle_login = (event) => {
     let email = event.target.Email.value.toString();
@@ -27,7 +27,7 @@ const LoginPage = () => {
           localStorage.setItem("data", JSON.stringify(response.data)); //response.data.data will have all the details;
           window.location.reload();
         } else {
-          console.log(response.message);
+          setShowerror(response.message);
         }
       })
       .catch((error) => {
@@ -58,6 +58,11 @@ const LoginPage = () => {
             placeholder="Password"
             type="password"
           />
+          {showerror === "" ? (
+            ""
+          ) : (
+            <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
+          )}
           <button
             style={{
               marginTop: "4vh",
@@ -65,7 +70,6 @@ const LoginPage = () => {
               color: "white",
             }}
           >
-            {" "}
             LOGIN
           </button>
         </form>

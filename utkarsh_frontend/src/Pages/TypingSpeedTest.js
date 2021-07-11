@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import "../Design/Own.css";
-import PlaySound from "../Components/PlaySound";
-import Tones from "../Data/Songs/TONES AND I - Dance Monkey.mp3";
 import TypingHelper from "../Helpers/TypingHelper";
-import homepageig from "../Data/Images/hdskyimg.jpg";
-import pexel3 from "../Data/Images/pexel3.jpg";
 import pexel2 from "../Data/Images/pexels9.jpg"; //confused between either 3 or 2
-import musicimg from "../Data/Images/music_off.png";
-import { BsMusicNoteBeamed } from "react-icons/bs";
-import { IconContext } from "react-icons";
 import { Animated } from "react-animated-css";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const TypingSpeedTest = () => {

@@ -6,6 +6,7 @@ import LineGraph from "../Components/LineGraph";
 import { Card } from "react-bootstrap";
 import "../Design/profilepage.css";
 const ProfilePage = (props) => {
+  document.body.style.overflowY = "scroll";
   console.log(props.loggedIn);
   if (props.loggedIn) {
     try {

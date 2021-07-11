@@ -97,3 +97,16 @@ margin-right:0;
 
 }
 }
+.musicattribution .attribution{
+position:absolute;
+z-index: 1;
+    visibility: hidden;
+    color: #ffffff;
+    font-size: 1vmin;
+    /* margin: 5vh; */
+    bottom: 5vh;
+
+}
+.musicattribution:hover .attribution {
+visibility: visible;
+}

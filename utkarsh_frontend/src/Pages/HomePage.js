@@ -56,7 +56,14 @@ const HomePage = () => {
           alignContent: "center",
         }}
       >
-        <span>Copyright &#169; 2021 Utkarsh Agarwal</span>
+        <span className="musicattribution">
+          <span className="attribution">
+            Song From: Avicii - The Nights (Alex Bamford Remix) de Alex Bamford
+            está posteada bajo una licencia Creative Commons.
+          </span>
+          <span className="musicattribution">Copyright</span> &#169; 2021
+          Utkarsh Agarwal
+        </span>
       </div>
     </div>
   );
