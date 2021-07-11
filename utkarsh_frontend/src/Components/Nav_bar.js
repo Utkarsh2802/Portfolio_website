@@ -30,16 +30,16 @@ const Nav_bar = (props) => {
           }}
         >
           <Navbar.Brand href="#home">Typing God </Navbar.Brand>
-          <Link to="./">
+          <Link to="/">
             <Navbar.Text>Home</Navbar.Text>
           </Link>
-          <Link to="./TypingSpeedTest">
+          <Link to="/TypingSpeedTest">
             <Navbar.Text>Typing Test</Navbar.Text>
           </Link>
 
           {props.loggedIn ? (
             <React.Fragment>
-              <Link to="./Profile">
+              <Link to="/Profile">
                 <Navbar.Text>Profile</Navbar.Text>
               </Link>
               <div onClick={Handle_logout} className="logoutbutton">
@@ -48,11 +48,11 @@ const Nav_bar = (props) => {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Link to="./Login">
+              <Link to="/Login">
                 <Navbar.Text>Login</Navbar.Text>
               </Link>
 
-              <Link to="./Signup">
+              <Link to="/Signup">
                 <Navbar.Text>Signup</Navbar.Text>
               </Link>
             </React.Fragment>
