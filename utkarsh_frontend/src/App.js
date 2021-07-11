@@ -56,6 +56,7 @@ function App() {
     <Router>
       <Nav_bar loggedIn={loggedIn}></Nav_bar>
       <PlaySound url={Tones}></PlaySound>
+
       <Switch>
         <Route path={"/TypingSpeedTest"}>
           <TypingSpeedTest />

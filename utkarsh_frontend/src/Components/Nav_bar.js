@@ -21,14 +21,15 @@ const Nav_bar = (props) => {
   return (
     <div className="nav_custom_colortest">
       <Navbar variant="dark">
-        <Navbar.Brand href="#home">UTKARSH</Navbar.Brand>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             gap: "3vw",
+            alignItems: "center",
           }}
         >
+          <Navbar.Brand href="#home">Typing God </Navbar.Brand>
           <Link to="./">
             <Navbar.Text>Home</Navbar.Text>
           </Link>
