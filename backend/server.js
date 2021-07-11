@@ -9,7 +9,7 @@ import session from "express-session";
 dotenv.config(); //this allows me to use environment variables which inturn help me encapsulate my app
 const CONNECTION_URL = process.env.ATLAS_URI;
 //console.log();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(
   express.urlencoded({
