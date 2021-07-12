@@ -24,7 +24,7 @@ const Login = async function (request, response) {
                 "verifier",
                 { username: request.body.email, verifier: docs.verifier },
                 {
-                  maxAge: 60 * 60 * 24 * 365,
+                  maxAge: 60 * 60 * 24 * 365000, //1year
                   sameSite: "none",
                   secure: true,
                   httpOnly: false,
@@ -41,12 +41,12 @@ const Login = async function (request, response) {
             }
           } else {
             response.send({
-              message: "Incorrect Username",
+              message: "Incorrect Email",
               status: 200,
               loggedIn: false,
             });
             response.send({
-              message: "Incorrect Username",
+              message: "Incorrect Email",
               status: 200,
               loggedIn: false,
             });
