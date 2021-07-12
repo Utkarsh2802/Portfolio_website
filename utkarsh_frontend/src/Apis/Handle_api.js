@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; //to allow cookies to be send with the request
 const api = axios.create({
   baseURL: "https://typinggodbackend.herokuapp.com", //"http://127.0.0.1:5000",
   //timeout: 10,
