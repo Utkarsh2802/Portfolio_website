@@ -26,7 +26,7 @@ const Login = async function (request, response) {
                 {
                   maxAge: 60 * 60 * 24 * 365,
                   sameSite: "none",
-                  secure: false,
+                  secure: true,
                   httpOnly: false,
                 }
               );

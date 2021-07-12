@@ -14,8 +14,6 @@ const PlaySound = ({ url, autoPlay = false }) => {
     playing ? audio.play() : audio.pause();
   }, [playing]); //whenever playing changes
 
-  //componentdid mount only initially
-
   return (
     <Animated
       key={playing}
