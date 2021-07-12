@@ -13,8 +13,10 @@ const LoginPage = () => {
     /* Handle_api("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
-    if (email === "" || password === "") {
-      alert("Email and Password can't be empty Please try again!"); //remeber to add proper validations and make changes to the ui accordingly
+    var mailvalidation =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
+    if (!mailvalidation.test(email) && email != "demo.com" && password != "g") {
+      setShowerror("Invalid Credentials!");
       return;
     }
     Handle_api("POST", "/Login", {
