@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import Chart from "react-apexcharts";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
+import "../Design/profilepage.css";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LineGraph = (props) => {
   const [curr_alpha, setCurr_alpha] = useState("a");
   var acc = [];
   props.data.data.alpha[curr_alpha.charCodeAt(0) - 97].accuracy.map(
     (element, index) => {
-      console.log(acc, element);
+      // console.log(acc, element);
       return element == 200 ? -1 : acc.push(Math.round(element)); // so that i dont have null values ie suppose z didnt occur in a test then i will skip it and not show it in the graph in the db i m sroting it as 200 so as to avoaid conflicts with 0 accuracy
     }
   );
-
+  const { height, width } = useWindowDimensions();
   const handle_click = (event) => {
-    console.log(event.target.id);
+    // console.log(event.target.id);
     setCurr_alpha(event.target.id);
   };
-  console.log(acc);
+  //console.log(acc);
   var series = [
     {
       name: curr_alpha,
@@ -120,6 +122,12 @@ const LineGraph = (props) => {
       style: {
         fontFamily: "cursive",
         fontWeight: 500,
+        fontSize:
+          width < 500
+            ? Math.round(width / 40)
+            : width < 900
+            ? Math.round(width / 50)
+            : 16,
       },
     },
   };
@@ -127,21 +135,35 @@ const LineGraph = (props) => {
   return (
     <div
       style={{
-        padding: "2vmin",
+        padding: "0vmin",
+        // display: "flex",
+        // flexDirection: "column",
       }}
     >
       <DropdownButton
         id="dropdown-item-button"
         drop="down"
         title={
-          <span style={{ color: "white", padding: 0 }}>
+          <span
+            style={{
+              color: "white",
+              fontSize: "2.4vmin",
+              textAlign: "center",
+            }}
+          >
             {"Accuracy of: " + curr_alpha.toUpperCase()}
           </span>
         }
         variant="Success"
         className="dropdowncolor"
       >
-        <div style={{ maxHeight: "17vh", overflowY: "auto", padding: 0 }}>
+        <div
+          style={{
+            maxHeight: "17vh",
+            overflowY: "auto",
+            padding: 0,
+          }}
+        >
           {props.data.data.alpha.map((element, index) => {
             return (
               <Dropdown.Item
@@ -155,7 +177,7 @@ const LineGraph = (props) => {
           })}
         </div>
       </DropdownButton>
-      <div style={{ height: "40vmin" }}>
+      <div className="profilegraph">
         <Chart
           options={options}
           series={series}

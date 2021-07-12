@@ -102,6 +102,9 @@ transform: rotate(-45deg);
 }
 @media (max-width: 850px){
     .shadowytext{
+        margin-top: 6vh;
+        margin-left:12vw;
+        margin-right: 12vw;
         text-shadow: 
       0.5px -0.5px 0 #767676, 
       -0.5px 1px 0.5px #737272, 
@@ -169,7 +172,7 @@ z-index: 1;
 .musicattribution:hover .attribution {
 visibility: visible;
 }
-@media (max-width: 225px){
+@media (max-width: 325px){
 .heading{
     font-size: 5vmin;
 }

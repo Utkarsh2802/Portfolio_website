@@ -1,14 +1,16 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import "../Design/profilepage.css";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const Barchart = (props) => {
-  console.log(props.data);
+  //console.log(props.data);
   let alpha_accuracy = props.data.data.alpha.map((element, index) => {
     return 100 - Math.round((element.total_errors / element.total_count) * 100);
   });
   let label = props.data.data.alpha.map((element, index) => {
     return element.alphabetname.toUpperCase();
   });
-
+  const { height, width } = useWindowDimensions();
   var series = [
     {
       name: "Accuracy",
@@ -65,6 +67,12 @@ const Barchart = (props) => {
       style: {
         fontFamily: "cursive",
         fontWeight: 500,
+        fontSize:
+          width < 500
+            ? Math.round(width / 40)
+            : width < 900
+            ? Math.round(width / 50)
+            : 16,
       },
     },
   };
@@ -73,7 +81,7 @@ const Barchart = (props) => {
   //chart.render();
 
   return (
-    <div style={{ height: "40vmin", padding: "2vmin" }}>
+    <div className="profilegraph">
       <Chart
         options={options}
         series={series}

@@ -1,9 +1,10 @@
 import React from "react";
 import Chart from "react-apexcharts";
-
+import "../Design/profilepage.css";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const AreaGraph = (props) => {
-  console.log(props.data);
-
+  //console.log(props.data);
+  const { height, width } = useWindowDimensions(); //so that i can resize my title size accordingly there was no way to use viewport width it was only taking px value for font size
   let errorpercent = [];
   let index = 0;
   while (index < props.data.data.error_history.length) {
@@ -121,6 +122,12 @@ const AreaGraph = (props) => {
       style: {
         fontFamily: "cursive",
         fontWeight: 500,
+        fontSize:
+          width < 500
+            ? Math.round(width / 37)
+            : width < 900
+            ? Math.round(width / 50)
+            : 16,
       },
     },
     legend: {
@@ -136,13 +143,7 @@ const AreaGraph = (props) => {
   //chart.render();
 
   return (
-    <div
-      style={{
-        height: "40vmin",
-        //maxHeight: "45vmin",
-        padding: "2vmin",
-      }}
-    >
+    <div className="profilegraph">
       <Chart
         options={options}
         series={series}

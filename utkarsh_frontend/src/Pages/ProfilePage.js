@@ -29,7 +29,6 @@ const ProfilePage = (props) => {
   return (
     <div
       style={{
-        position: "relative",
         marginLeft: "5vw",
         marginRight: "5vw",
         //height: "150vh",
@@ -40,39 +39,33 @@ const ProfilePage = (props) => {
         gap: "7vmin",
       }}
     >
-      <div
-        style={{
-          // margin: "2vmax",
-          padding: "3vmin",
-          display: "flex",
-          justifyContent: "space-around",
-          gap: "2vmin",
-        }}
-      >
-        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
+      <div className="cardgroup">
+        <Card className="cust-card" text={"white"}>
           <Card.Header>Overall Average Speed: </Card.Header>
           <Card.Body>
-            <Card.Title> {data.data.avg_speed.toFixed(2)} WPM </Card.Title>
+            <Card.Title style={{ fontSize: "inherit" }}>
+              {" "}
+              {data.data.avg_speed.toFixed(2)} WPM{" "}
+            </Card.Title>
           </Card.Body>
         </Card>
 
-        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
+        <Card className="cust-card" text={"white"}>
           <Card.Header>Improvment Speed:</Card.Header>
           <Card.Body>
-            <Card.Title>
+            <Card.Title style={{ fontSize: "inherit" }}>
               {(data.data.improvement_speed * 60).toFixed(2)} WPM / Hr
             </Card.Title>
           </Card.Body>
         </Card>
-        <Card className="cust-card" text={"white"} style={{ width: "18rem" }}>
-          <Card.Header>Error %</Card.Header>
+        <Card className="cust-card" text={"white"}>
+          <Card.Header>Accuracy %</Card.Header>
           <Card.Body>
-            <Card.Title>
+            <Card.Title style={{ fontSize: "inherit" }}>
               {(
-                100 -
                 ((data.data.avg_speed * 5) / //this formulae assumes that the total time is set to 60seconds so change it accordingly later on if you plan on adding more features
                   (data.data.avg_speed * 5 + data.data.avg_error)) *
-                  100
+                100
               ).toFixed(2)}
               %
             </Card.Title>
