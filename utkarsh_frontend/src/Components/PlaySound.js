@@ -7,25 +7,20 @@ import { Animated } from "react-animated-css";
 const PlaySound = ({ url, autoPlay = false }) => {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(autoPlay); //initally playing value is true if autoplay is enabled else flase
-
+  audio.loop = true;
   const toggle = () => setPlaying(!playing); //uses the setplaying function to toggle the state variables value
 
   useEffect(() => {
     playing ? audio.play() : audio.pause();
   }, [playing]); //whenever playing changes
 
-  useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(true));
-    return () => {
-      audio.removeEventListener("ended", () => setPlaying(true)); // so as to avoid multiple event listeners otherwise everytime i call useeffect an evenlistener will be added
-    }; //basically the cleanup function well it wont matter in this case since i am only gonna call it once but still
-  }, []); //componentdid mount only initially
+  //componentdid mount only initially
 
   return (
     <Animated
       key={playing}
       animationIn="fadeIn"
-      animationOut="slideOutLeft"
+      animationOut="fadeOut"
       animationInDelay={0}
       animationOutDelay={0}
       animationInDuration={1000}

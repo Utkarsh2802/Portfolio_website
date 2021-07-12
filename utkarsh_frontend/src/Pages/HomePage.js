@@ -3,7 +3,7 @@ import React from "react";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
 import { Link } from "react-router-dom";
-const HomePage = () => {
+const HomePage = (props) => {
   document.body.style.padding = 0;
   document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
@@ -26,29 +26,38 @@ const HomePage = () => {
       }}
     >
       <h1 className="shadowytext">Typing God</h1>
-      <div className="containerofoption">
-        <div className="heading">Wanna become a Typing God?</div>
-        <div className="arrow "></div>
+      {props.loggedIn == false ? (
+        <React.Fragment>
+          <div className="containerofoption">
+            <div className="heading">Wanna become a Typing God?</div>
+            <div className="arrow "></div>
 
-        <div className="heading">
-          <Link to="/Signup">
-            <button id="homepagebutton">Singup</button>
-          </Link>{" "}
-          OR{" "}
-          <Link to="/Login">
-            <button id="homepagebutton">Login</button>
-          </Link>
+            <div className="heading">
+              <Link to="/Signup">
+                <button id="homepagebutton">Singup</button>
+              </Link>{" "}
+              OR{" "}
+              <Link to="/Login">
+                <button id="homepagebutton">Login</button>
+              </Link>
+            </div>
+          </div>
+          <div className="containerofoption">
+            <div className="heading">Just Wanna test your Typing Speed?</div>
+            <div className="arrow"></div>
+            <div className="heading">
+              <Link to="/TypingSpeedTest">
+                <button id="homepagebutton">Typing Test</button>
+              </Link>
+            </div>
+          </div>
+        </React.Fragment>
+      ) : (
+        <div className="headingonlogin">
+          Congratulations you have take the first step towards becoming a Typing
+          God, now all you have to do is keep practicing!
         </div>
-      </div>
-      <div className="containerofoption">
-        <div className="heading">Just Wanna test your Typing Speed?</div>
-        <div className="arrow"></div>
-        <div className="heading">
-          <Link to="/TypingSpeedTest">
-            <button id="homepagebutton">Typing Test</button>
-          </Link>
-        </div>
-      </div>
+      )}
       <div
         style={{
           position: "absolute",

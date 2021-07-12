@@ -70,7 +70,7 @@ function App() {
           {!loggedIn ? <HomePage /> : <ProfilePage loggedIn={loggedIn} />}
         </Route>
         <Route path={"/"}>
-          <HomePage />
+          <HomePage loggedIn={loggedIn} />
         </Route>
       </Switch>
     </Router>

@@ -11,6 +11,7 @@
     color: #131313;
     background-color: #e7e5e4;
     letter-spacing: .15em;
+   
     text-shadow: 
       1px -1px 0 #767676, 
       -1px 2px 1px #737272, 
@@ -49,6 +50,23 @@
     font-family: cursive;
     display: inline;
 }
+.headingonlogin{
+    position: absolute;
+    top:47vh;
+    
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+     margin-left: 7vw;
+     margin-right:7vw;
+    font-size: 5vmin;
+    font-family: cursive;
+    display: inline-block;
+     background: linear-gradient(to right, #a330b8, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
 #homepagebutton {
     color:#e7e5e4;
         min-width: fit-content;
@@ -82,7 +100,42 @@ transform: rotate(-45deg);
     align-items: center ;
     
 }
-@media (max-width: 900px) and (max-height: 1000px){
+@media (max-width: 850px){
+    .shadowytext{
+        text-shadow: 
+      0.5px -0.5px 0 #767676, 
+      -0.5px 1px 0.5px #737272, 
+      -1px 2px 0.5px #767474, 
+      -1.5px 3px 0.5px #787777, 
+      -2px 4px 0.5px #7b7a7a, 
+      -2.5px 5px 0.5px #7f7d7d, 
+      -3px 6px 0.5px #828181, 
+      -3.5px 7px 0.5px #868585, 
+      -4px 8px 0.5px #8b8a89, 
+      -4.5px 9px 0.5px #8f8e8d, 
+      -5px 10px 0.5px #949392, 
+      -5.5px 11px 0.5px #999897, 
+      -6px 12px 0.5px #9e9c9c, 
+      -6.5px 13px 0.5px #a3a1a1, 
+      -7px 14px 0.5px #a8a6a6, 
+      -7.5px 15px 0.5px #adabab, 
+      -8px 16px 0.5px #b2b1b0, 
+      -8.5px 17px 0.5px #b7b6b5, 
+      -9px 18px 0.5px #bcbbba, 
+      -9.5px 19px 0.5px #c1bfbf, 
+      -10px 20px 0.5px #c6c4c4, 
+      -10.5px 21px 0.5px #cbc9c8, 
+      -11px 22px 0.5px #cfcdcd, 
+      -11.5px 23px 0.5px #d4d2d1, 
+      -12px 24px 0.5px #d8d6d5, 
+      -12.5px 25px 0.5px #dbdad9, 
+      -13px 26px 0.5px #dfdddc, 
+      -13.5px 27px 0.5px #e2e0df, 
+      -14px 28px 0.5px #e4e3e2;
+    }
+    .heading{
+        font-size: 3.5vmin;
+    }
     .containerofoption{
         display:flex;
         flex-direction: column;
@@ -94,6 +147,12 @@ transform: rotate(45deg);
 -webkit-transform: rotate(45deg);
 margin-bottom:6vmin;
 margin-right:0;
+padding:2.7vmin;
+
+}
+.musicattribution{
+    
+    font-size: 2.8vmin;
 
 }
 }
@@ -109,4 +168,21 @@ z-index: 1;
 }
 .musicattribution:hover .attribution {
 visibility: visible;
+}
+@media (max-width: 225px){
+.heading{
+    font-size: 5vmin;
+}
+.containerofoption{
+    gap:9vmin;
+}
+.arrow{
+    padding:6vmin;
+}
+.shadowytext{
+    font-size: 18vmin;
+}
+.musicattribution{
+    font-size:5vmin;
+}
 }

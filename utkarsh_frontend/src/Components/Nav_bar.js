@@ -29,7 +29,9 @@ const Nav_bar = (props) => {
             alignItems: "center",
           }}
         >
-          <Navbar.Brand href="#home">Typing God </Navbar.Brand>
+          <Navbar.Brand className="navlogo" href="#home">
+            Typing God{" "}
+          </Navbar.Brand>
           <Link to="/">
             <Navbar.Text>Home</Navbar.Text>
           </Link>

@@ -56,7 +56,7 @@ gap:3vh;
   background-clip:text;
   -webkit-text-fill-color: transparent;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.inputfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size :3vh;
   opacity: 1; /* Firefox */
   background: linear-gradient(to right, #a330b8, #158897);
@@ -65,7 +65,7 @@ gap:3vh;
   -webkit-text-fill-color: transparent;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.inputfield:-ms-input-placeholder { /* Internet Explorer 10-11 */
   font-size :3vh;
   background: linear-gradient(to right, #a330b8, #158897);
   -webkit-background-clip: text;
@@ -73,7 +73,7 @@ gap:3vh;
   -webkit-text-fill-color: transparent;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+.inputfield::-ms-input-placeholder { /* Microsoft Edge */
   font-size :3vh;
   
   background: linear-gradient(to right, #a330b8, #158897);
