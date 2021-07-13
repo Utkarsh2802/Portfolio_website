@@ -54,16 +54,7 @@ const SignupPage = () => {
             placeholder="Password"
             type="password"
           />
-          <button
-            style={{
-              marginTop: "4vh",
-              backgroundImage: " linear-gradient(to right, #a330b8, #158897)",
-              color: "white",
-            }}
-          >
-            {" "}
-            SIGNUP
-          </button>
+          <button className="loginsignupbutton"> SIGNUP</button>
         </form>
       </div>
     </div>

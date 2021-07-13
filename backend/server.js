@@ -20,7 +20,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://typinggod.com"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3000/",
+      "https://typinggod.com/",
+      "https://typinggod.com",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   })

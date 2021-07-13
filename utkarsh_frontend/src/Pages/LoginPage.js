@@ -67,15 +67,7 @@ const LoginPage = () => {
           ) : (
             <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
           )}
-          <button
-            style={{
-              marginTop: "4vh",
-              backgroundImage: " linear-gradient(to right, #a330b8, #158897)",
-              color: "white",
-            }}
-          >
-            LOGIN
-          </button>
+          <button className="loginsignupbutton">LOGIN</button>
         </form>
       </div>
     </div>

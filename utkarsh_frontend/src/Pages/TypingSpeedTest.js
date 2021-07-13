@@ -29,8 +29,9 @@ const TypingSpeedTest = () => {
     console.log("loaded");
     setLoaded(true);
   };
-  img.src = pexels9;
+
   useEffect(() => {
+    img.src = pexels9;
     console.log("hi utk");
   }, []);
   return (
