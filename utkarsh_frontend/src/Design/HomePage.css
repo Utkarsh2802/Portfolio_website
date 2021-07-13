@@ -1,7 +1,15 @@
+  .roothomepage{
+      flex-direction: column;
+       
+        align-items: center;
+  }
+  .roothomepage > * +*{
+      margin: 10vh 0 0 0;
+  }
   .shadowytext{
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans",sans-serif;
   font-size: 7vmax;
-  padding-top: 2vmin;
+  margin-top: 3vmin;
   
   
   text-align: center;
@@ -47,7 +55,7 @@
 
 .heading{
     font-size: 4vmin;
-    font-family: cursive;
+    font-family: "Comic Sans MS", "Comic Sans",sans-serif;
     display: inline;
 }
 .headingonlogin{
@@ -60,7 +68,7 @@
      margin-left: 7vw;
      margin-right:7vw;
     font-size: 5vmin;
-    font-family: cursive;
+font-family: "Comic Sans MS", "Comic Sans",sans-serif;
     display: inline-block;
      background: linear-gradient(to right, #a330b8, #158897);
   -webkit-background-clip: text;
@@ -100,9 +108,13 @@ transform: rotate(-45deg);
     align-items: center ;
     
 }
-@media (max-width: 850px){
+@media (max-width: 750px){
+    
+  .roothomepage > * +*{
+      margin: 13vw 0 0 0;
+  }
     .shadowytext{
-        margin-top: 6vh;
+        margin-top: 3vh;
         margin-left:12vw;
         margin-right: 12vw;
         text-shadow: 
@@ -155,7 +167,7 @@ padding:2.7vmin;
 }
 .musicattribution{
     
-    font-size: 2.8vmin;
+    font-size: 2.7vmin;
 
 }
 }
@@ -163,8 +175,8 @@ padding:2.7vmin;
 position:absolute;
 z-index: 1;
     visibility: hidden;
-    color: #ffffff;
-    font-size: 1vmin;
+    color: #0a0a0a;
+    font-size: 2vmin;
     /* margin: 5vh; */
     bottom: 5vh;
 
@@ -173,19 +185,23 @@ z-index: 1;
 visibility: visible;
 }
 @media (max-width: 325px){
+    
+  .roothomepage > * +*{
+      margin: 15vw 0 0 0;
+  }
 .heading{
     font-size: 5vmin;
 }
-.containerofoption{
-    gap:9vmin;
+.containerofoption > * + *{
+    margin:7vmin 0 0 0;
 }
 .arrow{
-    padding:6vmin;
+    padding:4vmin;
 }
 .shadowytext{
     font-size: 18vmin;
 }
 .musicattribution{
-    font-size:5vmin;
+    font-size:4.8vmin;
 }
 }

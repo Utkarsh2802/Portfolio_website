@@ -120,7 +120,7 @@ const AreaGraph = (props) => {
       align: "center",
       floating: true, //make it false to create some distance between the graph and the title
       style: {
-        fontFamily: "cursive",
+        fontFamily: "'Comic Sans MS', cursive, sans-serif",
         fontWeight: 500,
         fontSize:
           width < 500
@@ -132,7 +132,7 @@ const AreaGraph = (props) => {
     },
     legend: {
       show: true,
-      fontFamily: "cursive",
+      fontFamily: "'Comic Sans MS', cursive, sans-serif",
       markers: {
         fillColors: ["blue", "red"],
       },

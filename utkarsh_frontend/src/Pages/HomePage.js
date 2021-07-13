@@ -20,10 +20,8 @@ const HomePage = (props) => {
         width: width,
         display: "flex",
         backgroundColor: "#e7e5e4",
-        flexDirection: "column",
-        gap: "10vh",
-        alignItems: "center",
       }}
+      className="roothomepage"
     >
       <h1 className="shadowytext">Typing God</h1>
       {props.loggedIn == false ? (

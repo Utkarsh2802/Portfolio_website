@@ -338,17 +338,18 @@ const TypingHelper = () => {
   }
   return (
     <div
-      style={{
-        position: "absolute",
-        marginTop: "10vmin",
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        //justifyContent: "space-evenly",
-        alignItems: "center",
-        gap: "10vh",
-      }}
+      // style={{
+      //   position: "absolute",
+      //   marginTop: "10vmin",
+      //   width: "100vw",
+      //   height: "100vh",
+      //   display: "flex",
+      //   flexDirection: "column",
+      //   //justifyContent: "space-evenly",
+      //   alignItems: "center",
+      //   gap: "10vh",
+      // }}
+      className="safarirootspeedtest"
     >
       <Animated
         animationIn="fadeIn"
@@ -369,8 +370,8 @@ const TypingHelper = () => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            gap: "5vw",
           }}
+          className="safariscorecardgroup"
         >
           <ScoreCard text="WPM" value={wpm} />
           <ScoreCard text="Time" value={timeLeft} total_time={total_time} />
@@ -428,8 +429,8 @@ const TypingHelper = () => {
 
                 fontSize: "16px",
                 backgroundColor: "transparent",
-                fontStyle: "cursive",
-                fontFamily: "cursive",
+
+                fontFamily: "'Comic Sans MS', cursive, sans-serif",
               }}
               placeholder={
                 play_pause_button !== "Play" && curr_index === 0

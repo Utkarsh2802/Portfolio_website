@@ -25,9 +25,10 @@ const Nav_bar = (props) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            gap: "3vw",
+
             alignItems: "center",
           }}
+          className="safarinavbar"
         >
           <Navbar.Brand className="navlogo" href="#home">
             Typing God{" "}

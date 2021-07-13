@@ -27,18 +27,7 @@ const ProfilePage = (props) => {
   }
 
   return (
-    <div
-      style={{
-        marginLeft: "5vw",
-        marginRight: "5vw",
-        //height: "150vh",
-
-        display: "flex",
-        flexDirection: "column",
-        // justifyContent: "space-around",
-        gap: "7vmin",
-      }}
-    >
+    <div className="safariprofilepageroot">
       <div className="cardgroup">
         <Card className="cust-card" text={"white"}>
           <Card.Header>Overall Average Speed: </Card.Header>

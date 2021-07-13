@@ -21,14 +21,27 @@
           padding: 3vmin;
           display: flex;
           justify-content: space-around;
-          gap: 2vmin;
+          /* gap: 2vmin; */
      }
-
+.cardgroup > * +* {
+     margin: 0 0 0 3vmin;
+}
      .cust-card{
           width:20vw;
      }
 .profilegraph{
      height:40vh;
+}
+.safariprofilepageroot{
+        margin-left: 5vw;
+        margin-right: 5vw;
+        display: flex;
+        flex-direction: column;
+        /* gap: "7vmin", */
+      
+}
+.safariprofilepageroot > *+*{
+     margin:7vmin 0 0 0;
 }
 @media (max-width:700px){
           .cardgroup{font-size:3vmin;

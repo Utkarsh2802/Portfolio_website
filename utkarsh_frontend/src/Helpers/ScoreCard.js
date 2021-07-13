@@ -21,9 +21,8 @@ const ScoreCard = (props) => {
           textAlign: "center",
         }}
       >
+        <span>{props.text}</span> <br></br>
         <span>
-          <bold> {props.text}</bold>
-          <br></br>
           {props.value}
           {props.text === "Accuracy" ? "%" : ""}
           {props.text === "Time" ? "s" : ""}
