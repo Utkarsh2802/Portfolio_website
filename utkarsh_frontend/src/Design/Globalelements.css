@@ -1,13 +1,13 @@
 .music_on{
      transform: translate(93vw,3vh);
-              width: 3vw;
+              width: 2.5vw;
               max-height: 4vh;
               height: 4vw;
               cursor: pointer;
 }
 .music_off{
     transform: translate(93vw,3vh);
-              width: 4vw;
+              width: 3vw;
               max-height: 4vh;
               height: 4vw;
               cursor: pointer;
