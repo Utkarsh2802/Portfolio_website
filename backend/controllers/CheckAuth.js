@@ -31,6 +31,7 @@ const CheckAuth = async function (request, response) {
                     loggedIn: true,
                     status: 200,
                     data: data,
+                    username: docs.username, //last minute addition to show username in the frontend on login
                   });
                 } else {
                   response.send({ message: "No matching details found" });

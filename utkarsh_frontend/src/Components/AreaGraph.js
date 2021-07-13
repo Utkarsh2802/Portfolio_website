@@ -33,6 +33,18 @@ const AreaGraph = (props) => {
     chart: {
       toolbar: { show: false },
     },
+    noData: {
+      text: "Not enough data available",
+      align: "center",
+      verticalAlign: "center",
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        color: "Blue",
+        fontSize: "16px",
+        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
+      },
+    },
     dataLabels: {
       enabled: false,
     },
@@ -120,19 +132,21 @@ const AreaGraph = (props) => {
       align: "center",
       floating: true, //make it false to create some distance between the graph and the title
       style: {
-        fontFamily: "'Comic Sans MS', cursive, sans-serif",
+        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
         fontWeight: 500,
         fontSize:
-          width < 500
-            ? Math.round(width / 37)
+          width < 300
+            ? Math.round(width / 40)
+            : width < 500
+            ? Math.round(width / 40)
             : width < 900
-            ? Math.round(width / 50)
+            ? Math.round(width / 45)
             : 16,
       },
     },
     legend: {
       show: true,
-      fontFamily: "'Comic Sans MS', cursive, sans-serif",
+      fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
       markers: {
         fillColors: ["blue", "red"],
       },

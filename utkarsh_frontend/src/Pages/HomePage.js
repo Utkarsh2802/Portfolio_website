@@ -52,8 +52,8 @@ const HomePage = (props) => {
         </React.Fragment>
       ) : (
         <div className="headingonlogin">
-          Congratulations you have taken the first step towards becoming a
-          Typing God, now all you have to do is keep practicing!
+          Congratulations {props.username} you have taken the first step towards
+          becoming a Typing God, now all you have to do is keep practicing!
         </div>
       )}
       {/* later on add this in the footer simple */}

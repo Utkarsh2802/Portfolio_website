@@ -15,10 +15,12 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
     try {
-      let data = JSON.parse(localStorage.getItem("data"));
+      var data = JSON.parse(localStorage.getItem("data"));
       if (data.loggedIn === true) {
         console.log("Yes logged in");
-        if (!loggedIn) setLoggedIn(true);
+        if (!loggedIn) {
+          setLoggedIn(true);
+        }
       } else {
         if (loggedIn === true) setLoggedIn(false); //if loggedin was true but there no storage in localstorage then we set it to false
       }
@@ -28,7 +30,7 @@ function App() {
   //console.log(JSON.parse(localStorage.getItem("username")));
   useEffect(() => {
     //this will only run once when the app is loaded so basically its the last thing that runs
-    console.log("useeffect called");
+    // console.log("useeffect called");
     Handle_api("GET", "/CheckAuth", {})
       .then((response) => {
         let data = response;
@@ -42,10 +44,9 @@ function App() {
           //i will basically use setstate just so that the localstorage gets updated n the components depending on it also get updated
           console.log("dfhdf");
           localStorage.setItem("data", JSON.stringify(data));
-          setLoggedIn(loggedIn); //this wont change anything but still update all the components of my app
-        }
-        if (response.loggedIn === true) {
-          setLoggedIn(true);
+          if (response.loggedIn === true) {
+            setLoggedIn(true);
+          }
         }
       })
       .catch((err) =>
@@ -70,7 +71,10 @@ function App() {
           {!loggedIn ? <HomePage /> : <ProfilePage loggedIn={loggedIn} />}
         </Route>
         <Route path={"/"}>
-          <HomePage loggedIn={loggedIn} />
+          <HomePage
+            loggedIn={loggedIn}
+            username={loggedIn ? data.username : "none"}
+          />
         </Route>
       </Switch>
     </Router>

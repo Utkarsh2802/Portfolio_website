@@ -58,10 +58,8 @@
     font-family: "Comic Sans MS", "Comic Sans",sans-serif;
     display: inline;
 }
-.headingonlogin{
-    position: absolute;
-    top:47vh;
-    
+.headingonlogin{    
+    margin-top: 20vh;
     justify-content: center;
     align-self: center;
     text-align: center;
@@ -112,6 +110,9 @@ transform: rotate(-45deg);
   .roothomepage > * +*{
       margin: 13vw 0 0 0;
   }
+  .headingonlogin{
+      margin-top: 20vh;
+  }
   .shadowytext{
         margin-top: 3vh;
         margin-left:12vw;
@@ -151,7 +152,9 @@ transform: rotate(-45deg);
 
 }
 @media (max-width: 550px){
-    
+    .headingonlogin{
+        margin-top: 20vh!important;
+    }
   .roothomepage > * +*{
       margin: 13vw 0 0 0;
   }

@@ -430,7 +430,7 @@ const TypingHelper = () => {
                 fontSize: "16px",
                 backgroundColor: "transparent",
 
-                fontFamily: "'Comic Sans MS', cursive, sans-serif",
+                fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
               }}
               placeholder={
                 play_pause_button !== "Play" && curr_index === 0

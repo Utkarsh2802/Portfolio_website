@@ -40,7 +40,7 @@ const LineGraph = (props) => {
       style: {
         color: "Blue",
         fontSize: "16px",
-        fontFamily: "cursive",
+        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
       },
     },
     dataLabels: {
@@ -120,13 +120,15 @@ const LineGraph = (props) => {
       align: "center",
       floating: true, //make it false to create some distance between the graph and the title
       style: {
-        fontFamily: "cursive",
+        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
         fontWeight: 500,
         fontSize:
-          width < 500
+          width < 300
+            ? Math.round(width / 40)
+            : width < 500
             ? Math.round(width / 40)
             : width < 900
-            ? Math.round(width / 50)
+            ? Math.round(width / 45)
             : 16,
       },
     },
@@ -147,7 +149,7 @@ const LineGraph = (props) => {
           <span
             style={{
               color: "white",
-              fontSize: "2.4vmin",
+              fontSize: "3vmin",
               textAlign: "center",
             }}
           >
