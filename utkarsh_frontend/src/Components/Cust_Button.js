@@ -1,5 +1,5 @@
 import React from "react";
-import "../Design/Own.css";
+import "../Design/TypingTestPage.css";
 import { Animated } from "react-animated-css";
 const Cust_Button = (props) => {
   return (

@@ -51,7 +51,12 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
+   
 }
+/* just done for ios */
+.passwordfield{-webkit-text-security: disc;
+    -moz-webkit-text-security: disc;
+    -moz-text-security: disc;}
 .inputfield:focus{
   outline:none;
   border-width: 0 0 0.8vmin 0;

@@ -57,10 +57,10 @@ const LoginPage = () => {
           <input className="inputfield" name="Email" placeholder="Email" />
 
           <input
-            className="inputfield"
+            className={"inputfield passwordfield"}
             name="Password"
             placeholder="Password"
-            type="password"
+            type="text"
           />
           {showerror === "" ? (
             ""

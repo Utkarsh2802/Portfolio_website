@@ -1,5 +1,5 @@
 import React from "react";
-import "../Design/Own.css";
+import "../Design/TypingTestPage.css";
 const Letter = (props) => {
   var color_val;
   if (props.color === -1) {

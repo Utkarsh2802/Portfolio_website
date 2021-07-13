@@ -1,5 +1,5 @@
 import React from "react";
-import "../Design/Own.css";
+import "../Design/TypingTestPage.css";
 const ScoreCard = (props) => {
   let value = props.value;
   if (props.total_time > 0) {

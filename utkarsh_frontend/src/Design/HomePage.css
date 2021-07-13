@@ -109,11 +109,10 @@ transform: rotate(-45deg);
     
 }
 @media (max-width: 750px){
-    
   .roothomepage > * +*{
       margin: 13vw 0 0 0;
   }
-    .shadowytext{
+  .shadowytext{
         margin-top: 3vh;
         margin-left:12vw;
         margin-right: 12vw;
@@ -148,6 +147,14 @@ transform: rotate(-45deg);
       -13.5px 27px 0.5px #e2e0df, 
       -14px 28px 0.5px #e4e3e2;
     }
+    
+
+}
+@media (max-width: 550px){
+    
+  .roothomepage > * +*{
+      margin: 13vw 0 0 0;
+  }
     .heading{
         font-size: 3.5vmin;
     }

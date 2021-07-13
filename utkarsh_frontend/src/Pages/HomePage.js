@@ -1,5 +1,5 @@
 import React from "react";
-//import "../Design/Own.css";
+
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
 import { Link } from "react-router-dom";
@@ -56,22 +56,14 @@ const HomePage = (props) => {
           Typing God, now all you have to do is keep practicing!
         </div>
       )}
-      <div
-        style={{
-          position: "absolute",
-          top: "95vh",
-          alignContent: "center",
-        }}
-      >
-        <span className="musicattribution">
-          <span className="attribution">
-            Song From: Avicii - The Nights (Alex Bamford Remix) de Alex Bamford
-            está posteada bajo una licencia Creative Commons.
-          </span>
-          <span className="musicattribution">Copyright</span> &#169; 2021
-          Utkarsh Agarwal
+      {/* later on add this in the footer simple */}
+      {/* <span className="musicattribution">
+        <span className="attribution">
+          Song From: Avicii - The Nights (Alex Bamford Remix) de Alex Bamford
+          está posteada bajo una licencia Creative Commons.
         </span>
-      </div>
+        <span>Copyright</span> &#169; 2021 Utkarsh Agarwal
+      </span> */}
     </div>
   );
 };

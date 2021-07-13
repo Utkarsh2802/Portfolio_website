@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
-import "../Design/Own.css";
+import "../Design/TypingTestPage.css";
 import { Animated } from "react-animated-css";
 import Cust_Button from "../Components/Cust_Button";
 import Handle_api from "../Apis/Handle_api";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "../Design/Own.css";
+import "../Design/TypingTestPage.css";
 import TypingHelper from "../Helpers/TypingHelper";
 import pexels9 from "../Data/Images/pexels9.jpg"; //confused between either 3 or 2
 import { Animated } from "react-animated-css";
