@@ -54,8 +54,8 @@ const HomePage = (props) => {
         </React.Fragment>
       ) : (
         <div className="headingonlogin">
-          Congratulations you have take the first step towards becoming a Typing
-          God, now all you have to do is keep practicing!
+          Congratulations you have taken the first step towards becoming a
+          Typing God, now all you have to do is keep practicing!
         </div>
       )}
       <div
