@@ -92,17 +92,17 @@ const Addscore = async function (request, response) {
                     alpha: alpha,
                   };
                   console.log(newvalues);
-                 // console.log("doing");
+                  // console.log("doing");
                   console.log(email);
                   TypingInfo.updateOne(
                     { email: email },
                     newvalues,
                     (err, res) => {
                       if (err) {
-                        console.log(err.message);
+                        //console.log(err.message);
                       } else {
-                        console.log(res);
-                        console.log("Done");
+                        //   console.log(res);
+                        // console.log("Done");
                       }
                     }
                   ).catch((err) => {
@@ -112,9 +112,12 @@ const Addscore = async function (request, response) {
                     );
                   });
                   //now i just need to update my database with these values;
+                  console.log("sending...", newvalues);
                   response.send({
                     loggedIn: true,
                     status: 200,
+                    data: newvalues,
+                    username: docs.username,
                   });
                 } else {
                   response.send({ message: "No matching details found" });

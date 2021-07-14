@@ -45,11 +45,6 @@ const Login = async function (request, response) {
               status: 200,
               loggedIn: false,
             });
-            response.send({
-              message: "Incorrect Email",
-              status: 200,
-              loggedIn: false,
-            });
           }
         }
       }
