@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "../Design/Globalelements.css";
 import music_on from "../Data/Images/music_on.png";
 import music_off from "../Data/Images/music_off.png";
-import { Animated } from "react-animated-css";
 
 const PlaySound = ({ url, autoPlay = false }) => {
-  const [audio] = useState(new Audio(url));
+  const [audio] = useState(new Audio());
+  audio.src = url;
   const [playing, setPlaying] = useState(autoPlay); //initally playing value is true if autoplay is enabled else flase
   audio.loop = true;
   const toggle = () => setPlaying(!playing); //uses the setplaying function to toggle the state variables value

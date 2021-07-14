@@ -11,6 +11,7 @@ import Handle_api from "./Apis/Handle_api";
 import PlaySound from "./Components/PlaySound";
 import Tones from "./Data/Songs/Avicii_the_nights.mp3";
 import SignupPage from "./Pages/SignupPage";
+import { UserContext } from "./GlobalContexts.js/UserContext";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -21,9 +22,10 @@ function App() {
         if (!loggedIn) {
           setLoggedIn(true);
         }
-      } else {
-        if (loggedIn === true) setLoggedIn(false); //if loggedin was true but there no storage in localstorage then we set it to false
       }
+      // } else {
+      //   if (loggedIn === true) setLoggedIn(false); //if loggedin was true but there no storage in localstorage then we set it to false
+      // }
     } catch {}
   }
   console.log("hi");
@@ -42,7 +44,7 @@ function App() {
           //then no need to do anything
         } else {
           //i will basically use setstate just so that the localstorage gets updated n the components depending on it also get updated
-          console.log("dfhdf");
+
           localStorage.setItem("data", JSON.stringify(data));
           if (response.loggedIn === true) {
             setLoggedIn(true);
@@ -54,30 +56,31 @@ function App() {
       );
   }, []);
   return (
-    <Router>
-      <Nav_bar loggedIn={loggedIn}></Nav_bar>
-      <PlaySound url={Tones}></PlaySound>
+    <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
+      <Router>
+        <Nav_bar></Nav_bar>
+        <PlaySound url={Tones}></PlaySound>
 
-      <Switch>
-        <Route path={"/TypingSpeedTest"}>
-          <TypingSpeedTest />
-        </Route>
-
-        <Route path="/Login">
-          {!loggedIn ? <LoginPage isLogin={1} /> : ""}
-        </Route>
-        <Route path={"/Signup"}>{!loggedIn ? <SignupPage /> : ""}</Route>
-        <Route path="/Profile">
-          {!loggedIn ? <HomePage /> : <ProfilePage loggedIn={loggedIn} />}
-        </Route>
-        <Route path={"/"}>
-          <HomePage
-            loggedIn={loggedIn}
-            username={loggedIn ? data.username : "none"}
-          />
-        </Route>
-      </Switch>
-    </Router>
+        <Switch>
+          <Route path={"/TypingSpeedTest"}>
+            <TypingSpeedTest />
+          </Route>
+          <Route path="/Loginnewsignup">
+            <LoginPage newsignup={true} />
+          </Route>
+          <Route path="/Login">
+            {!loggedIn ? <LoginPage isLogin={1} /> : ""}
+          </Route>
+          <Route path={"/Signup"}>{!loggedIn ? <SignupPage /> : ""}</Route>
+          <Route path="/Profile">
+            {!loggedIn ? <HomePage /> : <ProfilePage />}
+          </Route>
+          <Route path={"/"}>
+            <HomePage username={loggedIn ? data.username : "none"} />
+          </Route>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

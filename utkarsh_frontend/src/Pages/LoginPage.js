@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Handle_api from "../Apis/Handle_api";
 import "../Design/LoginandSignupPage.css";
-import { useHistory } from "react-router";
-const LoginPage = () => {
+import { useHistory, Redirect } from "react-router";
+import { UserContext } from "../GlobalContexts.js/UserContext";
+const LoginPage = (props) => {
   const [showerror, setShowerror] = useState("");
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const [cursor, setCursor] = useState("default");
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   let history = useHistory();
   const handle_login = (event) => {
@@ -13,6 +16,7 @@ const LoginPage = () => {
     /* Handle_api("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
+    setCursor("wait");
     var mailvalidation =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
     if (!mailvalidation.test(email) && email != "demo.com" && password != "g") {
@@ -24,17 +28,24 @@ const LoginPage = () => {
       password: password,
     })
       .then((response) => {
-        console.log(response);
+        setCursor("default");
+        //console.log(response);
+        //console.log("utksd");
         if (response.loggedIn == true) {
           localStorage.clear();
-          localStorage.setItem("data", JSON.stringify(response.data)); //response.data.data will have all the details;
+          localStorage.setItem("data", JSON.stringify(response)); //response.data.data will have all the details;
+          setLoggedIn(true);
+          //console.log(loggedIn);
           history.push("/Home");
-          window.location.reload();
+          // window.location.href = "/Home";
+          //return <Redirect to="/Home"></Redirect>; this line didnt work check on it later for why?
+          // window.location.reload();
         } else {
           setShowerror(response.message);
         }
       })
       .catch((error) => {
+        setCursor("default");
         console.log(error.message);
       });
   };
@@ -42,6 +53,7 @@ const LoginPage = () => {
   return (
     <div
       style={{
+        cursor: cursor,
         display: "flex",
         height: "93vh",
         justifyContent: "space-evenly",
@@ -50,7 +62,8 @@ const LoginPage = () => {
     >
       <div className="SignupPage">
         <div className="loginsignupheading">
-          Welcome Back Future Typing God!!
+          Welcome {props.newsignup != null ? "Our New" : "Back"} Future Typing
+          God!!
         </div>
 
         <form className="signupcredentials" onSubmit={handle_login}>
@@ -63,10 +76,18 @@ const LoginPage = () => {
             type="text"
           />
           {showerror === "" ? (
-            ""
+            props.newsignup != null ? (
+              <div style={{ color: "green", fontSize: "2.1vh" }}>
+                You have successfully SignedUp Login to use you newly created
+                account
+              </div>
+            ) : (
+              ""
+            )
           ) : (
             <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
           )}
+
           <button className="loginsignupbutton">LOGIN</button>
         </form>
       </div>

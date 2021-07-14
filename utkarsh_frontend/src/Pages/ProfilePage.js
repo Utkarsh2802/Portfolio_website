@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Redirect } from "react-router";
 import AreaGraph from "../Components/AreaGraph";
 import Barchart from "../Components/Barchart.js";
 import LineGraph from "../Components/LineGraph";
 import { Card } from "react-bootstrap";
 import "../Design/profilepage.css";
+import { UserContext } from "../GlobalContexts.js/UserContext";
+
 const ProfilePage = (props) => {
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
   document.body.style.overflowY = "scroll";
-  console.log(props.loggedIn);
-  if (props.loggedIn) {
+  console.log(loggedIn);
+  if (loggedIn) {
     try {
       var data = JSON.parse(localStorage.getItem("data"));
       // console.log(data);

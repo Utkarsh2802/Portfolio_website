@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../GlobalContexts.js/UserContext";
 const HomePage = (props) => {
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
   document.body.style.padding = 0;
   document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
@@ -24,7 +26,7 @@ const HomePage = (props) => {
       className="roothomepage"
     >
       <h1 className="shadowytext">Typing God</h1>
-      {props.loggedIn == false ? (
+      {loggedIn == false ? (
         <React.Fragment>
           <div className="containerofoption">
             <div className="heading">Wanna become a Typing God?</div>

@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import "../Design/Nav.css";
 import { Link } from "react-router-dom";
 import Handle_api from "../Apis/Handle_api";
-const Nav_bar = (props) => {
+import { UserContext } from "../GlobalContexts.js/UserContext";
+const Nav_bar = () => {
+  const [cursor, setCursor] = useState("default");
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
   const Handle_logout = (event) => {
+    setCursor("wait");
     localStorage.clear();
+
     Handle_api("POST", "/Logout", {})
       .then((response) => {
+        setCursor("default");
         console.log("Logged out successfully");
-        window.location.reload();
+        setLoggedIn(false);
       })
       .catch((error) => {
+        setCursor("default");
         console.log(error);
       });
   };
-
+  //console.log("rendered nav bar again");
+  //console.log(loggedIn);
   return (
     <div className="nav_custom_colortest">
       <Navbar variant="dark">
@@ -25,14 +33,13 @@ const Nav_bar = (props) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-
+            minHeight: "fit-content",
             alignItems: "center",
+            cursor: cursor,
           }}
           className="safarinavbar"
         >
-          <Navbar.Brand className="navlogo" href="#home">
-            Typing God{" "}
-          </Navbar.Brand>
+          <Navbar.Brand className="navlogo">Typing God </Navbar.Brand>
           <Link to="/">
             <Navbar.Text>Home</Navbar.Text>
           </Link>
@@ -40,7 +47,7 @@ const Nav_bar = (props) => {
             <Navbar.Text>Typing Test</Navbar.Text>
           </Link>
 
-          {props.loggedIn ? (
+          {loggedIn ? (
             <React.Fragment>
               <Link to="/Profile">
                 <Navbar.Text>Profile</Navbar.Text>

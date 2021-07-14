@@ -30,6 +30,11 @@ align-items: center;
     font-size:4vw;
   }
 }
+@media (min-width:800px) and (max-height:600px){
+  .navlogo{
+    font-size:4vh;
+  }
+}
 .gradientbuttonloop {
   /* background-image: linear-gradient(to right, #e040fb, #00bcd4); */
   /* color:#eeeeee; */
