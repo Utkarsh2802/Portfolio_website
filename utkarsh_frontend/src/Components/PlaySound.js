@@ -20,13 +20,17 @@ const PlaySound = ({ url, autoPlay = false }) => {
         <img
           className="music_on"
           src={music_on}
-          alt={"Please reload to get the music button img"}
+          alt={
+            "Wanna get good at typing? Or just wanna test your typing speed? Get all features in one for free as we help you become a typing god."
+          }
         ></img>
       ) : (
         <img
           className="music_off"
           src={music_off}
-          alt={"Please reload to get the music button img"}
+          alt={
+            "Wanna get good at typing? Or just wanna test your typing speed? Get all features in one for free as we help you become a typing god. "
+          }
         ></img>
       )}
     </div>

@@ -37,7 +37,10 @@ const ProfilePage = (props) => {
           <Card.Body>
             <Card.Title style={{ fontSize: "inherit" }}>
               {" "}
-              {data.data.avg_speed.toFixed(2)} WPM{" "}
+              {data.data.avg_speed == null
+                ? 0
+                : data.data.avg_speed.toFixed(2)}{" "}
+              WPM{" "}
             </Card.Title>
           </Card.Body>
         </Card>
@@ -46,7 +49,10 @@ const ProfilePage = (props) => {
           <Card.Header>Improvment Speed:</Card.Header>
           <Card.Body>
             <Card.Title style={{ fontSize: "inherit" }}>
-              {(data.data.improvement_speed * 60).toFixed(2)} WPM / Hr
+              {data.data.improvement_speed == null
+                ? 0
+                : (data.data.improvement_speed * 60).toFixed(2)}{" "}
+              WPM / Hr
             </Card.Title>
           </Card.Body>
         </Card>
@@ -54,11 +60,13 @@ const ProfilePage = (props) => {
           <Card.Header>Accuracy %</Card.Header>
           <Card.Body>
             <Card.Title style={{ fontSize: "inherit" }}>
-              {(
-                ((data.data.avg_speed * 5) / //this formulae assumes that the total time is set to 60seconds so change it accordingly later on if you plan on adding more features
-                  (data.data.avg_speed * 5 + data.data.avg_error)) *
-                100
-              ).toFixed(2)}
+              {data.data.speed_history.length == 0
+                ? 0
+                : (
+                    ((data.data.avg_speed * 5) / //this formulae assumes that the total time is set to 60seconds so change it accordingly later on if you plan on adding more features
+                      (data.data.avg_speed * 5 + data.data.avg_error)) *
+                    100
+                  ).toFixed(2)}
               %
             </Card.Title>
           </Card.Body>

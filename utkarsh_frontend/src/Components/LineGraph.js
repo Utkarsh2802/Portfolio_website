@@ -6,12 +6,14 @@ import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LineGraph = (props) => {
   const [curr_alpha, setCurr_alpha] = useState("a");
   var acc = [];
-  props.data.data.alpha[curr_alpha.charCodeAt(0) - 97].accuracy.map(
-    (element, index) => {
-      // console.log(acc, element);
-      return element == 200 ? -1 : acc.push(Math.round(element)); // so that i dont have null values ie suppose z didnt occur in a test then i will skip it and not show it in the graph in the db i m sroting it as 200 so as to avoaid conflicts with 0 accuracy
-    }
-  );
+  if (props.data.data.alpha.length > 0) {
+    props.data.data.alpha[curr_alpha.charCodeAt(0) - 97].accuracy.map(
+      (element, index) => {
+        // console.log(acc, element);
+        return element == 200 ? -1 : acc.push(Math.round(element)); // so that i dont have null values ie suppose z didnt occur in a test then i will skip it and not show it in the graph in the db i m sroting it as 200 so as to avoaid conflicts with 0 accuracy
+      }
+    );
+  }
   const { height, width } = useWindowDimensions();
   const handle_click = (event) => {
     // console.log(event.target.id);
