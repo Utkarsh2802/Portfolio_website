@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div
       style={{
-        top: "94vh",
+        top: window.location.pathname == "/Profile" ? "180vh" : "94vh",
         right: "2.5vw",
         margin: 0,
         padding: 0,
