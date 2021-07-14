@@ -11,7 +11,12 @@ const TypingSpeedTest = () => {
   //document.body.style ="background-image: linear-gradient(90deg, #0093E9 0%, #80D0C7 100%)";
   // document.body.style.padding = 0;
   // document.body.style.margin = 0;
-  document.body.style.overflowY = "hidden";
+  document.body.style.overflow = "hidden";
+  const { height, width } = useWindowDimensions();
+  if (width < 500) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+  }
   // const { height, width } = useWindowDimensions(); //this gives mean the exact height whenever i resize my
   // useEffect(() => {
   //   setImage(

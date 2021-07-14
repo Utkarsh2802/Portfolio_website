@@ -10,7 +10,10 @@ const HomePage = (props) => {
   document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
-
+  if (width < 500) {
+    document.body.style.overflowY = "scroll"; //so that i have scrolling option on phones
+    document.body.style.overflowX = "hidden";
+  }
   /*  <video autoPlay loop muted>
         <source src={sample} type="video/mp4" />
       </video>
@@ -18,7 +21,7 @@ const HomePage = (props) => {
   return (
     <div
       style={{
-        height: height,
+        height: height + 50, //just added 50 cuz the height of the div was not filling the full page for phones
         width: width,
         display: "flex",
         backgroundColor: "#e7e5e4",

@@ -108,7 +108,7 @@ transform: rotate(-45deg);
 }
 @media (max-width: 750px){
   .roothomepage > * +*{
-      margin: 13vw 0 0 0;
+      margin: 10vw 0 0 0;
   }
   .headingonlogin{
       margin-top: 20vh;
@@ -148,7 +148,20 @@ transform: rotate(-45deg);
       -13.5px 27px 0.5px #e2e0df, 
       -14px 28px 0.5px #e4e3e2;
     }
-    
+     .containerofoption{
+        display:flex;
+        flex-direction: column;
+        
+       
+    }
+    .arrow{
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
+margin-bottom:6vmin;
+margin-right:0;
+padding:2.7vmin;
+
+}
 
 }
 @media (max-width: 550px){
@@ -186,7 +199,7 @@ position:absolute;
 z-index: 1;
     visibility: hidden;
     color: #0a0a0a;
-    font-size: 2vmin;
+    font-size: 1.5vmin;
     /* margin: 5vh; */
     bottom: 5vh;
 

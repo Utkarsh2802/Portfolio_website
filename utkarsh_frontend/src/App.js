@@ -12,6 +12,7 @@ import PlaySound from "./Components/PlaySound";
 import Tones from "./Data/Songs/Avicii_the_nights.mp3";
 import SignupPage from "./Pages/SignupPage";
 import { UserContext } from "./GlobalContexts.js/UserContext";
+import Footer from "./Components/Footer";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -60,7 +61,6 @@ function App() {
       <Router>
         <Nav_bar></Nav_bar>
         <PlaySound url={Tones}></PlaySound>
-
         <Switch>
           <Route path={"/TypingSpeedTest"}>
             <TypingSpeedTest />
@@ -79,6 +79,9 @@ function App() {
             <HomePage username={loggedIn ? data.username : "none"} />
           </Route>
         </Switch>
+        <Footer></Footer>
+        {/*  i am just putting the copyright here cuz i dont wanna add scroll bars */}
+        {/* and without scroll bar footer would consume too much space */}
       </Router>
     </UserContext.Provider>
   );
