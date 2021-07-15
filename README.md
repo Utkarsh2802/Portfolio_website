@@ -1,1 +1,1 @@
-﻿My first website live here: https://TypingGod.com
+Checkout: https://TypingGod.com a work in progress
