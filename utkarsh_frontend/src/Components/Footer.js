@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
   //   const [cursor, setCursor] = useState("default");
   //   const { loggedIn, setLoggedIn } = useContext(UserContext);
-
+  //const [pathname, setPathname] = useState(window.location.pathname);
   //   //console.log("rendered nav bar again");
   //console.log(loggedIn);
   return (

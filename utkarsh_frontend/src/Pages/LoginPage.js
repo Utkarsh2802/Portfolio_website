@@ -3,6 +3,7 @@ import Handle_api from "../Apis/Handle_api";
 import "../Design/LoginandSignupPage.css";
 import { useHistory, Redirect } from "react-router";
 import { UserContext } from "../GlobalContexts.js/UserContext";
+import Footer from "../Components/Footer";
 const LoginPage = (props) => {
   const [showerror, setShowerror] = useState("");
   const { loggedIn, setLoggedIn } = useContext(UserContext);
@@ -91,6 +92,7 @@ const LoginPage = (props) => {
           <button className="loginsignupbutton">LOGIN</button>
         </form>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

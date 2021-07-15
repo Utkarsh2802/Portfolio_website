@@ -13,6 +13,7 @@ import Tones from "./Data/Songs/Avicii_the_nights.mp3";
 import SignupPage from "./Pages/SignupPage";
 import { UserContext } from "./GlobalContexts.js/UserContext";
 import Footer from "./Components/Footer";
+import LeaderboardPage from "./Pages/LeaderboardPage";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -37,6 +38,7 @@ function App() {
     Handle_api("GET", "/CheckAuth", {})
       .then((response) => {
         let data = response;
+        console.log("checkauth: ", data);
         if (
           localStorage.length > 0 &&
           JSON.stringify(data) == localStorage.getItem(data)
@@ -56,6 +58,7 @@ function App() {
         console.log("some error occured while authenticating the cookie")
       );
   }, []);
+  // console.log("runagain");
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
       <Router>
@@ -75,11 +78,14 @@ function App() {
           <Route path="/Profile">
             {!loggedIn ? <HomePage /> : <ProfilePage />}
           </Route>
+          <Route path={"/Leaderboard"}>
+            <LeaderboardPage username={loggedIn ? data.username : "none"} />
+          </Route>
           <Route path={"/"}>
             <HomePage username={loggedIn ? data.username : "none"} />
           </Route>
         </Switch>
-        <Footer></Footer>
+
         {/*  i am just putting the copyright here cuz i dont wanna add scroll bars */}
         {/* and without scroll bar footer would consume too much space */}
       </Router>

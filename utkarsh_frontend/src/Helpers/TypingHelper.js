@@ -64,7 +64,7 @@ const TypingHelper = () => {
   var linecount = 0;
   const [score, setscore] = useState(0);
   const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 60;
+  var total_time = 3;
   const [timer_started, setTimerstarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(total_time);
   const [wpm, setWpm] = useState(0);

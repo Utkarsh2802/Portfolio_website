@@ -1,5 +1,6 @@
 import Users from "../Model/Users.js";
 import TypingInfo from "../Model/TypingInfo.js";
+import Leaderboard from "../Model/Leaderboard.js";
 const Addscore = async function (request, response) {
   //this would run every time the page reloads
   try {
@@ -91,9 +92,26 @@ const Addscore = async function (request, response) {
                         : 0, //basically improvement speed is 0 if i have not taken any tests otherwise it will be the current avg speed - first test speed divided by the total tests taken
                     alpha: alpha,
                   };
-                  console.log(newvalues);
+                  // console.log(newvalues);
+                  Leaderboard.updateOne(
+                    { username: docs.username },
+                    {
+                      username: docs.username,
+                      avg_speed: newvalues.avg_speed,
+                      tests_taken: newvalues.tests_taken,
+                      accuracy:
+                        ((newvalues.avg_speed * 5) /
+                          (newvalues.avg_speed * 5 + newvalues.avg_error)) *
+                        100,
+                      improvement_speed: newvalues.improvement_speed,
+                    },
+                    (err, res) => {
+                      if (err) console.log(error.message);
+                      else console.log("Successfully updated the leaderboard");
+                    }
+                  );
                   // console.log("doing");
-                  console.log(email);
+                  // console.log(email);
                   TypingInfo.updateOne(
                     { email: email },
                     newvalues,
@@ -112,13 +130,30 @@ const Addscore = async function (request, response) {
                     );
                   });
                   //now i just need to update my database with these values;
-                  console.log("sending...", newvalues);
-                  response.send({
-                    loggedIn: true,
-                    status: 200,
-                    data: newvalues,
-                    username: docs.username,
-                  });
+                  var leaderboardData = "utkarsh";
+                  Leaderboard.find(
+                    {},
+                    null,
+                    { sort: { avg_speed: -1 } },
+                    (err, data) => {
+                      leaderboardData = data; //i am gonna return it even if the user hasnt logged in
+                      //console.log(data);
+                      //console.log(leaderboardData);
+                    }
+                  )
+                    .then(() => {
+                      // console.log("sending...", newvalues);
+                      response.send({
+                        loggedIn: true,
+                        status: 200,
+                        data: newvalues,
+                        username: docs.username,
+                        leaderboardData: leaderboardData,
+                      });
+                    })
+                    .catch((err) => {
+                      console.log(err.message);
+                    });
                 } else {
                   response.send({ message: "No matching details found" });
                 }

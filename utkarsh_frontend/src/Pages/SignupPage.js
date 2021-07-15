@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Handle_api from "../Apis/Handle_api";
 import { useHistory } from "react-router";
 import "../Design/LoginandSignupPage.css";
-
+import Footer from "../Components/Footer";
 const SignupPage = () => {
   let history = useHistory();
   const [showerror, setShowerror] = useState("");
@@ -78,6 +78,7 @@ const SignupPage = () => {
           <button className="loginsignupbutton"> SIGNUP</button>
         </form>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
 import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 const HomePage = (props) => {
   const { loggedIn, setLoggedIn } = useContext(UserContext);
@@ -69,6 +70,7 @@ const HomePage = (props) => {
         </span>
         <span>Copyright</span> &#169; 2021 Utkarsh Agarwal
       </span> */}
+      <Footer></Footer>
     </div>
   );
 };

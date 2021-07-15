@@ -5,6 +5,7 @@ import Barchart from "../Components/Barchart.js";
 import LineGraph from "../Components/LineGraph";
 import { Card } from "react-bootstrap";
 import "../Design/profilepage.css";
+import Footer from "../Components/Footer";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 
 const ProfilePage = (props) => {
@@ -77,6 +78,7 @@ const ProfilePage = (props) => {
       <Barchart data={data} />
 
       <LineGraph data={data}></LineGraph>
+      <Footer></Footer>
     </div>
   );
 };

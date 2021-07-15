@@ -5,6 +5,7 @@ import TypingHelper from "../Helpers/TypingHelper";
 import pexels9 from "../Data/Images/pexels9.jpg"; //confused between either 3 or 2
 import { Animated } from "react-animated-css";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
+import Footer from "../Components/Footer";
 const TypingSpeedTest = () => {
   // Uncomment everything to use the img tag instead of background image all this code helps in resizing the image depending on the window size
   // const [image, setImage] = useState("");
@@ -31,13 +32,13 @@ const TypingSpeedTest = () => {
   const [loaded, setLoaded] = useState(false);
   const img = new Image();
   img.onload = () => {
-    console.log("loaded");
+    console.log("img loaded");
     setLoaded(true);
   };
 
   useEffect(() => {
     img.src = pexels9;
-    console.log("hi utk");
+    console.log("hi utkarsh");
   }, []);
   return (
     <div>
@@ -59,6 +60,7 @@ const TypingSpeedTest = () => {
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         <TypingHelper></TypingHelper>
       </div>
+      <Footer key={Date.now()}></Footer>
     </div>
   );
 };

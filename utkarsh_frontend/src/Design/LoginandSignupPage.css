@@ -40,14 +40,14 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 
 .inputfield{
    background-color:#e7e5e4;
-  border-image:  linear-gradient(to right, #a330b8, #158897);
+ border-image: linear-gradient(to right, #85079b, #158897);
        /* background-image: linear-gradient(to right, #a330b8, #158897);  */
   border-image-slice: 1;
   border-width: 0 0 0.5vmin 0;
   
   font-size :3vh;
   opacity: 1; /* Firefox */
-  background: linear-gradient(to right, #a330b8, #158897);
+  background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
@@ -66,7 +66,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 .loginsignupheading{
   font-size :6vmin;
   opacity: 1; /* Firefox */
-  background: linear-gradient(to right, #a330b8, #158897);
+  background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
@@ -74,7 +74,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 .inputfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size :3vh;
   opacity: 1; /* Firefox */
-  background: linear-gradient(to right, #a330b8, #158897);
+  background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
@@ -84,7 +84,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 .inputfield::-ms-input-placeholder { /* Microsoft Edge */
   font-size :3vh;
   
-  background: linear-gradient(to right, #a330b8, #158897);
+  background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
@@ -92,7 +92,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 
 .loginsignupbutton{
               margin-top: 5vh;
-              background-image: linear-gradient(to right, #a330b8, #158897);
+             background: linear-gradient(to right, #85079b, #158897);
               color: white
             
 }

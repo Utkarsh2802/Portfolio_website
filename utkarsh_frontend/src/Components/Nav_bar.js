@@ -11,12 +11,13 @@ const Nav_bar = () => {
   const { loggedIn, setLoggedIn } = useContext(UserContext);
   const Handle_logout = (event) => {
     setCursor("wait");
-    localStorage.clear();
 
     Handle_api("POST", "/Logout", {})
       .then((response) => {
         setCursor("default");
         console.log("Logged out successfully");
+        localStorage.clear();
+        localStorage.setItem("data", JSON.stringify(response));
         setLoggedIn(false);
       })
       .catch((error) => {
@@ -46,7 +47,9 @@ const Nav_bar = () => {
           <Link to="/TypingSpeedTest">
             <Navbar.Text>Typing Test</Navbar.Text>
           </Link>
-
+          <Link to="/Leaderboard">
+            <Navbar.Text>Leaderboard</Navbar.Text>
+          </Link>
           {loggedIn ? (
             <React.Fragment>
               <Link to="/Profile">
