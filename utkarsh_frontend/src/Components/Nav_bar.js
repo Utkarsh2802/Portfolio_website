@@ -7,21 +7,24 @@ import { Link } from "react-router-dom";
 import Handle_api from "../Apis/Handle_api";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 const Nav_bar = () => {
-  const [cursor, setCursor] = useState("default");
+  // const [cursor, setCursor] = useState("default");
+  const [showSpinner, setShowSpinner] = useState(false);
   const { loggedIn, setLoggedIn } = useContext(UserContext);
   const Handle_logout = (event) => {
-    setCursor("wait");
-
+    // setCursor("wait");
+    setShowSpinner(true);
     Handle_api("POST", "/Logout", {})
       .then((response) => {
-        setCursor("default");
+        // setCursor("default");
+        setShowSpinner(false);
         console.log("Logged out successfully");
         localStorage.clear();
         localStorage.setItem("data", JSON.stringify(response));
         setLoggedIn(false);
       })
       .catch((error) => {
-        setCursor("default");
+        //  setCursor("default");
+        setShowSpinner(false);
         console.log(error);
       });
   };
@@ -36,7 +39,7 @@ const Nav_bar = () => {
             justifyContent: "space-between",
             minHeight: "fit-content",
             alignItems: "center",
-            cursor: cursor,
+            // cursor: cursor,
           }}
           className="safarinavbar"
         >
@@ -72,6 +75,7 @@ const Nav_bar = () => {
           )}
         </div>
       </Navbar>
+      {showSpinner ? <div className="spinner"></div> : ""}
     </div>
   );
 };

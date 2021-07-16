@@ -5,6 +5,7 @@
   height:5vh;
 font-size: 2.2vh;/*later on change this cuz if height of window is really less then it becomes a problem*/
 min-height: fit-content;
+
 display: flex;
 align-items: center;
  font-family: "Comic Sans MS", "Comic Sans",sans-serif;

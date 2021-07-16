@@ -6,6 +6,7 @@ import Footer from "../Components/Footer";
 const SignupPage = () => {
   let history = useHistory();
   const [showerror, setShowerror] = useState("");
+  const [showSpinner, setShowSpinner] = useState(false);
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   const [cursor, setCursor] = useState("default");
   const handle_signup = (event) => {
@@ -16,7 +17,8 @@ const SignupPage = () => {
       setShowerror("Please enter a valid email");
       return;
     }
-    setCursor("wait");
+    //setCursor("wait");
+    setShowSpinner(true);
     let username = event.target.Username.value.toString();
     let email = event.target.Email.value.toString();
     let password = event.target.Password.value.toString();
@@ -30,20 +32,21 @@ const SignupPage = () => {
         // i already return response.data so i can now directly to response.status this status variable is created by me , i am not using the status http status codes
         //console.log(response.status);
 
-        setCursor("default");
+        //setCursor("default");
+        setShowSpinner(false);
         history.push("/Loginnewsignup"); //so that i can redirect the new user to the login page and at the same time i can show him a message that he has successfully signed up
         //later on i can simply add on this feature to include email verification
       })
       .catch((error) => {
         //console.log(error);
-        setCursor("default");
+        // setCursor("default");
+        setShowSpinner(false);
       });
   };
 
   return (
     <div
       style={{
-        cursor: cursor,
         display: "flex",
         height: "93vh",
         justifyContent: "space-evenly",
@@ -86,6 +89,7 @@ const SignupPage = () => {
         </form>
       </div>
       <Footer></Footer>
+      {showSpinner ? <div className="spinner"></div> : ""}
     </div>
   );
 };

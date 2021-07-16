@@ -85,10 +85,12 @@ const Addscore = async function (request, response) {
                     error_history: [...data.error_history, errors],
                     improvement_speed:
                       data.tests_taken > 0
-                        ? ((data.avg_speed * data.tests_taken + wpm) /
-                            (data.tests_taken + 1) -
-                            data.speed_history[0]) /
-                          data.tests_taken
+                        ? (
+                            ((data.avg_speed * data.tests_taken + wpm) /
+                              (data.tests_taken + 1) -
+                              data.speed_history[0]) /
+                            data.tests_taken
+                          ).toFixed(2)
                         : 0, //basically improvement speed is 0 if i have not taken any tests otherwise it will be the current avg speed - first test speed divided by the total tests taken
                     alpha: alpha,
                   };
@@ -104,7 +106,7 @@ const Addscore = async function (request, response) {
                           (newvalues.avg_speed * 5 + newvalues.avg_error)) *
                         100
                       ).toFixed(2),
-                      improvement_speed: newvalues.improvement_speed,
+                      improvement_speed: newvalues.improvement_speed.toFixed(2),
                     },
                     (err, res) => {
                       //   if (err) console.log(error.message);

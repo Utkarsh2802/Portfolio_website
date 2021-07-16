@@ -8,6 +8,7 @@ import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
 const LoginPage = (props) => {
   const [showerror, setShowerror] = useState("");
   const { loggedIn, setLoggedIn } = useContext(UserContext);
+  const [showSpinner, setShowSpinner] = useState(false);
   const [cursor, setCursor] = useState("default");
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   let history = useHistory();
@@ -18,7 +19,8 @@ const LoginPage = (props) => {
     /* Handle_api("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
-    setCursor("wait");
+    // setCursor("wait");
+    setShowSpinner(true);
     var mailvalidation =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
     if (!mailvalidation.test(email) && email != "demo.com" && password != "g") {
@@ -30,7 +32,8 @@ const LoginPage = (props) => {
       password: password,
     })
       .then((response) => {
-        setCursor("default");
+        //setCursor("default");
+        setShowSpinner(true);
         //console.log(response);
         //console.log("utksd");
         if (response.loggedIn == true) {
@@ -51,7 +54,8 @@ const LoginPage = (props) => {
         }
       })
       .catch((error) => {
-        setCursor("default");
+        //setCursor("default");
+        setShowSpinner(false);
         console.log(error.message);
       });
   };
@@ -59,7 +63,7 @@ const LoginPage = (props) => {
   return (
     <div
       style={{
-        cursor: cursor,
+        // cursor: cursor,
         display: "flex",
         height: "93vh",
         justifyContent: "space-evenly",
@@ -104,6 +108,7 @@ const LoginPage = (props) => {
         </form>
       </div>
       <Footer></Footer>
+      {showSpinner == true ? <div className="spinner"></div> : ""}
     </div>
   );
 };
