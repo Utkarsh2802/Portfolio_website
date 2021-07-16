@@ -60,15 +60,22 @@ const SignupPage = () => {
             className="inputfield"
             name="Username"
             placeholder="Username"
+            autoComplete="off"
           />
 
-          <input className="inputfield" name="Email" placeholder="Email" />
+          <input
+            className="inputfield"
+            name="Email"
+            placeholder="Email"
+            autoComplete="off"
+          />
 
           <input
             className="inputfield"
             name="Password"
             placeholder="Password"
             type="password"
+            autoComplete="off"
           />
           {showerror == "" ? (
             ""

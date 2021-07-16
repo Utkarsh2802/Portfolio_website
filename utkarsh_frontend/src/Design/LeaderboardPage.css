@@ -78,8 +78,7 @@ td > * +* {
     margin: 0 0 0 5vmin;
 }
 .Leaderboarduserdata {
-   
-      border: 1.5px solid #07099b; 
+    border: 1.5px solid #07099b; 
   
 }
 @media (max-width:900px)

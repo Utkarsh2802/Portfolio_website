@@ -68,13 +68,19 @@ const LoginPage = (props) => {
         </div>
 
         <form className="signupcredentials" onSubmit={handle_login}>
-          <input className="inputfield" name="Email" placeholder="Email" />
+          <input
+            className="inputfield"
+            name="Email"
+            placeholder="Email"
+            autoComplete="off"
+          />
 
           <input
             className={"inputfield passwordfield"}
             name="Password"
             placeholder="Password"
             type="text"
+            autoComplete="off"
           />
           {showerror === "" ? (
             props.newsignup != null ? (

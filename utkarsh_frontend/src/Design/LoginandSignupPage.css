@@ -53,6 +53,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
   -webkit-text-fill-color: transparent;
    
 }
+
 /* just done for ios */
 .passwordfield{-webkit-text-security: disc;
     -moz-webkit-text-security: disc;
@@ -63,6 +64,7 @@ font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 
 
 }
+
 .loginsignupheading{
   font-size :6vmin;
   opacity: 1; /* Firefox */

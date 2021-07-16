@@ -13,7 +13,7 @@ const CheckAuth = async function (request, response) {
       .then((data) => {
         // console.log(data);
         leaderboardData = data;
-        console.log(leaderboardData);
+        //console.log(leaderboardData);
         //console.log("called auth");
         //console.log(leaderboardData);
         //console.log(leaderboardData);
