@@ -39,14 +39,14 @@ const Footer = () => {
           style={{ color: "black", fontSize: "4vmin" }}
           href="https://www.linkedin.com/in/utkarshagarwal28/"
         >
-          <i class="fa fa-linkedin"></i>
+          <i className="fa fa-linkedin"></i>
         </a>
         {"    "}
         <a
           style={{ marginLeft: "1vw", color: "black", fontSize: "4vmin" }}
           href="https://github.com/Utkarsh2802/Utkarsh_website"
         >
-          <i class="fa fa-github"></i>
+          <i className="fa fa-github"></i>
         </a>
       </span>
     </div>

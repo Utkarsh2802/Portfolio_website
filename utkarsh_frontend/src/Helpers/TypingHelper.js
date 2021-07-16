@@ -319,7 +319,7 @@ const TypingHelper = () => {
       all_letters.push(
         <Letter
           name={wordlist[i]}
-          class="normal_char"
+          className="normal_char"
           key={unique}
           color={wascorrect[i]}
         />
@@ -329,7 +329,7 @@ const TypingHelper = () => {
       all_letters.push(
         <Letter
           name={wordlist[i]}
-          class="blinkk"
+          className="blinkk"
           decor="underline"
           key={unique}
           color={wascorrect[i]}

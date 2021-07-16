@@ -3,6 +3,7 @@
     width:100vw;
     height:93vh;
     background-color: #e7e5e4;
+    
   /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
    background: linear-gradient(to right, #a330b8, #158897); */
     flex-direction: column;
@@ -14,20 +15,20 @@
     margin-top:2vh;
    width: 75vw;
    height: 75vh;
-     background: linear-gradient(to right, #85079b, #158897);
-  -webkit-background-clip: text;
-  background-clip:text;
-  -webkit-text-fill-color: transparent;
      /* color:#e7e5e4; */
 }
 
 th {
+    /* height:10vh; */
     width:12.5vw;
-    /* border: 2px solid blue; */
+    
     text-align: center;
     font-size:1.5vmax;
 font-family: "Comic Sans MS", "Comic Sans",sans-serif;
-
+    background: linear-gradient(to right, #85079b, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
 }
 .Leaderboardoptions{
     margin-top: 3vh;
@@ -67,15 +68,20 @@ background-color:#e7e5e4;
   background-clip:text;
   -webkit-text-fill-color: transparent;
 }
-td{text-align: center;
+td{
+    text-align: center;
     font-size: 1.1vmax;
     font-weight: 500;
     /* border: 2px solid blue; */
     font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+        background: linear-gradient(to right, #85079b, #158897);
+  -webkit-background-clip: text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
 }
 
 td > * +* {
-    margin: 0 0 0 5vmin;
+    margin: 0 0 0 5vmin;font-family: "Comic Sans MS", "Comic Sans",sans-serif;
 }
 .Leaderboarduserdata {
     border: 1.5px solid #07099b; 
@@ -101,7 +107,7 @@ td > * +* {
         font-size: 1.7vmax;
     }
     .LeaderboardPageInput{
-        width: 4vw;
+        width: 7vw;
     }
 
 }
