@@ -87,14 +87,6 @@ const LeaderboardPage = (props) => {
                   ) : (
                     ""
                   )}
-
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? " 🔽"
-                        : " 🔼"
-                      : ""}
-                  </span>
                 </th>
               ))}
             </tr>
