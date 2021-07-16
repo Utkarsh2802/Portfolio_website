@@ -2,6 +2,7 @@ const LeaderboardFormatter = () => {
   const data = JSON.parse(localStorage.getItem("data"));
   var userdata = { datapresent: false };
   var username = null;
+
   if (data.loggedIn == true) {
     username = data.username;
   }

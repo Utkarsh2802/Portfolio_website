@@ -4,6 +4,7 @@ import "../Design/LoginandSignupPage.css";
 import { useHistory, Redirect } from "react-router";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 import Footer from "../Components/Footer";
+import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
 const LoginPage = (props) => {
   const [showerror, setShowerror] = useState("");
   const { loggedIn, setLoggedIn } = useContext(UserContext);
@@ -35,7 +36,11 @@ const LoginPage = (props) => {
         if (response.loggedIn == true) {
           localStorage.clear();
           localStorage.setItem("data", JSON.stringify(response)); //response.data.data will have all the details;
-          setLoggedIn(true);
+          setLoggedIn(() => {
+            const [something, userdata] = LeaderboardFormatter();
+            console.log(userdata);
+            return true;
+          });
           //console.log(loggedIn);
           history.push("/Home");
           // window.location.href = "/Home";

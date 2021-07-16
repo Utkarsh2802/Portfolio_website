@@ -5,6 +5,7 @@ const Login = function (request, response) {
   try {
     var email = request.body.email;
     var flag = 0;
+    var username;
     // console.log(request.cookies.verifier.verifier);
     //console.log("query received");
     Leaderboard.find(
@@ -43,6 +44,7 @@ const Login = function (request, response) {
                       httpOnly: false,
                     }
                   );
+                  username = docs.username;
                   flag = 1;
 
                   //  console.log("correct");
@@ -80,6 +82,7 @@ const Login = function (request, response) {
                     loggedIn: true,
                     status: 200,
                     leaderboardData: leaderboardData,
+                    username: username,
                   }); //idk why the spread operator was not working
                 }
               });

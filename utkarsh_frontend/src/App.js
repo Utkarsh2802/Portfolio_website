@@ -30,7 +30,7 @@ function App() {
       // }
     } catch {}
   }
-  console.log("hi");
+  // console.log("hi");
   //console.log(JSON.parse(localStorage.getItem("username")));
   useEffect(() => {
     //this will only run once when the app is loaded so basically its the last thing that runs
@@ -58,6 +58,7 @@ function App() {
         console.log("some error occured while authenticating the cookie")
       );
   }, []);
+  //console.log("statechanged");
   // console.log("runagain");
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
@@ -82,7 +83,7 @@ function App() {
             <LeaderboardPage username={loggedIn ? data.username : "none"} />
           </Route>
           <Route path={"/"}>
-            <HomePage username={loggedIn ? data.username : "none"} />
+            <HomePage username={loggedIn ? data.username : ""} />
           </Route>
         </Switch>
 

@@ -10,6 +10,7 @@ const LeaderboardPage = (props) => {
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   const [leaderboardData, userData] = LeaderboardFormatter();
   //console.log(mydata);
+
   const COLUMNS = [
     {
       Header: "Rank",
