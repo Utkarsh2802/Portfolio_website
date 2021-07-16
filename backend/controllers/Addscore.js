@@ -99,15 +99,17 @@ const Addscore = async function (request, response) {
                       username: docs.username,
                       avg_speed: newvalues.avg_speed,
                       tests_taken: newvalues.tests_taken,
-                      accuracy:
+                      accuracy: (
                         ((newvalues.avg_speed * 5) /
                           (newvalues.avg_speed * 5 + newvalues.avg_error)) *
-                        100,
+                        100
+                      ).toFixed(2),
                       improvement_speed: newvalues.improvement_speed,
                     },
                     (err, res) => {
-                      if (err) console.log(error.message);
-                      else console.log("Successfully updated the leaderboard");
+                      //   if (err) console.log(error.message);
+                      //   else console.log("Successfully updated the leaderboard");
+                      //
                     }
                   );
                   // console.log("doing");

@@ -1,31 +1,31 @@
 .music_on{
      transform: translate(93vw,3vh);
               width: 2.5vw;
-              max-height: 4vh;
-              height: 4vw;
+              max-height: 3vw;
+              height: 3vw;
               cursor: pointer;
 }
 .music_off{
     transform: translate(93vw,3vh);
               width: 3vw;
-              max-height: 4vh;
-              height: 4vw;
+              max-height: 3vw;
+              height: 3vw;
               cursor: pointer;
          
 }
 @media (max-width:600px) {
     .music_on{
- transform: translate(93vw,1vh);
-              width: 5vw;
-              max-height: 3vw;
-              height: 3vh;
+transform: translate(93vw,3vh);
+              width: 3.5vw;
+              max-height: 4vw;
+              height: 4vw;
               cursor: pointer;
 }
 .music_off{
     transform: translate(92vw,1vh);
-              width: 6vw;
-              max-height: 3vh;
-              height: 3vh;
+              width: 4vw;
+              max-height: 4vw;
+              height: 4vw;
               cursor: pointer;
          
 }

@@ -8,7 +8,7 @@ import { useTable, usePagination, useSortBy } from "react-table";
 import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
 const LeaderboardPage = (props) => {
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
-  const leaderboardData = LeaderboardFormatter();
+  const [leaderboardData, userData] = LeaderboardFormatter();
   //console.log(mydata);
   const COLUMNS = [
     {
@@ -24,7 +24,7 @@ const LeaderboardPage = (props) => {
       accessor: "tests_taken",
     },
     {
-      Header: "Average Speed",
+      Header: "Speed In WPM",
       accessor: "avg_speed",
     },
     {
@@ -32,7 +32,7 @@ const LeaderboardPage = (props) => {
       accessor: "accuracy",
     },
     {
-      Header: "Rate of Improvement in WPM/hr",
+      Header: "Improvement Speed",
       accessor: "improvement_speed",
     },
   ];
@@ -74,13 +74,19 @@ const LeaderboardPage = (props) => {
 
   return (
     <div className="Leaderboardroot">
-      <table {...getTableProps}>
+      <table className="Leaderboardtableroot" {...getTableProps}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
+                  <i> {column.render("Header")}</i>
+                  {column.render("Header") === "Improvement Speed" ? (
+                    <span style={{ fontSize: "1.5vmin" }}> (WPM/Hr)</span>
+                  ) : (
+                    ""
+                  )}
+
                   <span>
                     {column.isSorted
                       ? column.isSortedDesc
@@ -106,22 +112,34 @@ const LeaderboardPage = (props) => {
               </tr>
             );
           })}{" "}
-          <tr>
-            <td>sdf</td>
-            <td>Current User</td>
-          </tr>
+          {userData.datapresent == true ? (
+            <tr className="Leaderboarduserdata">
+              <td>{userData.rank}</td>
+              <td>{userData.username}</td>
+              <td>{userData.tests_taken}</td>
+              <td>{userData.avg_speed}</td>
+              <td>{userData.accuracy}</td>
+              <td>{userData.improvement_speed}</td>
+            </tr>
+          ) : (
+            ""
+          )}
         </tbody>
       </table>
-      <div>
-        <span>
-          Page
-          <b>
-            {pageIndex + 1} of {pageOptions.length}
-          </b>{" "}
-        </span>
+      <div className="Leaderboardoptions">
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {"<<"}
+        </button>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          Previous
+        </button>
+        <span>Page</span>
         <span>
           <input
+            className="LeaderboardPageInput"
             type="number"
+            min={1}
+            max={pageOptions.length}
             defaultValue={pageIndex + 1}
             onChange={(e) => {
               const pageNumber = e.target.value
@@ -130,13 +148,8 @@ const LeaderboardPage = (props) => {
               gotoPage(pageNumber);
             }}
           ></input>
+          <span>of {pageOptions.length}</span>
         </span>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {"<<"}
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          Previous
-        </button>
         <button onClick={() => nextPage()} disabled={!canNextPage}>
           Next
         </button>

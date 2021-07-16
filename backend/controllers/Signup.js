@@ -26,7 +26,7 @@ const Signup = (request, response) => {
                 });
               })
               .catch((err) => {
-                console.log(err.message);
+                //console.log(err.message);
                 response.send({
                   message: "Some error while adding entry to new leaderboard",
                   status: 400,
@@ -34,16 +34,16 @@ const Signup = (request, response) => {
               });
           })
           .catch((err) => {
-            console.log(err.message);
+            // console.log(err.message);
             response.send({
-              message: "Some error while saving user_typing_info",
+              message: "Please use a unique email and password",
               status: 400,
             });
           });
         // console.log("Succesfull Insertion");
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
         response.send({
           message: "Please make sure that you haven't already signed up",
           status: 200,
