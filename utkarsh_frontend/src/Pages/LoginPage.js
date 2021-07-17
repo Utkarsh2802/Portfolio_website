@@ -25,6 +25,7 @@ const LoginPage = (props) => {
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
     if (!mailvalidation.test(email) && email != "demo.com" && password != "g") {
       setShowerror("Invalid Credentials!");
+      setShowSpinner(false);
       return;
     }
     Handle_api("POST", "/Login", {
@@ -33,7 +34,7 @@ const LoginPage = (props) => {
     })
       .then((response) => {
         //setCursor("default");
-        setShowSpinner(true);
+        setShowSpinner(false);
         //console.log(response);
         //console.log("utksd");
         if (response.loggedIn == true) {
