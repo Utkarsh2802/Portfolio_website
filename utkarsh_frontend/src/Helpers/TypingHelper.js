@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
 import "../Design/TypingTestPage.css";
 import { Animated } from "react-animated-css";
 import Cust_Button from "../Components/Cust_Button";
 import Handle_api from "../Apis/Handle_api";
+import { UserContext } from "../GlobalContexts.js/UserContext";
 var randomwords = require("random-words");
 var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute bt still to be on a safer side
 var curr_index = 0;
@@ -56,6 +57,7 @@ var alpha = [
 var reset_clicked = false;
 //everything above this runs only once
 const TypingHelper = () => {
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
   const [display_score, setDisplayscore] = useState(false);
   unique++; // added it to get rid fo the unique child warning but to no avail
   const input_ref = React.useRef(null); // i will use this to create a reference of the input tag so that i can set its value even though i am clicking a separate element
@@ -181,21 +183,23 @@ const TypingHelper = () => {
           accuracy: accuracy,
           alpha: alpha,
         });*/
-
-        Handle_api("POST", "/Addscore", {
-          wpm: Math.round((score / total_time) * 12), // i am not usign wpm here cuz the latest wpm is yet to be updated the score has been update already so i am just using that
-          errors: mistakes,
-          time: total_time,
-          accuracy: accuracy,
-          alpha: alpha, //this send the charactedr data provided that i am logged in
-        })
-          .then((response) => {
-            localStorage.setItem("data", JSON.stringify(response));
-            console.log(response);
+        if (loggedIn) {
+          Handle_api("POST", "/Addscore", {
+            wpm: Math.round((score / total_time) * 12), // i am not usign wpm here cuz the latest wpm is yet to be updated the score has been update already so i am just using that
+            errors: mistakes,
+            time: total_time,
+            accuracy: accuracy,
+            alpha: alpha, //this send the charactedr data provided that i am logged in
           })
-          .catch((error) => {
-            console.log(error.message);
-          });
+            .then((response) => {
+              localStorage.setItem("data", JSON.stringify(response));
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log("request");
+              console.log(error.message);
+            });
+        }
       }
     }
     // play_button_ref.current.style.visibility = "hidden";

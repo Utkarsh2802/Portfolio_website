@@ -3,12 +3,14 @@ import TypingInfo from "../Model/TypingInfo.js";
 import Leaderboard from "../Model/Leaderboard.js";
 const Addscore = async function (request, response) {
   //this would run every time the page reloads
+  console.log("got request");
   try {
     //var email = request.body.email;
     // console.log(request.cookies);
     // console.log("Addscore clicked");
     var email;
     if (request.cookies != null) {
+      console.log("cookie present");
       //console.log(request.cookies.verifier.verifier);
       const something = await Users.findOne(
         //as there will only be one user
@@ -16,6 +18,7 @@ const Addscore = async function (request, response) {
         { verifier: request.cookies.verifier.verifier },
         (err, docs) => {
           if (err) {
+            console.log(err.message);
             response.send({
               loggednIn: false,
               message:
@@ -29,6 +32,7 @@ const Addscore = async function (request, response) {
               email = docs.email;
               TypingInfo.findOne({ email: docs.email }, (err, data) => {
                 //console.log(data);
+                console.log(" gottyping data ");
                 if (data != null) {
                   //console.log(request.body);
                   let alpha = request.body.alpha;
@@ -75,9 +79,10 @@ const Addscore = async function (request, response) {
                   let newvalues = {
                     email: email,
                     tests_taken: data.tests_taken + 1,
-                    avg_speed:
+                    avg_speed: (
                       (data.avg_speed * data.tests_taken + wpm) /
-                      (data.tests_taken + 1),
+                      (data.tests_taken + 1)
+                    ).toFixed(2),
                     avg_error:
                       (data.avg_error * data.tests_taken + errors) /
                       (data.tests_taken + 1),
@@ -106,7 +111,7 @@ const Addscore = async function (request, response) {
                           (newvalues.avg_speed * 5 + newvalues.avg_error)) *
                         100
                       ).toFixed(2),
-                      improvement_speed: newvalues.improvement_speed.toFixed(2),
+                      improvement_speed: newvalues.improvement_speed,
                     },
                     (err, res) => {
                       //   if (err) console.log(error.message);
@@ -146,7 +151,7 @@ const Addscore = async function (request, response) {
                     }
                   )
                     .then(() => {
-                      // console.log("sending...", newvalues);
+                      console.log("sending...", newvalues);
                       response.send({
                         loggedIn: true,
                         status: 200,
@@ -177,6 +182,7 @@ const Addscore = async function (request, response) {
       response.send({ loggedIn: false, data: {} });
     }
   } catch (error) {
+    console.log(error.message);
     response.send({
       message: "Sorry our servers are down currently",
       status: 400,
