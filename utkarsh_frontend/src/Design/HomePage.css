@@ -8,7 +8,7 @@
       margin: 10vh 0 0 0;
   }
   .shadowytext{
-  font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   font-size: 7vmax;
   margin-top: 3vmin;
   
@@ -56,7 +56,7 @@
 
 .heading{
     font-size: 4vmin;
-    font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+    font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     display: inline;
 }
 .headingonlogin{    
@@ -67,7 +67,7 @@
      margin-left: 7vw;
      margin-right:7vw;
     font-size: 5vmin;
-font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     display: inline-block;
      background: linear-gradient(to right, #a330b8, #158897);
   -webkit-background-clip: text;

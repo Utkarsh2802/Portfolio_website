@@ -42,7 +42,7 @@ const AreaGraph = (props) => {
       style: {
         color: "Blue",
         fontSize: "16px",
-        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
+        fontFamily: "'Comic Sans MS', 'Comic Sans','Marker Felt',sans-serif",
       },
     },
     dataLabels: {
@@ -132,7 +132,7 @@ const AreaGraph = (props) => {
       align: "center",
       floating: true, //make it false to create some distance between the graph and the title
       style: {
-        fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
+        fontFamily: "'Comic Sans MS', 'Comic Sans','Marker Felt',sans-serif",
         fontWeight: 500,
         fontSize:
           width < 300
@@ -146,7 +146,7 @@ const AreaGraph = (props) => {
     },
     legend: {
       show: true,
-      fontFamily: "'Comic Sans MS', 'Comic Sans',sans-serif",
+      fontFamily: "'Comic Sans MS', 'Comic Sans','Marker Felt',sans-serif",
       markers: {
         fillColors: ["blue", "red"],
       },

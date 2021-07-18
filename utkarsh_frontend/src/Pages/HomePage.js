@@ -47,7 +47,7 @@ const HomePage = (props) => {
             </div>
           </div>
           <div className="containerofoption">
-            <div className="heading">Just Wanna test your Typing Speed?</div>
+            <div className="heading">Just wanna test your Typing Speed?</div>
             <div className="arrow"></div>
             <div className="heading">
               <Link to="/TypingSpeedTest">

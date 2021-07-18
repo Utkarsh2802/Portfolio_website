@@ -1,5 +1,4 @@
 
-
 #custbutton {
   cursor: pointer;
   border-radius: 5vmax;
@@ -28,13 +27,13 @@
 
 .normal_char {
   font-size: 3vmin;
-font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   color: #008000;
   text-align: center;
 }
 .blinkk {
   font-size: 3vmin;
-font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   color: #008000;
   text-align: center;
   animation: animate_blink 1.5s linear infinite;
@@ -94,7 +93,7 @@ padding:10vmin;
   min-width: fit-content;
   min-height: fit-content;
   border-radius: 60vmax;
-font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);

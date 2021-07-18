@@ -9,7 +9,6 @@ const Letter = (props) => {
   } else {
     color_val = "blue";
   }
-  let styles = { color: color_val };
   return (
     <span
       className={props.class}

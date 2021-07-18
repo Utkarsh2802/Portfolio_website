@@ -6,7 +6,7 @@ font-size: 2.2vh;/*later on change this cuz if height of window is really less t
 min-height: fit-content;
 display: flex;
 align-items: center;
- font-family: "Comic Sans MS", "Comic Sans",sans-serif;
+font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
  text-align: center;
  
   background-color: #000000;
