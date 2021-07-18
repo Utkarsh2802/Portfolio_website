@@ -100,7 +100,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
               color: white
             
 }
-@media (max-width:450px){
+@media (max-width:500px){
 .SignupPage{
   font-size:7vw;
 
@@ -109,6 +109,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   width:70vw;
 }
 .loginsignupheading{
+  /* margin:0 0 5vw 5vw; */
   font-size:10vw;
   text-align: center;
  width:70vw;

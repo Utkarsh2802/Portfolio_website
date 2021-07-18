@@ -1,5 +1,8 @@
 
 
+
+
+
 .nav_custom_colortest {
   height:7vh;
 font-size: 2.2vh;/*later on change this cuz if height of window is really less then it becomes a problem*/
@@ -8,12 +11,22 @@ display: flex;
 align-items: center;
 font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
  text-align: center;
- 
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
    .safarinavbar > * + *{/*select element which have a sibling so that i can recreate gap property of flexbox */
       margin: 0 0 0 3vw;
+}
+ .nav_custom_colortest > * > * >*> *:active{
+    color: white;
+    font-size:larger;
+} 
+@media (min-width:701px){
+.nav_custom_colortest > * > * >*> *:hover{
+    color: white;font-size:larger;
+    /* cuz hover doesnt work properly on mobile phones and using inherit in the below media query was giving odd results */
+}
+
 }
 @media (max-width:700px){
 

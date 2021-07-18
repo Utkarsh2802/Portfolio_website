@@ -20,7 +20,9 @@ import { UserContext } from "./GlobalContexts.js/UserContext";
 import Footer from "./Components/Footer";
 import LeaderboardPage from "./Pages/LeaderboardPage";
 import pexels9 from "./Data/Images/pexels9.jpg";
+
 function App() {
+  const location = useLocation();
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
     try {
@@ -69,45 +71,46 @@ function App() {
 
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
-      <Router>
-        <Nav_bar></Nav_bar>
-        <div
-          style={{
-            position: "absolute",
-            height: loggedIn ? "185vh" : "95vh",
-            width: "100%",
-            backgroundImage: `url(${pexels9})`,
-            backgroundSize: loggedIn ? "" : "cover",
-            backgroundPosition: loggedIn ? "" : "center",
-            // backgroundRepeat: "repeat-y",
-          }}
-        ></div>
-        <PlaySound url={Tones}></PlaySound>
-        <Switch>
-          <Route path={"/TypingSpeedTest"}>
-            <TypingSpeedTest />
-          </Route>
-          <Route path="/Loginnewsignup">
-            <LoginPage newsignup={true} />
-          </Route>
-          <Route path="/Login">
-            {!loggedIn ? <LoginPage isLogin={1} /> : ""}
-          </Route>
-          <Route path={"/Signup"}>{!loggedIn ? <SignupPage /> : ""}</Route>
-          <Route path="/Profile">
-            {!loggedIn ? <HomePage /> : <ProfilePage />}
-          </Route>
-          <Route path={"/Leaderboard"}>
-            <LeaderboardPage username={loggedIn ? data.username : "none"} />
-          </Route>
-          <Route path={"/"}>
-            <HomePage username={loggedIn ? data.username : ""} />
-          </Route>
-        </Switch>
+      <Nav_bar></Nav_bar>
+      <div
+        style={{
+          position: "absolute",
+          height:
+            location.pathname == "/Profile" && loggedIn ? "185vh" : "95vh",
+          width: "100%",
+          backgroundImage: `url(${pexels9})`,
+          backgroundSize:
+            location.pathname == "/Profile" && loggedIn ? "" : "cover",
+          backgroundPosition:
+            location.pathname == "/Profile" && loggedIn ? "" : "center",
+          // backgroundRepeat: "repeat-y",
+        }}
+      ></div>
+      <PlaySound url={Tones}></PlaySound>
+      <Switch>
+        <Route path={"/TypingSpeedTest"}>
+          <TypingSpeedTest />
+        </Route>
+        <Route path="/Loginnewsignup">
+          <LoginPage newsignup={true} />
+        </Route>
+        <Route path="/Login">
+          {!loggedIn ? <LoginPage isLogin={1} /> : ""}
+        </Route>
+        <Route path={"/Signup"}>{!loggedIn ? <SignupPage /> : ""}</Route>
+        <Route path="/Profile">
+          {!loggedIn ? <HomePage /> : <ProfilePage />}
+        </Route>
+        <Route path={"/Leaderboard"}>
+          <LeaderboardPage username={loggedIn ? data.username : "none"} />
+        </Route>
+        <Route path={"/"}>
+          <HomePage username={loggedIn ? data.username : ""} />
+        </Route>
+      </Switch>
 
-        {/*  i am just putting the copyright here cuz i dont wanna add scroll bars */}
-        {/* and without scroll bar footer would consume too much space */}
-      </Router>
+      {/*  i am just putting the copyright here cuz i dont wanna add scroll bars */}
+      {/* and without scroll bar footer would consume too much space */}
     </UserContext.Provider>
   );
 }
