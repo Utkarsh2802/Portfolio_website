@@ -5,7 +5,14 @@ import { useHistory, Redirect } from "react-router";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 import Footer from "../Components/Footer";
 import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LoginPage = (props) => {
+  document.body.style.overflow = "hidden";
+  const { height, width } = useWindowDimensions();
+  if (width < 500) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+  }
   const [showerror, setShowerror] = useState("");
   const { loggedIn, setLoggedIn } = useContext(UserContext);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -108,7 +115,7 @@ const LoginPage = (props) => {
           <button className="loginsignupbutton">LOGIN</button>
         </form>
       </div>
-      <Footer></Footer>
+      <Footer height={"92vh"}></Footer>
       {showSpinner == true ? <div className="spinner"></div> : ""}
     </div>
   );

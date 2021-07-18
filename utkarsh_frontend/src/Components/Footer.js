@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Footer = () => {
+const Footer = (props) => {
   //   const [cursor, setCursor] = useState("default");
   //   const { loggedIn, setLoggedIn } = useContext(UserContext);
   //const [pathname, setPathname] = useState(window.location.pathname);
@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div
       style={{
-        top: window.location.pathname == "/Profile" ? "180vh" : "94vh",
+        top: props.height,
         right: "2.5vw",
         margin: 0,
         padding: 0,

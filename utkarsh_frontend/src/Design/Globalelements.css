@@ -55,6 +55,7 @@ transform: translate(93vw,3vh);
 
 .spinner {
    position: absolute;
+   z-index: 2;
    left: 50%;
    top: 50%;
    height:60px;

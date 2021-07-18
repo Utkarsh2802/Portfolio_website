@@ -29,20 +29,20 @@ const TypingSpeedTest = () => {
   //     />
   //   );
   // }, [height, width]);
-  const [loaded, setLoaded] = useState(false);
-  const img = new Image();
-  img.onload = () => {
-    console.log("img loaded");
-    setLoaded(true);
-  };
+  // const [loaded, setLoaded] = useState(false);
+  // const img = new Image();
+  // img.onload = () => {
+  //   console.log("img loaded");
+  //   setLoaded(true);
+  // };
 
-  useEffect(() => {
-    img.src = pexels9;
-    console.log("hi utkarsh");
-  }, []);
+  // useEffect(() => {
+  //   img.src = pexels9;
+  //   console.log("hi utkarsh");
+  // }, []);
   return (
     <div>
-      {loaded ? (
+      {/* {loaded ? (
         <div
           style={{
             height: "100vh",
@@ -55,12 +55,11 @@ const TypingSpeedTest = () => {
         ></div>
       ) : (
         ""
-      )}
-
+      )} */}
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         <TypingHelper></TypingHelper>
       </div>
-      <Footer key={Date.now()}></Footer>
+      <Footer height={"92vh"}></Footer>
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import TypingSpeedTest from "./Pages/TypingSpeedTest";
 import HomePage from "./Pages/HomePage";
 import Nav_bar from "./Components/Nav_bar";
@@ -14,6 +19,7 @@ import SignupPage from "./Pages/SignupPage";
 import { UserContext } from "./GlobalContexts.js/UserContext";
 import Footer from "./Components/Footer";
 import LeaderboardPage from "./Pages/LeaderboardPage";
+import pexels9 from "./Data/Images/pexels9.jpg";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   if (localStorage.length > 0) {
@@ -60,10 +66,22 @@ function App() {
   }, []);
   //console.log("statechanged");
   // console.log("runagain");
+
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
       <Router>
         <Nav_bar></Nav_bar>
+        <div
+          style={{
+            position: "absolute",
+            height: loggedIn ? "185vh" : "95vh",
+            width: "100%",
+            backgroundImage: `url(${pexels9})`,
+            backgroundSize: loggedIn ? "" : "cover",
+            backgroundPosition: loggedIn ? "" : "center",
+            // backgroundRepeat: "repeat-y",
+          }}
+        ></div>
         <PlaySound url={Tones}></PlaySound>
         <Switch>
           <Route path={"/TypingSpeedTest"}>

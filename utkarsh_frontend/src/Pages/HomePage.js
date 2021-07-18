@@ -22,10 +22,10 @@ const HomePage = (props) => {
   return (
     <div
       style={{
-        height: height + 50, //just added 50 cuz the height of the div was not filling the full page for phones
+        height: height, //just added 50 cuz the height of the div was not filling the full page for phones
         width: width,
         display: "flex",
-        backgroundColor: "#e7e5e4",
+        // backgroundColor: "#e7e5e4",
       }}
       className="roothomepage"
     >
@@ -63,15 +63,7 @@ const HomePage = (props) => {
           becoming a Typing God, now all you have to do is keep practicing!
         </div>
       )}
-      {/* later on add this in the footer simple */}
-      {/* <span className="musicattribution">
-        <span className="attribution">
-          Song From: Avicii - The Nights (Alex Bamford Remix) de Alex Bamford
-          está posteada bajo una licencia Creative Commons.
-        </span>
-        <span>Copyright</span> &#169; 2021 Utkarsh Agarwal
-      </span> */}
-      <Footer></Footer>
+      <Footer height={"85vh"}></Footer>
     </div>
   );
 };

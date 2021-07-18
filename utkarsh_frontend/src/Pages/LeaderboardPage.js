@@ -6,11 +6,17 @@ import { UserContext } from "../GlobalContexts.js/UserContext";
 // import MOCK_DATA from "../Data/MOCK_DATA.json";
 import { useTable, usePagination, useSortBy } from "react-table";
 import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LeaderboardPage = (props) => {
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   const [leaderboardData, userData] = LeaderboardFormatter();
   //console.log(mydata);
-
+  document.body.style.overflow = "hidden";
+  const { height, width } = useWindowDimensions();
+  if (width < 500) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+  }
   const COLUMNS = [
     {
       Header: "Rank",
@@ -150,7 +156,7 @@ const LeaderboardPage = (props) => {
           {">>"}
         </button>
       </div>
-      <Footer></Footer>
+      <Footer height={"85vh"}></Footer>
     </div>
   );
 };

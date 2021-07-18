@@ -78,7 +78,7 @@ const ProfilePage = (props) => {
       <Barchart data={data} />
 
       <LineGraph data={data}></LineGraph>
-      <Footer></Footer>
+      <Footer height="185vh"></Footer>
     </div>
   );
 };

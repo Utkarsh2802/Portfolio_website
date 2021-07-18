@@ -3,7 +3,14 @@ import Handle_api from "../Apis/Handle_api";
 import { useHistory } from "react-router";
 import "../Design/LoginandSignupPage.css";
 import Footer from "../Components/Footer";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const SignupPage = () => {
+  document.body.style.overflow = "hidden";
+  const { height, width } = useWindowDimensions();
+  if (width < 500) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+  }
   let history = useHistory();
   const [showerror, setShowerror] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
@@ -88,7 +95,7 @@ const SignupPage = () => {
           <button className="loginsignupbutton"> SIGNUP</button>
         </form>
       </div>
-      <Footer></Footer>
+      <Footer height={"92vh"}></Footer>
       {showSpinner ? <div className="spinner"></div> : ""}
     </div>
   );
