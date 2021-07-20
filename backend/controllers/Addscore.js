@@ -139,29 +139,31 @@ const Addscore = async function (request, response) {
                     );
                   });
                   //now i just need to update my database with these values;
-                  var leaderboardData = "utkarsh";
                   Leaderboard.find(
                     {},
                     null,
                     { sort: { avg_speed: -1 } },
                     (err, data) => {
-                      leaderboardData = data; //i am gonna return it even if the user hasnt logged in
-                      //console.log(data);
-                      //console.log(leaderboardData);
+                      if (err) console.log(err.message);
+                      return data;
                     }
                   )
-                    .then(() => {
-                      console.log("sending...", newvalues);
+                    .then((data) => {
+                      console.log("sending...", data);
                       response.send({
                         loggedIn: true,
                         status: 200,
                         data: newvalues,
                         username: docs.username,
-                        leaderboardData: leaderboardData,
+                        leaderboardData: data,
                       });
                     })
                     .catch((err) => {
                       console.log(err.message);
+                      response.send({
+                        message:
+                          "some error while fetching the leaderboard details",
+                      });
                     });
                 } else {
                   response.send({ message: "No matching details found" });

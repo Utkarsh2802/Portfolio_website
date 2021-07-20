@@ -4,7 +4,9 @@
   "description": "Backend part for my portfolio",
   "main": "server.js",
   "type": "module",
-  "engines": {"node":"v14.17.2"},
+  "engines": {
+    "node": "v14.17.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

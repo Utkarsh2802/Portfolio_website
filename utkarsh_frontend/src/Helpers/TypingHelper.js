@@ -223,9 +223,16 @@ const TypingHelper = () => {
       }
     }
   });
+  var oldValue;
   const backspace_handler = (event) => {
-    let key = event.key; //keypressed
-    if (event.which === 8 || event.which === 46) {
+    oldValue = event.target.value;
+  };
+  const keypress_handler = (event) => {
+    if (curr_index === 0) {
+      start_timer(total_time); //basically when i type my first char only then will the timer be started
+    }
+    var key;
+    if (oldValue.length > event.target.value.length) {
       //backspace case
       mistakes += 1;
       if (event.target.value === "") {
@@ -246,18 +253,9 @@ const TypingHelper = () => {
 
         curr_index -= 1;
       }
-    }
-  };
-  const keypress_handler = (event) => {
-    let key = event.key; //keypressed
-    // console.log(key.charCodeAt(0) - 97);
-    if (curr_index === 0) {
-      start_timer(total_time); //basically when i type my first char only then will the timer be started
-    }
-    if (event.which === 8 || event.which === 46) {
-      //if it was a backspace event then no need
       return;
     } else {
+      key = event.target.value[event.target.value.length - 1];
       if (wordlist[curr_index] === key) {
         if (key !== " ") alpha[key.charCodeAt(0) - 97][key][1] += 1; //only totalchar count increased
         setarray(curr_index, 1); //this indicates that the key typed in was correct
@@ -445,7 +443,7 @@ const TypingHelper = () => {
               }
               type="text"
               onKeyDown={(e) => backspace_handler(e)}
-              onKeyUp={(e) => keypress_handler(e)}
+              onInput={(e) => keypress_handler(e)}
               disabled={true}
               ref={input_ref}
             />
