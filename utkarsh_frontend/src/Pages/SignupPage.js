@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import "../Design/LoginandSignupPage.css";
 import Footer from "../Components/Footer";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
+import GoogleLogin from "react-google-login";
 const SignupPage = () => {
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
@@ -50,6 +51,12 @@ const SignupPage = () => {
         setShowSpinner(false);
       });
   };
+  const handleGoogleSignup = (response) => {
+    console.log(response);
+  };
+  const handleGoogleSignupFailure = (response) => {
+    console.log(response);
+  };
 
   return (
     <div
@@ -72,14 +79,12 @@ const SignupPage = () => {
             placeholder="Username"
             autoComplete="off"
           />
-
           <input
             className="inputfield"
             name="Email"
             placeholder="Email"
             autoComplete="off"
           />
-
           <input
             className="inputfield"
             name="Password"
@@ -93,6 +98,13 @@ const SignupPage = () => {
             <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
           )}
           <button className="loginsignupbutton"> SIGNUP</button>
+          {/* <GoogleLogin
+            clientId="326166939890-6jf6a5va9dul2j5o7vuq2omebl9smt2t.apps.googleusercontent.com"
+            buttonText="Signup with Google"
+            onSuccess={handleGoogleSignup}
+            onFailure={handleGoogleSignupFailure}
+            cookiePolicy={"single_host_origin"}
+          /> */}
         </form>
       </div>
       <Footer height={"92vh"}></Footer>

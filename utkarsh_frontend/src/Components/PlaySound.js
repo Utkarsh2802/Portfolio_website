@@ -9,10 +9,11 @@ const PlaySound = ({ url, autoPlay = false }) => {
   const [playing, setPlaying] = useState(autoPlay); //initally playing value is true if autoplay is enabled else flase
   audio.loop = true;
   const toggle = () => setPlaying(!playing); //uses the setplaying function to toggle the state variables value
-
+  if (playing && audio.paused) audio.play();
   useEffect(() => {
     playing ? audio.play() : audio.pause();
   }, [playing]); //whenever playing changes
+  console.log(playing);
 
   return (
     <div className="floating" onClick={toggle}>

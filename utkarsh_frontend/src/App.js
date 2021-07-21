@@ -86,7 +86,9 @@ function App() {
           // backgroundRepeat: "repeat-y",
         }}
       ></div>
-      <PlaySound url={Tones}></PlaySound>
+      <div style={{ position: "absolute", zIndex: 2 }}>
+        <PlaySound url={Tones}></PlaySound>
+      </div>
       <Switch>
         <Route path={"/TypingSpeedTest"}>
           <TypingSpeedTest />
