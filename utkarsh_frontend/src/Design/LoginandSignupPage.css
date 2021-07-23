@@ -76,7 +76,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   -webkit-text-fill-color: transparent;
 }
 .inputfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  font-size :3vh;
+  font-size :inherit;
   opacity: 1; /* Firefox */
   background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
@@ -86,7 +86,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 
 
 .inputfield::-ms-input-placeholder { /* Microsoft Edge */
-  font-size :3vh;
+  font-size :inherit;
   
   background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
@@ -123,10 +123,10 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   height: 8vh;
 }
 .inputfield::placeholder{
-font-size:2.5vh;
+font-size:inherit;
 }
 .inputfield:-ms-input-placeholder{
-  font-size: 2.5vh;
+  font-size: inherit;
 }
 
 }

@@ -4,8 +4,9 @@ import "../Design/LeaderboardPage.css";
 import Footer from "../Components/Footer";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 // import MOCK_DATA from "../Data/MOCK_DATA.json";
-import { useTable, usePagination, useSortBy } from "react-table";
+import { useTable, usePagination, useSortBy, useFilters } from "react-table";
 import LeaderboardFormatter from "../Helpers/LeaderboardFormatter";
+import LeaderboardFilter from "../Helpers/LeaderboardFilter";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LeaderboardPage = (props) => {
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
@@ -21,26 +22,32 @@ const LeaderboardPage = (props) => {
     {
       Header: "Rank",
       accessor: "rank",
+      Filter: LeaderboardFilter,
     },
     {
       Header: "Username",
       accessor: "username",
+      Filter: LeaderboardFilter,
     },
     {
       Header: "Tests Taken",
       accessor: "tests_taken",
+      Filter: LeaderboardFilter,
     },
     {
       Header: "Speed In WPM",
       accessor: "avg_speed",
+      Filter: LeaderboardFilter,
     },
     {
       Header: "Accuracy %",
       accessor: "accuracy",
+      Filter: LeaderboardFilter,
     },
     {
       Header: "Improvement Speed",
       accessor: "improvement_speed",
+      Filter: LeaderboardFilter,
     },
   ];
   const columns = useMemo(() => COLUMNS, []);
@@ -59,6 +66,7 @@ const LeaderboardPage = (props) => {
       //     ],
       //   },
     },
+    useFilters,
     useSortBy,
     usePagination
   );
@@ -87,12 +95,21 @@ const LeaderboardPage = (props) => {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  <i> {column.render("Header")}</i>
+                  {column.render("Header") != "Username" || width < 500 ? (
+                    <i> {column.render("Header")}</i>
+                  ) : (
+                    ""
+                  )}
                   {column.render("Header") === "Improvement Speed" ? (
                     <span style={{ fontSize: "1.5vmin" }}> (WPM/Hr)</span>
                   ) : (
                     ""
                   )}
+                  {column.render("Header") == "Username" && width > 500 ? (
+                    <div>
+                      {column.canFilter ? column.render("Filter") : null}
+                    </div>
+                  ) : null}
                 </th>
               ))}
             </tr>
