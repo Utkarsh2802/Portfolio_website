@@ -24,6 +24,11 @@
   background-clip: text;
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
+#custbutton:hover span{
+  
+  color:#eeeeee;
+  
+}
 
 .normal_char {
   font-size: 3vmin;

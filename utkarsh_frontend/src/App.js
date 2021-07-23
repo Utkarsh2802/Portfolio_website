@@ -110,9 +110,6 @@ function App() {
           <HomePage username={loggedIn ? data.username : ""} />
         </Route>
       </Switch>
-
-      {/*  i am just putting the copyright here cuz i dont wanna add scroll bars */}
-      {/* and without scroll bar footer would consume too much space */}
     </UserContext.Provider>
   );
 }
