@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/Test", testapi);
 router.post("/Signup", Signup);
 router.post("/Login", Login);
-router.get("/CheckAuth", CheckAuth);
+router.post("/CheckAuth", CheckAuth);
 router.post("/Logout", Logout);
 router.post("/Addscore", Addscore);
 export default router;

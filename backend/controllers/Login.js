@@ -6,6 +6,7 @@ const Login = function (request, response) {
     var email = request.body.email;
     var flag = 0;
     var username;
+    var globalverifier;
     // console.log(request.cookies.verifier.verifier);
     //console.log("query received");
     Leaderboard.find(
@@ -39,13 +40,14 @@ const Login = function (request, response) {
                     { username: request.body.email, verifier: docs.verifier },
                     {
                       maxAge: 60 * 60 * 24 * 365000, //1year
-                      sameSite: "none",
+                      sameSite: "None",
                       secure: true,
                       httpOnly: false,
                     }
                   );
                   username = docs.username;
                   flag = 1;
+                  globalverifier = docs.verifier;
 
                   //  console.log("correct");
                   // response.send({ data: {}, message: "Successfully Logged In", status: 200 });
@@ -78,6 +80,7 @@ const Login = function (request, response) {
                   //   console.log("azzzzzz");
                   //data = [...data, { loggedIn: true }];
                   response.send({
+                    verifier: globalverifier,
                     data: docs,
                     loggedIn: true,
                     status: 200,

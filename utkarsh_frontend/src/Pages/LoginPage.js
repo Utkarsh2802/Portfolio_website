@@ -47,9 +47,11 @@ const LoginPage = (props) => {
         if (response.loggedIn == true) {
           localStorage.clear();
           localStorage.setItem("data", JSON.stringify(response)); //response.data.data will have all the details;
+          localStorage.setItem("verifier", response.verifier);
+          //console.log(response.verifier);
           setLoggedIn(() => {
             const [something, userdata] = LeaderboardFormatter();
-            console.log(userdata);
+            //console.log(userdata);
             return true;
           });
           //console.log(loggedIn);

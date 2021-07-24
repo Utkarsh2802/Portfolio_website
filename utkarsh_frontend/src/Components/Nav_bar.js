@@ -54,7 +54,7 @@ const Nav_bar = () => {
           <NavLink to="/">
             <Navbar.Brand className="navlogo">Typing God </Navbar.Brand>
           </NavLink>
-          {width < 700 ? (
+          {width < 800 ? (
             ""
           ) : (
             <NavLink to="/">

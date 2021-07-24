@@ -3,22 +3,26 @@ import TypingInfo from "../Model/TypingInfo.js";
 import Leaderboard from "../Model/Leaderboard.js";
 const Addscore = async function (request, response) {
   //this would run every time the page reloads
-  console.log("got request");
   try {
     //var email = request.body.email;
     // console.log(request.cookies);
     // console.log("Addscore clicked");
     var email;
-    if (request.cookies != null) {
-      console.log("cookie present");
+    if (request.cookies != null || request.body.verifier != null) {
+      //console.log("cookie present");
       //console.log(request.cookies.verifier.verifier);
       const something = await Users.findOne(
         //as there will only be one user
         //find will return a list of objects whereas findone will return a single object
-        { verifier: request.cookies.verifier.verifier },
+        {
+          verifier:
+            request.cookies.length != undefined
+              ? request.cookies.verifier.verifier
+              : request.body.verifier,
+        },
         (err, docs) => {
           if (err) {
-            console.log(err.message);
+            //console.log(err.message);
             response.send({
               loggednIn: false,
               message:
@@ -32,7 +36,7 @@ const Addscore = async function (request, response) {
               email = docs.email;
               TypingInfo.findOne({ email: docs.email }, (err, data) => {
                 //console.log(data);
-                console.log(" gottyping data ");
+                //console.log(" gottyping data ");
                 if (data != null) {
                   //console.log(request.body);
                   let alpha = request.body.alpha;

@@ -43,13 +43,15 @@ function App() {
   useEffect(() => {
     //this will only run once when the app is loaded so basically its the last thing that runs
     // console.log("useeffect called");
-    Handle_api("GET", "/CheckAuth", {})
+    Handle_api("POST", "/CheckAuth", {
+      verifier: localStorage.getItem("verifier"),
+    })
       .then((response) => {
         let data = response;
         console.log("checkauth: ", data);
         if (
           localStorage.length > 0 &&
-          JSON.stringify(data) == localStorage.getItem(data)
+          JSON.stringify(data) == localStorage.getItem("data")
         ) {
           //if there are no updates needed on the localstorage
           //then no need to do anything

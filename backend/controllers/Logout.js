@@ -8,7 +8,7 @@ const Logout = async function (request, response) {
       null,
       { sort: { avg_speed: -1 } },
       (err, leaderboardData) => {
-        if (request.cookies != null) {
+        if (request.cookies.length != undefined) {
           //   console.log(request.cookies.verifier.verifier);
           Users.findOne(
             //as there will only be one user

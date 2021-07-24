@@ -58,7 +58,6 @@ const HomePage = (props) => {
         </React.Fragment>
       ) : (
         <div className="headingonlogin">
-          {console.log(props)}
           Congratulations {props.username} you have taken the first step towards
           becoming a Typing God, now all you have to do is keep practicing!
         </div>

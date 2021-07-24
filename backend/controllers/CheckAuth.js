@@ -1,4 +1,5 @@
 import Users from "../Model/Users.js";
+
 import TypingInfo from "../Model/TypingInfo.js";
 import Leaderboard from "../Model/Leaderboard.js";
 const CheckAuth = async function (request, response) {
@@ -6,6 +7,7 @@ const CheckAuth = async function (request, response) {
   try {
     //var email = request.body.email;
     //console.log(request.cookies);
+
     var leaderboardData = "utkarsh";
     Leaderboard.find({}, null, { sort: { avg_speed: -1 } }, (err, data) => {
       //i am gonna return it even if the user hasnt logged in
@@ -17,14 +19,27 @@ const CheckAuth = async function (request, response) {
         //console.log("called auth");
         //console.log(leaderboardData);
         //console.log(leaderboardData);
-        if (request.cookies != null) {
+        console.log(request.cookies.length);
+        console.log(request.body.verifier);
+
+        if (
+          request.cookies.length != undefined ||
+          request.body.verifier != null
+        ) {
           //console.log(request.cookies.verifier.verifier);
+          // console.log(request.cookies.length);
           Users.findOne(
             //as there will only be one user
             //find will return a list of objects whereas findone will return a single object
-            { verifier: request.cookies.verifier.verifier },
+            {
+              verifier:
+                request.cookies.length != undefined
+                  ? request.cookies.verifier.verifier
+                  : request.body.verifier,
+            },
             (err, docs) => {
               if (err) {
+                console.log(err.message);
                 response.send({
                   loggednIn: false,
                   message:
@@ -35,6 +50,8 @@ const CheckAuth = async function (request, response) {
                   leaderboardData: leaderboardData,
                 });
               } else {
+                console.log("dsf");
+                console.log(docs);
                 if (docs !== null) {
                   TypingInfo.findOne({ email: docs.email }, (err, data) => {
                     // console.log(data);
@@ -55,6 +72,7 @@ const CheckAuth = async function (request, response) {
                     }
                   });
                 } else {
+                  console.log("sdfg");
                   response.send({
                     loggedIn: false,
                     data: {},
@@ -66,6 +84,7 @@ const CheckAuth = async function (request, response) {
           );
         } else {
           //this means the cookie was null
+          console.log("dsdfsf");
           response.send({
             loggedIn: false,
             data: {},
@@ -74,6 +93,7 @@ const CheckAuth = async function (request, response) {
         }
       })
       .catch((error) => {
+        console.log("spmsdf");
         response.send({
           message: "no cookie found",
           status: 400,
