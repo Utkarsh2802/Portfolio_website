@@ -66,7 +66,7 @@ const TypingHelper = () => {
   var linecount = 0;
   const [score, setscore] = useState(0);
   const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 3;
+  var total_time = 60;
   const [timer_started, setTimerstarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(total_time);
   const [wpm, setWpm] = useState(0);
@@ -224,7 +224,7 @@ const TypingHelper = () => {
       }
     }
   });
-  var oldValue;
+  var oldValue = "";
   const backspace_handler = (event) => {
     oldValue = event.target.value;
   };
@@ -234,11 +234,12 @@ const TypingHelper = () => {
     }
     var key;
     if (oldValue.length > event.target.value.length) {
-      //backspace case
+      //backspace casec
       mistakes += 1;
-      if (event.target.value === "") {
-        return;
-      }
+      // if (event.target.value === "") {
+      //   return;
+      // }
+      //uncomment the above three lines if something breaks this was basically causing the cursor stuck on the first correct character of a word which was kinda annoying
       if (curr_index === 0 || curr_index === next_index[pointer]) {
         return;
       } else {
@@ -430,8 +431,7 @@ const TypingHelper = () => {
                 height: "2vmax",
                 minHeight: "3vh",
                 width: "20vmax",
-
-                fontSize: "16px",
+                fontSize: "1.5vmax",
                 backgroundColor: "transparent",
 
                 fontFamily:

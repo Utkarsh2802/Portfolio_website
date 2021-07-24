@@ -19,8 +19,8 @@ const CheckAuth = async function (request, response) {
         //console.log("called auth");
         //console.log(leaderboardData);
         //console.log(leaderboardData);
-        console.log(request.cookies.length);
-        console.log(request.body.verifier);
+        //console.log(request.cookies.length);
+        //console.log(request.body.verifier);
 
         if (
           request.cookies.length != undefined ||
@@ -50,8 +50,8 @@ const CheckAuth = async function (request, response) {
                   leaderboardData: leaderboardData,
                 });
               } else {
-                console.log("dsf");
-                console.log(docs);
+                // console.log("dsf");
+                //console.log(docs);
                 if (docs !== null) {
                   TypingInfo.findOne({ email: docs.email }, (err, data) => {
                     // console.log(data);
@@ -72,7 +72,6 @@ const CheckAuth = async function (request, response) {
                     }
                   });
                 } else {
-                  console.log("sdfg");
                   response.send({
                     loggedIn: false,
                     data: {},
@@ -84,7 +83,7 @@ const CheckAuth = async function (request, response) {
           );
         } else {
           //this means the cookie was null
-          console.log("dsdfsf");
+
           response.send({
             loggedIn: false,
             data: {},
@@ -93,7 +92,6 @@ const CheckAuth = async function (request, response) {
         }
       })
       .catch((error) => {
-        console.log("spmsdf");
         response.send({
           message: "no cookie found",
           status: 400,

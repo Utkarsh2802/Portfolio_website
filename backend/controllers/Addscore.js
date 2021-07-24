@@ -8,7 +8,7 @@ const Addscore = async function (request, response) {
     // console.log(request.cookies);
     // console.log("Addscore clicked");
     var email;
-    if (request.cookies != null || request.body.verifier != null) {
+    if (request.cookies.length != undefined || request.body.verifier != null) {
       //console.log("cookie present");
       //console.log(request.cookies.verifier.verifier);
       const something = await Users.findOne(
