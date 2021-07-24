@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import router from "./routes/test.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import Leaderboard from "./Model/Leaderboard.js";
 dotenv.config(); //this allows me to use environment variables which inturn help me encapsulate my app
 const CONNECTION_URL = process.env.ATLAS_URI;
 //console.log();
@@ -51,3 +52,7 @@ mongoose
     })
   )
   .catch((error) => console.log(error.message));
+// Leaderboard.deleteMany({ tests_taken: { $gte: 30, $lte: 150 } })
+//   .then(() => console.log("executed"))
+//   .catch((err) => console.log(err.message));
+//use the above query to delete extra records in the dummy data

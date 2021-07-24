@@ -86,7 +86,7 @@ const LeaderboardPage = (props) => {
     prepareRow,
   } = tableInstance;
   const { pageIndex } = state;
-
+  const [currPage, setCurrPage] = useState(pageIndex);
   return (
     <div className="Leaderboardroot">
       <table className="Leaderboardtableroot" {...getTableProps}>
@@ -143,10 +143,22 @@ const LeaderboardPage = (props) => {
         </tbody>
       </table>
       <div className="Leaderboardoptions">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <button
+          onClick={() => {
+            gotoPage(0);
+            setCurrPage(0);
+          }}
+          disabled={!canPreviousPage}
+        >
           {"<<"}
         </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button
+          onClick={() => {
+            previousPage();
+            setCurrPage(pageIndex - 1);
+          }}
+          disabled={!canPreviousPage}
+        >
           Previous
         </button>
         <span>Page</span>
@@ -156,20 +168,42 @@ const LeaderboardPage = (props) => {
             type="number"
             min={1}
             max={pageOptions.length}
-            defaultValue={pageIndex + 1}
+            defaultValue={currPage + 1}
             onChange={(e) => {
-              const pageNumber = e.target.value
-                ? Number(e.target.value) - 1
-                : 0;
-              gotoPage(pageNumber);
+              // const pageNumber = e.target.value
+              //   ? Number(e.target.value) - 1
+              //   : 0;
+              // gotoPage(pageNumber);
+              const temo0 =
+                e.target.value >= 0 && e.target.value <= pageOptions.length
+                  ? setCurrPage(e.target.value - 1)
+                  : "";
+              const temp1 =
+                e.target.value >= 0 && e.target.value <= pageOptions.length
+                  ? gotoPage(e.target.value - 1)
+                  : "";
+              e.target.value = currPage + 1;
             }}
+            value={currPage + 1}
           ></input>
           <span>of {pageOptions.length}</span>
         </span>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button
+          onClick={() => {
+            nextPage();
+            setCurrPage(pageIndex + 1);
+          }}
+          disabled={!canNextPage}
+        >
           Next
         </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        <button
+          onClick={() => {
+            gotoPage(pageCount - 1);
+            setCurrPage(pageCount - 1);
+          }}
+          disabled={!canNextPage}
+        >
           {">>"}
         </button>
       </div>
