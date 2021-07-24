@@ -59,7 +59,7 @@ function App() {
           localStorage.setItem("data", JSON.stringify(data));
           if (response.loggedIn === true) {
             setLoggedIn(true);
-          }
+          } else setLoggedIn(false);
         }
       })
       .catch((err) =>
