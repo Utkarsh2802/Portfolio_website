@@ -59,3 +59,14 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 .logoutbutton:hover{
   cursor:pointer;
 }
+@media (max-width: 300px)
+{
+  .navlogo{
+    font-size:4vw;
+  margin:0;
+  padding:0;
+  }
+  /* 
+.nav_custom_colortest{
+font-size: 1vw;} */
+}

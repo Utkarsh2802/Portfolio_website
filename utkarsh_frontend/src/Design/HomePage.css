@@ -113,7 +113,7 @@ transform: rotate(-45deg);
     align-items: center ;
     
 }
-@media (max-width: 950px){
+@media (max-width: 750px){
   .roothomepage > * +*{
       margin: 10vw 0 0 0;
   }
@@ -217,7 +217,7 @@ visibility: visible;
 @media (max-width: 325px){
     
   .roothomepage > * +*{
-      margin: 15vw 0 0 0;
+      margin: 10vw 0 0 0;
   }
 .heading{
     font-size: 5vmin;
@@ -229,9 +229,9 @@ visibility: visible;
     padding:4vmin;
 }
 .shadowytext{
-    font-size: 18vmin;
+    font-size: 12vmin;
 }
 .musicattribution{
-    font-size:4.8vmin;
+    font-size:3.8vmin;
 }
 }
