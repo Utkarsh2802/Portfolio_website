@@ -87,7 +87,7 @@ function App() {
           position: "absolute",
           height:
             location.pathname == "/Profile" && loggedIn
-              ? isPhone
+              ? isPhone && width > height
                 ? "215vh"
                 : "185vh"
               : isPhone
