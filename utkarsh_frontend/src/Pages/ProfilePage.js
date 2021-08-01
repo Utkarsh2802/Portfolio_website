@@ -89,7 +89,7 @@ const ProfilePage = (props) => {
         <Barchart data={data} />
 
         <LineGraph data={data}></LineGraph>
-        <Footer height={isPhone ? "208vh" : "185vh"}></Footer>
+        <Footer height={isPhone && width > height ? "208vh" : "185vh"}></Footer>
       </div>
     );
   } catch (err) {
