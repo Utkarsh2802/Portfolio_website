@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 import AreaGraph from "../Components/AreaGraph";
 import Barchart from "../Components/Barchart.js";
@@ -7,11 +7,21 @@ import { Card } from "react-bootstrap";
 import "../Design/profilepage.css";
 import Footer from "../Components/Footer";
 import { UserContext } from "../GlobalContexts.js/UserContext";
+import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 
 const ProfilePage = (props) => {
   const { loggedIn, setLoggedIn } = useContext(UserContext);
   document.body.style.overflowY = "scroll";
   // console.log(loggedIn);
+
+  const [isPhone, setIsPhone] = useState(false);
+  const { height, width } = useWindowDimensions();
+  if ((width < 1000 && height < 500) || width < 700) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
+  }
+
   if (loggedIn) {
     try {
       var data = JSON.parse(localStorage.getItem("data"));
@@ -79,7 +89,7 @@ const ProfilePage = (props) => {
         <Barchart data={data} />
 
         <LineGraph data={data}></LineGraph>
-        <Footer height="185vh"></Footer>
+        <Footer height={isPhone && width > height ? "208vh" : "185vh"}></Footer>
       </div>
     );
   } catch (err) {

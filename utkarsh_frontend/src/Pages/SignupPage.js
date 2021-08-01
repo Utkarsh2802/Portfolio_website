@@ -8,9 +8,11 @@ import GoogleLogin from "react-google-login";
 const SignupPage = () => {
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
-  if (width < 500) {
+  const [isPhone, setIsPhone] = useState(false);
+  if ((width < 1000 && height < 500) || width < 700) {
     document.body.style.overflowY = "scroll";
     document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
   }
   let history = useHistory();
   const [showerror, setShowerror] = useState("");
@@ -107,7 +109,7 @@ const SignupPage = () => {
           /> */}
         </form>
       </div>
-      <Footer height={"92vh"}></Footer>
+      <Footer height={isPhone ? "92vmax" : "92vh"}></Footer>
       {showSpinner ? <div className="spinner"></div> : ""}
     </div>
   );

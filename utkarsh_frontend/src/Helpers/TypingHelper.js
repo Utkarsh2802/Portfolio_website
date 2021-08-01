@@ -190,6 +190,7 @@ const TypingHelper = () => {
             time: total_time,
             accuracy: accuracy,
             alpha: alpha, //this send the charactedr data provided that i am logged in
+            verifier: localStorage.getItem("verifier"),
           })
             .then((response) => {
               localStorage.setItem("data", JSON.stringify(response));
@@ -223,7 +224,7 @@ const TypingHelper = () => {
       }
     }
   });
-  var oldValue;
+  var oldValue = "";
   const backspace_handler = (event) => {
     oldValue = event.target.value;
   };
@@ -233,11 +234,12 @@ const TypingHelper = () => {
     }
     var key;
     if (oldValue.length > event.target.value.length) {
-      //backspace case
+      //backspace casec
       mistakes += 1;
-      if (event.target.value === "") {
-        return;
-      }
+      // if (event.target.value === "") {
+      //   return;
+      // }
+      //uncomment the above three lines if something breaks this was basically causing the cursor stuck on the first correct character of a word which was kinda annoying
       if (curr_index === 0 || curr_index === next_index[pointer]) {
         return;
       } else {
@@ -429,8 +431,7 @@ const TypingHelper = () => {
                 height: "2vmax",
                 minHeight: "3vh",
                 width: "20vmax",
-
-                fontSize: "16px",
+                fontSize: "1.5vmax",
                 backgroundColor: "transparent",
 
                 fontFamily:
@@ -442,6 +443,8 @@ const TypingHelper = () => {
                   : ""
               }
               type="text"
+              autoCapitalize="off"
+              autoCorrect="off"
               onKeyDown={(e) => backspace_handler(e)}
               onInput={(e) => keypress_handler(e)}
               disabled={true}

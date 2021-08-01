@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 import "../Design/HomePage.css";
@@ -11,9 +11,11 @@ const HomePage = (props) => {
   document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
-  if (width < 500) {
+  const [isPhone, setIsPhone] = useState(false);
+  if ((width < 1000 && height < 500) || width < 700) {
     document.body.style.overflowY = "scroll"; //so that i have scrolling option on phones
     document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
   }
   /*  <video autoPlay loop muted>
         <source src={sample} type="video/mp4" />
@@ -58,12 +60,11 @@ const HomePage = (props) => {
         </React.Fragment>
       ) : (
         <div className="headingonlogin">
-          {console.log(props)}
           Congratulations {props.username} you have taken the first step towards
           becoming a Typing God, now all you have to do is keep practicing!
         </div>
       )}
-      <Footer height={"85vh"}></Footer>
+      <Footer height={isPhone ? "85vmax" : "85vh"}></Footer>
     </div>
   );
 };

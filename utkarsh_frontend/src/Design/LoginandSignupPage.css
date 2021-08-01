@@ -41,7 +41,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 }
 
 .inputfield{
-   background-color:#e7e5e4;
+   background-color:transparent;
  border-image: linear-gradient(to right, #85079b, #158897);
        /* background-image: linear-gradient(to right, #a330b8, #158897);  */
   border-image-slice: 1;
@@ -49,10 +49,12 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   
   font-size :3vh;
   opacity: 1; /* Firefox */
-  background: linear-gradient(to right, #85079b, #158897);
+   background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
-  -webkit-text-fill-color: transparent;
+   -webkit-text-fill-color: purple; 
+   /* transparent wasn't working on inputs greater than the size of input box so i have kept it purple for now */
+ 
    
 }
 

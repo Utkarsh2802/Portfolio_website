@@ -5,9 +5,20 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1 ,maximum-scale=1"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
     />
-    <meta name="theme-color" content="#000000" />
+    <script>
+      if(/Android/i.test(navigator.userAgent)) {
+   window.addEventListener("resize", function() {
+     if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+       document.activeElement.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+     }
+  })
+} 
+    var viewport = document.querySelector("meta[name=viewport]");
+viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);//important otherwise when andorid's virtual keyboard was active the screen was getting too small too read
+</script>    
+<meta name="theme-color" content="#000000" />
     <meta name="description" content="Wanna get good at typing? Or just wanna test your typing speed? Get all features in one for free as we help you become a typing god. " />
 
     <!--
