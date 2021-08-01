@@ -14,9 +14,11 @@ const TypingSpeedTest = () => {
   // document.body.style.margin = 0;
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
-  if (width < 500) {
+  const [isPhone, setIsPhone] = useState(false);
+  if ((width < 1000 && height < 500) || width < 700) {
     document.body.style.overflowY = "scroll";
     document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
   }
   // const { height, width } = useWindowDimensions(); //this gives mean the exact height whenever i resize my
   // useEffect(() => {
@@ -59,7 +61,7 @@ const TypingSpeedTest = () => {
       <div style={{ position: "absolute", top: "5vh", left: 0 }}>
         <TypingHelper></TypingHelper>
       </div>
-      <Footer height={"92vh"}></Footer>
+      <Footer height={isPhone ? "92vmax" : "92vh"}></Footer>
     </div>
   );
 };

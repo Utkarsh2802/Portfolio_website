@@ -14,9 +14,11 @@ const LeaderboardPage = (props) => {
   //console.log(mydata);
   document.body.style.overflow = "hidden";
   const { height, width } = useWindowDimensions();
-  if (width < 500) {
+  const [isPhone, setIsPhone] = useState(false);
+  if ((width < 1000 && height < 500) || width < 700) {
     document.body.style.overflowY = "scroll";
     document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
   }
   const COLUMNS = [
     {
@@ -207,7 +209,7 @@ const LeaderboardPage = (props) => {
           {">>"}
         </button>
       </div>
-      <Footer height={"85vh"}></Footer>
+      <Footer height={isPhone ? "85vmax" : "85vh"}></Footer>
     </div>
   );
 };

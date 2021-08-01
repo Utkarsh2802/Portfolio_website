@@ -20,10 +20,18 @@ import { UserContext } from "./GlobalContexts.js/UserContext";
 import Footer from "./Components/Footer";
 import LeaderboardPage from "./Pages/LeaderboardPage";
 import pexels9 from "./Data/Images/pexels9.jpg";
+import useWindowDimensions from "./Utility_functions/UseWIndowDimensions";
 
 function App() {
   const location = useLocation();
   const [loggedIn, setLoggedIn] = useState(false);
+  const { height, width } = useWindowDimensions();
+  const [isPhone, setIsPhone] = useState(false);
+  if ((width < 1000 && height < 500) || width < 700) {
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
+    if (isPhone == false) setIsPhone(true);
+  }
   if (localStorage.length > 0) {
     try {
       var data = JSON.parse(localStorage.getItem("data"));
@@ -78,7 +86,13 @@ function App() {
         style={{
           position: "absolute",
           height:
-            location.pathname == "/Profile" && loggedIn ? "185vh" : "95vh",
+            location.pathname == "/Profile" && loggedIn
+              ? isPhone
+                ? "185vh"
+                : "185vh"
+              : isPhone
+              ? "95vmax"
+              : "95vh",
           width: "100%",
           backgroundImage: `url(${pexels9})`,
           backgroundSize:

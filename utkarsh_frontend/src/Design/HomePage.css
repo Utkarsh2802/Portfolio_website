@@ -113,7 +113,7 @@ transform: rotate(-45deg);
     align-items: center ;
     
 }
-@media (max-width: 750px){
+@media (max-width: 950px){
   .roothomepage > * +*{
       margin: 10vw 0 0 0;
   }
