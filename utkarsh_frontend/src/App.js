@@ -84,6 +84,7 @@ function App() {
       <Nav_bar></Nav_bar>
       <div
         style={{
+          backgroundColor: "lightblue",
           position: "absolute",
           height:
             location.pathname == "/Profile" && loggedIn
