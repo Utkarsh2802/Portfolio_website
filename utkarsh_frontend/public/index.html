@@ -8,6 +8,13 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
     />
     <script>
+      if(/Android/i.test(navigator.userAgent)) {
+   window.addEventListener("resize", function() {
+     if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+       document.activeElement.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+     }
+  })
+} 
     var viewport = document.querySelector("meta[name=viewport]");
 viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);//important otherwise when andorid's virtual keyboard was active the screen was getting too small too read
 </script>    
