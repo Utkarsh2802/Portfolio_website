@@ -88,7 +88,7 @@ function App() {
           height:
             location.pathname == "/Profile" && loggedIn
               ? isPhone
-                ? "185vh"
+                ? "215vh"
                 : "185vh"
               : isPhone
               ? "95vmax"
