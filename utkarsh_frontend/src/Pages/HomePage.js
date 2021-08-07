@@ -40,7 +40,7 @@ const HomePage = (props) => {
 
             <div className="heading">
               <Link to="/Signup">
-                <button id="homepagebutton">Singup</button>
+                <button id="homepagebutton">Signup</button>
               </Link>{" "}
               OR{" "}
               <Link to="/Login">
