@@ -445,6 +445,7 @@ const TypingHelper = () => {
               type="text"
               autoCapitalize="off"
               autoCorrect="off"
+              autoComplete="off"
               onKeyDown={(e) => backspace_handler(e)}
               onInput={(e) => keypress_handler(e)}
               disabled={true}
