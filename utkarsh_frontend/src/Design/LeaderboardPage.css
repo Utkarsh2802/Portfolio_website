@@ -1,4 +1,4 @@
-.Leaderboardroot{
+.leaderboard-root{
     display:flex;
     width:100vw;
     height:93vh;
@@ -11,7 +11,7 @@
   align-items: center;
 font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 }
-.Leaderboardtableroot{
+.leaderboard-table-root{
     margin-top:2vh;
    width: 75vw;
    height: 75vh;
@@ -29,31 +29,31 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   background-clip:text;
   -webkit-text-fill-color: transparent;
 }
-.Leaderboardoptions{
+.leaderboard-options{
     margin-top: 3vh;
     text-align: center;
 }
-.Leaderboardoptions > * {
+.leaderboard-options > * {
     font-size: 1.1vmax;
 }
-.Leaderboardoptions > * + *{
+.leaderboard-options > * + *{
     
     margin:0 0 0 2vw;
 }
-.Leaderboardoptions > button {
+.leaderboard-options > button {
     background: linear-gradient(to right, #8d359c, #208b99);
               color: white;
               width: fit-content;
               height: fit-content;
               
 }
-.Leaderboardoptions > span {
+.leaderboard-options > span {
     background: linear-gradient(to right, #85079b, #158897);
   -webkit-background-clip: text;
   background-clip:text;
   -webkit-text-fill-color: transparent;
 }
-.LeaderboardPageInput{
+.leaderboard-page-input{
     width: 2.5vw;
 text-align: center;
 background-color:#e7e5e4;
@@ -82,18 +82,18 @@ td{
 td > * +* {
     margin: 0 0 0 5vmin;font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 }
-.Leaderboarduserdata {
+.leaderboard-user-data {
     border: 1.5px solid #07099b; 
     
   
 }
 @media (max-width:900px)
 {
-    .Leaderboardtableroot{
+    .leaderboard-table-root{
         width:93vw;
         margin-top:7vh;
     }
-    .Leaderboardtableroot{
+    .leaderboard-table-root{
         height:60vh;
     }
     th{
@@ -102,11 +102,11 @@ td > * +* {
     td{
         font-size:1.5vmax;
     }
-    .Leaderboardoptions > *{
+    .leaderboard-options > *{
         margin-top: 5vh;
         font-size: 1.7vmax;
     }
-    .LeaderboardPageInput{
+    .leaderboard-page-input{
         width: 7vw;
     }
 

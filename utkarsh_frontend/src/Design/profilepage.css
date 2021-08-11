@@ -1,14 +1,14 @@
 .cust-card {
      background-image: linear-gradient(to right, #a330b8, #158897);
 }
-.dropdowncolor{
+.drop-down-color{
      max-width: fit-content;
      background-image: linear-gradient(to right, #a330b8, #158897); 
      /* min-height: fit-content;
      min-width: fit-content; */
      margin-bottom: 3vh;
      }
-.dropdownitemcolor{
+.drop-down-item-color{
      background-image: linear-gradient(to right, #a330b8, #158897); 
      color:white;
 
@@ -16,24 +16,24 @@
      .dropdown-menu{
           padding: 0;
      }
-     .cardgroup{
+     .card-group{
       margin: 2vmax;
           padding: 3vmin;
           display: flex;
           justify-content: space-around;
           /* gap: 2vmin; */
      }
-.cardgroup > * +* {
+.card-group > * +* {
      margin: 0 0 0 3vmin;
 }
      .cust-card{
           width:20vw;
           min-height: fit-content;
      }
-.profilegraph{
+.profile-graph{
      height:40vh;
 }
-.safariprofilepageroot{
+.safari-profile-page-root{
         margin-left: 5vw;
         margin-right: 5vw;
         display: flex;
@@ -41,11 +41,11 @@
         /* gap: "7vmin", */
       
 }
-.safariprofilepageroot > *+*{
+.safari-profile-page-root > *+*{
      margin:7vmin 0 0 0;
 }
 @media (max-width:700px){
-          .cardgroup{font-size:3vmin;
+          .card-group{font-size:3vmin;
                
      }
      
@@ -60,11 +60,11 @@
           min-width: fit-content; */
 
      }
-     .profilegraph{
+     .profile-graph{
           height:45vh;
      
      }
-     /* .dropdowncolor{
+     /* .drop-down-color{
           height:7vh;
           width:25vw;
           display:flex;
@@ -74,7 +74,7 @@
      } */
 }
  @media (max-width:350px){
-          .cardgroup{font-size:2vmin;
+          .card-group{font-size:2vmin;
                padding:0;
                margin:0;
                margin-top:5vh;

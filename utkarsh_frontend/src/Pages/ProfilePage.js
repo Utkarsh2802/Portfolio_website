@@ -41,8 +41,8 @@ const ProfilePage = (props) => {
   }
   try {
     return (
-      <div className="safariprofilepageroot">
-        <div className="cardgroup">
+      <div className="safari-profile-page-root">
+        <div className="card-group">
           <Card className="cust-card" text={"white"}>
             <Card.Header>Overall Average Speed: </Card.Header>
             <Card.Body>

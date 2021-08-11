@@ -29,37 +29,37 @@ const HomePage = (props) => {
         display: "flex",
         // backgroundColor: "#e7e5e4",
       }}
-      className="roothomepage"
+      className="root-home-page"
     >
-      <h1 className="shadowytext">Typing God</h1>
+      <h1 className="shadowy-text">Typing God</h1>
       {loggedIn == false ? (
         <React.Fragment>
-          <div className="containerofoption">
+          <div className="container-of-option">
             <div className="heading">Wanna become a Typing God?</div>
             <div className="arrow "></div>
 
             <div className="heading">
               <Link to="/Signup">
-                <button id="homepagebutton">Signup</button>
+                <button id="home-page-button">Signup</button>
               </Link>{" "}
               OR{" "}
               <Link to="/Login">
-                <button id="homepagebutton">Login</button>
+                <button id="home-page-button">Login</button>
               </Link>
             </div>
           </div>
-          <div className="containerofoption">
+          <div className="container-of-option">
             <div className="heading">Just wanna test your Typing Speed?</div>
             <div className="arrow"></div>
             <div className="heading">
               <Link to="/TypingSpeedTest">
-                <button id="homepagebutton">Typing Test</button>
+                <button id="home-page-button">Typing Test</button>
               </Link>
             </div>
           </div>
         </React.Fragment>
       ) : (
-        <div className="headingonlogin">
+        <div className="heading-on-login">
           Congratulations {props.username} you have taken the first step towards
           becoming a Typing God, now all you have to do is keep practicing!
         </div>

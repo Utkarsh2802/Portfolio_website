@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Design/Globalelements.css";
-import music_on from "../Data/Images/music_on.png";
-import music_off from "../Data/Images/music_off.png";
+import musicOn from "../Data/Images/musicOn.png";
+import musicOff from "../Data/Images/musicOff.png";
 
 const PlaySound = ({ url, autoPlay = false }) => {
   const [audio] = useState(new Audio());
@@ -19,16 +19,16 @@ const PlaySound = ({ url, autoPlay = false }) => {
     <div className="floating" onClick={toggle}>
       {playing ? (
         <img
-          className="music_on"
-          src={music_on}
+          className="musicOn"
+          src={musicOn}
           alt={
             "Wanna get good at typing? Or just wanna test your typing speed? Get all features in one for free as we help you become a typing god."
           }
         ></img>
       ) : (
         <img
-          className="music_off"
-          src={music_off}
+          className="musicOff"
+          src={musicOff}
           alt={
             "Wanna get good at typing? Or just wanna test your typing speed? Get all features in one for free as we help you become a typing god. "
           }

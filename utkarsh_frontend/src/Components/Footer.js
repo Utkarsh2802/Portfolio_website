@@ -17,7 +17,7 @@ const Footer = (props) => {
         textAlign: "center",
       }}
     >
-      <span className="musicattribution">
+      <span className="music-attribution">
         {/* <a href="#">
           <i class="fa fa-facebook"></i>
         </a> */}
