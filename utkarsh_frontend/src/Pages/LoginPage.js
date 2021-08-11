@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Handle_api from "../Apis/Handle_api";
+import HandleApi from "../Apis/HandleApi";
 import "../Design/LoginandSignupPage.css";
 import { useHistory, Redirect } from "react-router";
 import { UserContext } from "../GlobalContexts.js/UserContext";
@@ -21,23 +21,23 @@ const LoginPage = (props) => {
   const [cursor, setCursor] = useState("default");
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   let history = useHistory();
-  const handle_login = (event) => {
+  const handleLogin = (event) => {
     let email = event.target.Email.value.toString();
     let password = event.target.Password.value.toString();
     event.preventDefault();
-    /* Handle_api("GET", "/", {}).then((response) => {
+    /* HandleApi("GET", "/", {}).then((response) => {
       console.log(response);
     });*/
     // setCursor("wait");
     setShowSpinner(true);
-    var mailvalidation =
+    var mailValidation =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
-    if (!mailvalidation.test(email) && email != "demo.com" && password != "g") {
+    if (!mailValidation.test(email) && email != "demo.com" && password != "g") {
       setShowerror("Invalid Credentials!");
       setShowSpinner(false);
       return;
     }
-    Handle_api("POST", "/Login", {
+    HandleApi("POST", "/Login", {
       email: email,
       password: password,
     })
@@ -83,21 +83,21 @@ const LoginPage = (props) => {
       }}
     >
       <div className="SignupPage">
-        <div className="loginsignupheading">
+        <div className="login-sign-up-heading">
           Welcome {props.newsignup != null ? "Our New" : "Back"} Future Typing
           God!!
         </div>
 
-        <form className="signupcredentials" onSubmit={handle_login}>
+        <form className="sign-up-credentials" onSubmit={handleLogin}>
           <input
-            className="inputfield"
+            className="input-field"
             name="Email"
             placeholder="Email"
             autoComplete="off"
           />
 
           <input
-            className={"inputfield passwordfield"}
+            className={"input-field password-field"}
             name="Password"
             placeholder="Password"
             type="text"
@@ -116,7 +116,7 @@ const LoginPage = (props) => {
             <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
           )}
 
-          <button className="loginsignupbutton">LOGIN</button>
+          <button className="login-signup-button">LOGIN</button>
         </form>
       </div>
       <Footer height={isPhone ? "92vmax" : "92vh"}></Footer>

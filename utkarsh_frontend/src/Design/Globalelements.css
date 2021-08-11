@@ -1,11 +1,11 @@
-.music_on{
+.musicOn{
      transform: translate(93vw,3vh);
               width: 2.5vw;
               max-height: 3vw;
               height: 3vw;
               cursor: pointer;
 }
-.music_off{
+.musicOff{
     transform: translate(93vw,3vh);
     
               width: 3vw;
@@ -16,14 +16,14 @@
 }
 
 @media (max-width:600px) {
-    .music_on{
+    .musicOn{
 transform: translate(93vw,3vh);
               width: 3.5vw;
               max-height: 4vw;
               height: 4vw;
               cursor: pointer;
 }
-.music_off{
+.musicOff{
     transform: translate(92vw,1vh);
               width: 4vw;
               max-height: 4vw;

@@ -1,5 +1,5 @@
 
-#custbutton {
+#cust-button {
   cursor: pointer;
   border-radius: 5vmax;
   width: 7vmax;
@@ -17,20 +17,20 @@
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
 
-#custbutton span {
+#cust-button span {
   color: transparent;
   background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
-#custbutton:hover span{
+#cust-button:hover span{
   
   color:#eeeeee;
   
 }
 
-.normal_char {
+.normal-char {
   font-size: 3vmin;
 font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   color: #008000;
@@ -41,10 +41,10 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   color: #008000;
   text-align: center;
-  animation: animate_blink 1.5s linear infinite;
+  animation: animate-blink 1.5s linear infinite;
 }
 
-@keyframes animate_blink {
+@keyframes animate-blink {
   0% {
     opacity: 0;
   }
@@ -57,7 +57,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     opacity: 0;
   }
 }
-.congrats_message {
+.congrats-message {
   padding: 2vmax 1vmax 2vmax 1vmax;
   width: 55vw;
   height: 9vw;
@@ -79,7 +79,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
-.congrats_message span {
+.congrats-message span {
   font-size: 2.2vmax;
   align-self: center;
   color: transparent;
@@ -89,7 +89,7 @@ padding:10vmin;
   background-clip: text;
   filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
 }
-.typing_score {
+.typing-score {
   width: 13vmax;
   height: 13vmax;
   max-width: 27vw;
@@ -108,7 +108,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
     0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
 }
-.typing_score span {
+.typing-score span {
   color: transparent;
   background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
   -webkit-background-clip: text;
@@ -126,7 +126,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,
     0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
 }
-.input_typing:focus {
+.input-typing:focus {
   border-color: #3812be;
   outline-offset: 0px;
   outline: none;
@@ -135,11 +135,11 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   font-weight: 200;
   min-zoom: 1;
 }
-.input_typing::placeholder {
+.input-typing::placeholder {
   color: #1037e7;
   font-weight: 200;
 }
-.bgimg {
+.bg-img {
   position: absolute;
   background-color: #e71010;
   background-size: cover;
@@ -156,7 +156,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
     transform: translate(0, -0px);
   }
 }
-.safarirootspeedtest{
+.safari-root-speed-test{
   position: absolute;
   margin-top: 10vmin;
   width: 100vw;
@@ -166,14 +166,14 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   align-items: center;
 
 }
-.safarirootspeedtest > * + *{
+.safari-root-speed-test > * + *{
 margin:10vh 0 0 0;
 }
-.safariscorecardgroup>*+*{
+.safari-score-card-group>*+*{
   margin:0 0 0 5vw;
 }
 @media (max-width:1000px){
-  .congrats_message {
+  .congrats-message {
   
   margin:5vmax;
   width: 75vmin;
@@ -185,7 +185,7 @@ margin:10vh 0 0 0;
 
   font-weight: 600;
 }
-  .congrats_message span {
+  .congrats-message span {
 
   font-size: 1.9vmax;
   align-self: center;
@@ -201,12 +201,12 @@ margin:10vh 0 0 0;
 }
 @media (max-width:500px)
 {
-  .congrats_message{
+  .congrats-message{
 height:19vh;
 padding:0;
 
   }
-  #custbutton {
+  #cust-button {
  
   border-radius: 50vmax;
   width: 11vmax;

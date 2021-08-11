@@ -3,25 +3,25 @@ import Letter from "../Components/Letter";
 import ScoreCard from "./ScoreCard";
 import "../Design/TypingTestPage.css";
 import { Animated } from "react-animated-css";
-import Cust_Button from "../Components/Cust_Button";
-import Handle_api from "../Apis/Handle_api";
+import CustButton from "../Components/CustButton";
+import HandleApi from "../Apis/HandleApi";
 import { UserContext } from "../GlobalContexts.js/UserContext";
 var randomwords = require("random-words");
-var wordlist = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute bt still to be on a safer side
-var curr_index = 0;
+var wordList = randomwords(500).join(" "); //i dont think anybody can type more than 300 words in a minute bt still to be on a safer side
+var currIndex = 0;
 var mistakes = 0;
-var next_index = [0];
+var nextIndex = [0];
 var pointer = 1;
-var play_pause_button = "Play";
+var playPauseButton = "Play";
 let temp = 0;
 var unique = 0;
-for (let i = 0; i < wordlist.length; i++) {
-  if (wordlist[i] === " ") {
+for (let i = 0; i < wordList.length; i++) {
+  if (wordList[i] === " ") {
     temp += 1;
   }
   if (temp % 9 === 0 && temp !== 0) {
     temp = 0;
-    next_index.push(i);
+    nextIndex.push(i);
   }
 }
 var alpha = [
@@ -58,30 +58,30 @@ var reset_clicked = false;
 //everything above this runs only once
 const TypingHelper = () => {
   const { loggedIn, setLoggedIn } = useContext(UserContext);
-  const [display_score, setDisplayscore] = useState(false);
+  const [displayScore, setDisplayScore] = useState(false);
   unique++; // added it to get rid fo the unique child warning but to no avail
-  const input_ref = React.useRef(null); // i will use this to create a reference of the input tag so that i can set its value even though i am clicking a separate element
-  const play_button_ref = React.useRef(null);
+  const inputRef = React.useRef(null); // i will use this to create a reference of the input tag so that i can set its value even though i am clicking a separate element
+  const playButtonRef = React.useRef(null);
   var spaces = 0;
-  var linecount = 0;
-  const [score, setscore] = useState(0);
-  const [wascorrect, setwascorrect] = useState(Array(2000).fill(0));
-  var total_time = 60;
-  const [timer_started, setTimerstarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(total_time);
+  var lineCount = 0;
+  const [score, setScore] = useState(0);
+  const [wasCorrect, setWasCorrect] = useState(Array(2000).fill(0));
+  var totalTime = 60;
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(totalTime);
   const [wpm, setWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  if (display_score === true) {
-    play_pause_button = "Play Again";
+  if (displayScore === true) {
+    playPauseButton = "Play Again";
   }
   //temp =0;
   //temp++;everything console log returns 1 because it is reinitialized everytime but this is not the case for statevariable
   //console.log(temp);
-  const play_game_handler = (event) => {
-    if (play_pause_button === "Reset" || play_pause_button === "Play Again") {
+  const playGameHandler = (event) => {
+    if (playPauseButton === "Reset" || playPauseButton === "Play Again") {
       //this will prevent it from reseting even when i click play making it change two times between a single game instead of just once
-      wordlist = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
+      wordList = randomwords(300).join(" "); //i dont think anybody can type more than 300 words in a minute, new game event handler
       alpha = [
         { a: [0, 0] },
         { b: [0, 0] }, //use map here to save space later on while refractoring
@@ -111,83 +111,83 @@ const TypingHelper = () => {
         { z: [0, 0] },
       ];
 
-      curr_index = 0;
+      currIndex = 0;
       mistakes = 0;
-      next_index = [0];
+      nextIndex = [0];
       pointer = 1;
       temp = 0;
-      for (let i = 0; i < wordlist.length; i++) {
-        if (wordlist[i] === " ") {
+      for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i] === " ") {
           temp += 1;
         }
         if (temp % 9 === 0 && temp !== 0) {
           temp = 0;
-          next_index.push(i);
+          nextIndex.push(i);
         }
       }
     }
-    if (input_ref.current !== null) {
-      input_ref.current.value = "";
-      input_ref.current.disabled = false;
+    if (inputRef.current !== null) {
+      inputRef.current.value = "";
+      inputRef.current.disabled = false;
     }
-    if (play_pause_button === "Play") {
-      play_pause_button = "Reset";
+    if (playPauseButton === "Play") {
+      playPauseButton = "Reset";
       reset_clicked = false;
     } else {
       reset_clicked = true;
-      if (input_ref.current !== null) input_ref.current.disabled = true;
-      setTimerstarted(false);
+      if (inputRef.current !== null) inputRef.current.disabled = true;
+      setTimerStarted(false);
       console.log(timeLeft);
-      play_pause_button = "Play";
+      playPauseButton = "Play";
     }
-    if (input_ref.current !== null) input_ref.current.focus();
-    setDisplayscore(false);
-    setscore(0);
-    setwascorrect(Array(2000).fill(0));
+    if (inputRef.current !== null) inputRef.current.focus();
+    setDisplayScore(false);
+    setScore(0);
+    setWasCorrect(Array(2000).fill(0));
 
-    setTimeLeft(total_time);
+    setTimeLeft(totalTime);
     setWpm(0);
     setAccuracy(0);
     setIsVisible(false);
 
-    //  play_button_ref.current.style.visibility = "hidden";
+    //  playButtonRef.current.style.visibility = "hidden";
   };
 
-  const setarray = (index, value) => {
-    setwascorrect((prevState) => {
+  const setArray = (index, value) => {
+    setWasCorrect((prevState) => {
       let new_correct = [...prevState];
       new_correct[index] = value;
       return new_correct;
     });
   };
-  function start_timer() {
-    setTimerstarted(true);
+  function startTimer() {
+    setTimerStarted(true);
   }
 
-  function stop_timer() {
-    setTimerstarted(false);
-    input_ref.current.disabled = true;
-    play_pause_button = "Play";
+  function stopTimer() {
+    setTimerStarted(false);
+    inputRef.current.disabled = true;
+    playPauseButton = "Play";
     if (timeLeft === 0) {
       //then it means that the time was up and not that i pressed reset
-      setDisplayscore(true);
+      setDisplayScore(true);
       //console.log(alpha);
       if (localStorage.length > 0) {
         //so that i dont call the api for guest users
         //console.log("hi");
         //console.log(alpha);
         /*console.log({
-          wpm: Math.round((score / total_time) * 12),
+          wpm: Math.round((score / totalTime) * 12),
           errors: mistakes,
-          time: total_time,
+          time: totalTime,
           accuracy: accuracy,
           alpha: alpha,
         });*/
         if (loggedIn) {
-          Handle_api("POST", "/Addscore", {
-            wpm: Math.round((score / total_time) * 12), // i am not usign wpm here cuz the latest wpm is yet to be updated the score has been update already so i am just using that
+          HandleApi("POST", "/Addscore", {
+            wpm: Math.round((score / totalTime) * 12), // i am not usign wpm here cuz the latest wpm is yet to be updated the score has been update already so i am just using that
             errors: mistakes,
-            time: total_time,
+            time: totalTime,
             accuracy: accuracy,
             alpha: alpha, //this send the charactedr data provided that i am logged in
             verifier: localStorage.getItem("verifier"),
@@ -203,19 +203,19 @@ const TypingHelper = () => {
         }
       }
     }
-    // play_button_ref.current.style.visibility = "hidden";
-    setTimeLeft(total_time); //reset the timer
+    // playButtonRef.current.style.visibility = "hidden";
+    setTimeLeft(totalTime); //reset the timer
   }
   useEffect(() => {
-    if (timer_started === true) {
-      if (timeLeft !== total_time) {
-        setWpm(Math.round((score / (total_time - timeLeft)) * 12));
+    if (timerStarted === true) {
+      if (timeLeft !== totalTime) {
+        setWpm(Math.round((score / (totalTime - timeLeft)) * 12));
         // console.log("wpm: ", wpm);
       }
       setAccuracy(Math.round((score * 100) / (score + mistakes)));
 
       if (timeLeft <= 0) {
-        stop_timer();
+        stopTimer();
       } else {
         const timer = setTimeout(() => {
           let temp = timeLeft;
@@ -225,12 +225,12 @@ const TypingHelper = () => {
     }
   });
   var oldValue = "";
-  const backspace_handler = (event) => {
+  const backspaceHandler = (event) => {
     oldValue = event.target.value;
   };
-  const keypress_handler = (event) => {
-    if (curr_index === 0) {
-      start_timer(total_time); //basically when i type my first char only then will the timer be started
+  const keypressHandler = (event) => {
+    if (currIndex === 0) {
+      startTimer(totalTime); //basically when i type my first char only then will the timer be started
     }
     var key;
     if (oldValue.length > event.target.value.length) {
@@ -240,103 +240,103 @@ const TypingHelper = () => {
       //   return;
       // }
       //uncomment the above three lines if something breaks this was basically causing the cursor stuck on the first correct character of a word which was kinda annoying
-      if (curr_index === 0 || curr_index === next_index[pointer]) {
+      if (currIndex === 0 || currIndex === nextIndex[pointer]) {
         return;
       } else {
-        if (wascorrect[curr_index - 1] === 1) {
-          setarray(curr_index - 1, 0);
-          setscore((prevState) => {
+        if (wasCorrect[currIndex - 1] === 1) {
+          setArray(currIndex - 1, 0);
+          setScore((prevState) => {
             return prevState - 1;
           });
         } else {
           mistakes -= 2; //if  i am correcting my mistakes then my accuracy should increase so the net change in mistakes would be mistakes-=1;
-          setarray(curr_index - 1, 0);
+          setArray(currIndex - 1, 0);
         }
 
-        curr_index -= 1;
+        currIndex -= 1;
       }
       return;
     } else {
       key = event.target.value[event.target.value.length - 1];
-      if (wordlist[curr_index] === key) {
+      if (wordList[currIndex] === key) {
         if (key !== " ") alpha[key.charCodeAt(0) - 97][key][1] += 1; //only totalchar count increased
-        setarray(curr_index, 1); //this indicates that the key typed in was correct
-        setscore((prevState) => {
+        setArray(currIndex, 1); //this indicates that the key typed in was correct
+        setScore((prevState) => {
           return prevState + 1;
         });
       } else {
-        if (wordlist[curr_index] !== " ") {
+        if (wordList[currIndex] !== " ") {
           //  console.log("space", key);
-          //  console.log("currindex", wordlist[curr_index].charCodeAt(0));
-          alpha[wordlist[curr_index].charCodeAt(0) - 97][
-            wordlist[curr_index]
+          //  console.log("currindex", wordList[currIndex].charCodeAt(0));
+          alpha[wordList[currIndex].charCodeAt(0) - 97][
+            wordList[currIndex]
           ][0]++; //incorrect presses count increased
-          alpha[wordlist[curr_index].charCodeAt(0) - 97][
-            wordlist[curr_index]
+          alpha[wordList[currIndex].charCodeAt(0) - 97][
+            wordList[currIndex]
           ][1]++; //totalchar count increased
         }
         mistakes += 1;
-        setarray(curr_index, -1);
+        setArray(currIndex, -1);
 
         //incorrect key pressed
       }
     }
 
-    if (key === " " && wordlist[curr_index] === key) {
+    if (key === " " && wordList[currIndex] === key) {
       //if spacebar is pressed
 
-      //console.log(wascorrect[curr_index]);
+      //console.log(wasCorrect[currIndex]);
       event.target.value = "";
     }
 
-    if (curr_index === next_index[pointer]) {
+    if (currIndex === nextIndex[pointer]) {
       //to switch the line and start from the next line
       pointer += 1;
       event.target.value = "";
     }
-    curr_index += 1;
+    currIndex += 1;
     // console.log(event.target.value);
-    if (timeLeft !== total_time) {
+    if (timeLeft !== totalTime) {
       //to avoid divide by zero error n get infinity
-      setWpm(Math.round((score / (total_time - timeLeft)) * 12));
+      setWpm(Math.round((score / (totalTime - timeLeft)) * 12));
       // console.log(wpm);
     }
     setAccuracy(Math.round((score * 100) / (score + mistakes)));
   };
-  let all_letters = [];
+  let allLetters = [];
   unique++;
-  for (let i = next_index[pointer - 1]; i < next_index[pointer + 2]; i++) {
+  for (let i = nextIndex[pointer - 1]; i < nextIndex[pointer + 2]; i++) {
     unique++;
-    if (wordlist[i] === " ") {
+    if (wordList[i] === " ") {
       spaces += 1;
     }
     if (spaces % 10 === 0 && spaces !== 0) {
-      all_letters.push(<br></br>);
-      linecount++;
+      allLetters.push(<br></br>);
+      lineCount++;
       spaces = 0;
     }
-    if (linecount >= 2) {
-      linecount = 0;
+    if (lineCount >= 2) {
+      lineCount = 0;
       break;
     }
-    if (i !== curr_index) {
-      all_letters.push(
+    if (i !== currIndex) {
+      allLetters.push(
         <Letter
-          name={wordlist[i]}
-          className="normal_char"
+          name={wordList[i]}
+          className="normal-char"
           key={unique}
-          color={wascorrect[i]}
+          color={wasCorrect[i]}
         />
       );
     } //each child in a list should have a unique key prop
     else {
-      all_letters.push(
+      allLetters.push(
         <Letter
-          name={wordlist[i]}
+          name={wordList[i]}
           className="blinkk"
           decor="underline"
           key={unique}
-          color={wascorrect[i]}
+          color={wasCorrect[i]}
         />
       );
     }
@@ -354,7 +354,7 @@ const TypingHelper = () => {
       //   alignItems: "center",
       //   gap: "10vh",
       // }}
-      className="safarirootspeedtest"
+      className="safari-root-speed-test"
     >
       <Animated
         animationIn="fadeIn"
@@ -376,14 +376,14 @@ const TypingHelper = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          className="safariscorecardgroup"
+          className="safari-score-card-group"
         >
           <ScoreCard text="WPM" value={wpm} />
-          <ScoreCard text="Time" value={timeLeft} total_time={total_time} />
+          <ScoreCard text="Time" value={timeLeft} totalTime={totalTime} />
           <ScoreCard text="Accuracy" value={accuracy} />
         </div>
       </Animated>
-      {!display_score ? (
+      {!displayScore ? (
         <Animated
           animationIn="slideInLeft"
           animationOut="fadeOut"
@@ -392,7 +392,7 @@ const TypingHelper = () => {
           animationInDuration={1000}
           animationOutDuration={500}
           animateOnMount={true}
-          isVisible={!display_score}
+          isVisible={!displayScore}
         >
           <div
             style={{
@@ -405,13 +405,13 @@ const TypingHelper = () => {
               alignItems: "center",
             }}
           >
-            {all_letters}
+            {allLetters}
           </div>
         </Animated>
       ) : (
         ""
       )}
-      {!display_score ? (
+      {!displayScore ? (
         <div>
           <Animated
             animationIn="slideInRight"
@@ -421,10 +421,10 @@ const TypingHelper = () => {
             animationInDuration={1000}
             animationOutDuration={500}
             animateOnMount={true}
-            isVisible={!display_score}
+            isVisible={!displayScore}
           >
             <input
-              className="input_typing"
+              className="input-typing"
               style={{
                 borderColor: "blue",
                 minWidth: "auto",
@@ -438,17 +438,18 @@ const TypingHelper = () => {
                   "'Comic Sans MS', 'Comic Sans','Marker Felt',sans-serif",
               }}
               placeholder={
-                play_pause_button !== "Play" && curr_index === 0
+                playPauseButton !== "Play" && currIndex === 0
                   ? "Start Typing..."
                   : ""
               }
               type="text"
               autoCapitalize="off"
               autoCorrect="off"
-              onKeyDown={(e) => backspace_handler(e)}
-              onInput={(e) => keypress_handler(e)}
+              autoComplete="off"
+              onKeyDown={(e) => backspaceHandler(e)}
+              onInput={(e) => keypressHandler(e)}
               disabled={true}
-              ref={input_ref}
+              ref={inputRef}
             />
           </Animated>
         </div>
@@ -456,7 +457,7 @@ const TypingHelper = () => {
         ""
       )}
 
-      {display_score ? (
+      {displayScore ? (
         <Animated
           animationIn="slideInUp"
           animationOut="slideInDown"
@@ -465,10 +466,10 @@ const TypingHelper = () => {
           animationInDuration={1000}
           animationOutDuration={500}
           animateOnMount={true}
-          isVisible={display_score}
+          isVisible={displayScore}
         >
           <div
-            className="congrats_message"
+            className="congrats-message"
             style={{ display: "flex", alignContent: "center" }}
           >
             <span>
@@ -490,11 +491,11 @@ const TypingHelper = () => {
         animateOnMount={true}
         isVisible={true}
       >
-        <Cust_Button
-          onClick={(e) => play_game_handler(e)}
-          ref={play_button_ref}
-          name={play_pause_button}
-        ></Cust_Button>
+        <CustButton
+          onClick={(e) => playGameHandler(e)}
+          ref={playButtonRef}
+          name={playPauseButton}
+        ></CustButton>
       </Animated>
 
       <div></div>

@@ -9,12 +9,12 @@ import {
 } from "react-router-dom";
 import TypingSpeedTest from "./Pages/TypingSpeedTest";
 import HomePage from "./Pages/HomePage";
-import Nav_bar from "./Components/Nav_bar";
+import NavBar from "./Components/NavBar";
 import LoginPage from "./Pages/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
-import Handle_api from "./Apis/Handle_api";
+import HandleApi from "./Apis/HandleApi";
 import PlaySound from "./Components/PlaySound";
-import Tones from "./Data/Songs/Avicii_the_nights.mp3";
+import Tones from "./Data/Songs/AviciiTheNights.mp3";
 import SignupPage from "./Pages/SignupPage";
 import { UserContext } from "./GlobalContexts.js/UserContext";
 import Footer from "./Components/Footer";
@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     //this will only run once when the app is loaded so basically its the last thing that runs
     // console.log("useeffect called");
-    Handle_api("POST", "/CheckAuth", {
+    HandleApi("POST", "/CheckAuth", {
       verifier: localStorage.getItem("verifier"),
     })
       .then((response) => {
@@ -81,7 +81,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
-      <Nav_bar></Nav_bar>
+      <NavBar></NavBar>
       <div
         style={{
           backgroundColor: "lightblue",
@@ -110,7 +110,7 @@ function App() {
         <Route path={"/TypingSpeedTest"}>
           <TypingSpeedTest />
         </Route>
-        <Route path="/Loginnewsignup">
+        <Route path="/LoginNewSignUp">
           <LoginPage newsignup={true} />
         </Route>
         <Route path="/Login">

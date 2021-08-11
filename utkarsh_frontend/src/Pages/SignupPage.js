@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Handle_api from "../Apis/Handle_api";
+import HandleApi from "../Apis/HandleApi";
 import { useHistory } from "react-router";
 import "../Design/LoginandSignupPage.css";
 import Footer from "../Components/Footer";
@@ -19,11 +19,11 @@ const SignupPage = () => {
   const [showSpinner, setShowSpinner] = useState(false);
   //console.log(props.isLogin); isLogin is 1 for login and 0 for signup
   const [cursor, setCursor] = useState("default");
-  const handle_signup = (event) => {
+  const handleSignup = (event) => {
     event.preventDefault();
-    var mailvalidation =
+    var mailValidation =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/; //regexp doesnt need double quotes
-    if (!mailvalidation.test(event.target.Email.value.toString())) {
+    if (!mailValidation.test(event.target.Email.value.toString())) {
       setShowerror("Please enter a valid email");
       return;
     }
@@ -37,14 +37,14 @@ const SignupPage = () => {
       password: password,
       email: email,
     };
-    Handle_api("POST", "/Signup", data)
+    HandleApi("POST", "/Signup", data)
       .then((response) => {
         // i already return response.data so i can now directly to response.status this status variable is created by me , i am not using the status http status codes
         //console.log(response.status);
 
         //setCursor("default");
         setShowSpinner(false);
-        history.push("/Loginnewsignup"); //so that i can redirect the new user to the login page and at the same time i can show him a message that he has successfully signed up
+        history.push("/LoginNewSignUp"); //so that i can redirect the new user to the login page and at the same time i can show him a message that he has successfully signed up
         //later on i can simply add on this feature to include email verification
       })
       .catch((error) => {
@@ -70,25 +70,25 @@ const SignupPage = () => {
       }}
     >
       <div className="SignupPage">
-        <div className="loginsignupheading">
+        <div className="login-sign-up-heading">
           We are elated to have you join us !!
         </div>
 
-        <form className="signupcredentials" onSubmit={handle_signup}>
+        <form className="sign-up-credentials" onSubmit={handleSignup}>
           <input
-            className="inputfield"
+            className="input-field"
             name="Username"
             placeholder="Username"
             autoComplete="off"
           />
           <input
-            className="inputfield"
+            className="input-field"
             name="Email"
             placeholder="Email"
             autoComplete="off"
           />
           <input
-            className="inputfield"
+            className="input-field"
             name="Password"
             placeholder="Password"
             type="password"
@@ -99,7 +99,7 @@ const SignupPage = () => {
           ) : (
             <div style={{ color: "red", fontSize: "2.5vh" }}>{showerror}</div>
           )}
-          <button className="loginsignupbutton"> SIGNUP</button>
+          <button className="login-signup-button"> SIGNUP</button>
           {/* <GoogleLogin
             clientId="326166939890-6jf6a5va9dul2j5o7vuq2omebl9smt2t.apps.googleusercontent.com"
             buttonText="Signup with Google"

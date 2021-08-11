@@ -10,14 +10,14 @@
   display:flex;
   flex-direction: column;
 }
-.signupcredentials{
+.sign-up-credentials{
 display:flex;
 flex-direction: column;
 /* gap:3vh; */
 padding-top:6vmin;
 
 }
-.signupcredentials > * + *{
+.sign-up-credentials > * + *{
   margin:3vh 0 0 0;
 }
 .SignupPage{
@@ -40,7 +40,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   margin:5vh 0 0 0 ;
 }
 
-.inputfield{
+.input-field{
    background-color:transparent;
  border-image: linear-gradient(to right, #85079b, #158897);
        /* background-image: linear-gradient(to right, #a330b8, #158897);  */
@@ -59,17 +59,17 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 }
 
 /* just done for ios */
-.passwordfield{-webkit-text-security: disc;
+.password-field{-webkit-text-security: disc;
     -moz-webkit-text-security: disc;
     -moz-text-security: disc;}
-.inputfield:focus{
+.input-field:focus{
   outline:none;
   border-width: 0 0 0.8vmin 0;
 
 
 }
 
-.loginsignupheading{
+.login-sign-up-heading{
   font-size :6vmin;
   opacity: 1; /* Firefox */
   background: linear-gradient(to right, #85079b, #158897);
@@ -77,7 +77,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   background-clip:text;
   -webkit-text-fill-color: transparent;
 }
-.inputfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.input-field::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size :inherit;
   opacity: 1; /* Firefox */
   background: linear-gradient(to right, #85079b, #158897);
@@ -87,7 +87,7 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
 }
 
 
-.inputfield::-ms-input-placeholder { /* Microsoft Edge */
+.input-field::-ms-input-placeholder { /* Microsoft Edge */
   font-size :inherit;
   
   background: linear-gradient(to right, #85079b, #158897);
@@ -96,13 +96,13 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   -webkit-text-fill-color: transparent;
 }
 
-.loginsignupbutton{
+.login-signup-button{
               margin-top: 5vh;
              background: linear-gradient(to right, #85079b, #158897);
               color: white
             
 }
-.loginsignupbutton:hover{
+.login-signup-button:hover{
   text-decoration: underline;
   text-decoration-thickness: 0.3vmin;
 }
@@ -111,23 +111,23 @@ font-family: "Comic Sans MS", "Comic Sans","Marker Felt",sans-serif;
   font-size:7vw;
 
 }
-.signupcredentials{
+.sign-up-credentials{
   width:70vw;
 }
-.loginsignupheading{
+.login-sign-up-heading{
   /* margin:0 0 5vw 5vw; */
   font-size:10vw;
   text-align: center;
  width:70vw;
 }
-.loginsignupbutton{
+.login-signup-button{
   margin-top: 8vh;
   height: 8vh;
 }
-.inputfield::placeholder{
+.input-field::placeholder{
 font-size:inherit;
 }
-.inputfield:-ms-input-placeholder{
+.input-field:-ms-input-placeholder{
   font-size: inherit;
 }
 

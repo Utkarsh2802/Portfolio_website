@@ -1,5 +1,5 @@
 import React, { useState, useContext, useMemo } from "react";
-import Handle_api from "../Apis/Handle_api";
+import HandleApi from "../Apis/HandleApi";
 import "../Design/LeaderboardPage.css";
 import Footer from "../Components/Footer";
 import { UserContext } from "../GlobalContexts.js/UserContext";
@@ -90,8 +90,8 @@ const LeaderboardPage = (props) => {
   const { pageIndex } = state;
   const [currPage, setCurrPage] = useState(pageIndex);
   return (
-    <div className="Leaderboardroot">
-      <table className="Leaderboardtableroot" {...getTableProps}>
+    <div className="leaderboard-root">
+      <table className="leaderboard-table-root" {...getTableProps}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -131,7 +131,7 @@ const LeaderboardPage = (props) => {
             );
           })}{" "}
           {userData.datapresent == true ? (
-            <tr className="Leaderboarduserdata">
+            <tr className="leaderboard-user-data">
               <td>{userData.rank}</td>
               <td>{userData.username}</td>
               <td>{userData.tests_taken}</td>
@@ -144,7 +144,7 @@ const LeaderboardPage = (props) => {
           )}
         </tbody>
       </table>
-      <div className="Leaderboardoptions">
+      <div className="leaderboard-options">
         <button
           onClick={() => {
             gotoPage(0);
@@ -166,7 +166,7 @@ const LeaderboardPage = (props) => {
         <span>Page</span>
         <span>
           <input
-            className="LeaderboardPageInput"
+            className="leaderboard-page-input"
             type="number"
             min={1}
             max={pageOptions.length}

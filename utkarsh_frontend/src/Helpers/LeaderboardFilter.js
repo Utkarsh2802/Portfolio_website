@@ -7,7 +7,7 @@ const LeaderboardFilter = ({ column }) => {
     <>
       <VscSearch style={{ color: "purple" }} />
       <input
-        className="inputfield"
+        className="input-field"
         style={{
           width: "10vw",
           textAlign: "center",

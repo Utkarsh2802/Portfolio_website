@@ -4,10 +4,10 @@ import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import "../Design/profilepage.css";
 import useWindowDimensions from "../Utility_functions/UseWIndowDimensions";
 const LineGraph = (props) => {
-  const [curr_alpha, setCurr_alpha] = useState("a");
+  const [currAlpha, setCurrAlpha] = useState("a");
   var acc = [];
   if (props.data.data.alpha.length > 0) {
-    props.data.data.alpha[curr_alpha.charCodeAt(0) - 97].accuracy.map(
+    props.data.data.alpha[currAlpha.charCodeAt(0) - 97].accuracy.map(
       (element, index) => {
         // console.log(acc, element);
         return element == 200 ? -1 : acc.push(Math.round(element)); // so that i dont have null values ie suppose z didnt occur in a test then i will skip it and not show it in the graph in the db i m sroting it as 200 so as to avoaid conflicts with 0 accuracy
@@ -15,14 +15,14 @@ const LineGraph = (props) => {
     );
   }
   const { height, width } = useWindowDimensions();
-  const handle_click = (event) => {
+  const handleClick = (event) => {
     // console.log(event.target.id);
-    setCurr_alpha(event.target.id);
+    setCurrAlpha(event.target.id);
   };
   //console.log(acc);
   var series = [
     {
-      name: curr_alpha,
+      name: currAlpha,
       type: "area",
       data: acc,
     },
@@ -118,7 +118,7 @@ const LineGraph = (props) => {
     },
     // legend: { show: true },
     title: {
-      text: `Accuracy of character ${curr_alpha.toUpperCase()} over all the typing tests that you have taken`,
+      text: `Accuracy of character ${currAlpha.toUpperCase()} over all the typing tests that you have taken`,
       align: "center",
       floating: true, //make it false to create some distance between the graph and the title
       style: {
@@ -155,11 +155,11 @@ const LineGraph = (props) => {
               textAlign: "center",
             }}
           >
-            {"Accuracy of: " + curr_alpha.toUpperCase()}
+            {"Accuracy of: " + currAlpha.toUpperCase()}
           </span>
         }
         variant="Success"
-        className="dropdowncolor"
+        className="drop-down-color"
       >
         <div
           style={{
@@ -172,8 +172,8 @@ const LineGraph = (props) => {
             return (
               <Dropdown.Item
                 id={element.alphabetname}
-                onClick={handle_click}
-                className="dropdownitemcolor"
+                onClick={handleClick}
+                className="drop-down-item-color"
               >
                 {element.alphabetname.toUpperCase()}
               </Dropdown.Item>
@@ -181,7 +181,7 @@ const LineGraph = (props) => {
           })}
         </div>
       </DropdownButton>
-      <div className="profilegraph">
+      <div className="profile-graph">
         <Chart
           options={options}
           series={series}

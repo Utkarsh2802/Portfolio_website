@@ -95,7 +95,7 @@ const Barchart = (props) => {
   //chart.render();
 
   return (
-    <div className="profilegraph">
+    <div className="profile-graph">
       <Chart
         options={options}
         series={series}
