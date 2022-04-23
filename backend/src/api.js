@@ -3,10 +3,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import router from "../routes/test.js";
+import router from "./routes/test.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import Leaderboard from "../Model/Leaderboard.js";
+import Leaderboard from "./Model/Leaderboard.js";
 import serverless from "serverless-http";
 dotenv.config(); //this allows me to use environment variables which inturn help me encapsulate my app
 const CONNECTION_URL = process.env.ATLAS_URI;

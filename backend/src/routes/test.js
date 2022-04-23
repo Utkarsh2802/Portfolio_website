@@ -1,0 +1,15 @@
+import express from "express";
+import testapi from "../controllers/testapi.js";
+import CheckAuth from "../controllers/CheckAuth.js";
+import Login from "../controllers/Login.js";
+import Signup from "../controllers/Signup.js";
+import Logout from "../controllers/Logout.js";
+import Addscore from "../controllers/Addscore.js";
+const router = express.Router();
+router.get("/Test", testapi);
+router.post("/Signup", Signup);
+router.post("/Login", Login);
+router.post("/CheckAuth", CheckAuth);
+router.post("/Logout", Logout);
+router.post("/Addscore", Addscore);
+export default router;
