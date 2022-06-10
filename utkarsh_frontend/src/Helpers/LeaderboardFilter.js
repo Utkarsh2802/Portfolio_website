@@ -3,6 +3,7 @@ import { VscSearch } from "react-icons/vsc";
 import "../Design/LoginandSignupPage.css";
 const LeaderboardFilter = ({ column }) => {
   const { filterValue, setFilter } = column;
+  console.log("test commit");
   return (
     <>
       <VscSearch style={{ color: "purple" }} />
